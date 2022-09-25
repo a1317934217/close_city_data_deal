@@ -1,0 +1,240 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+    <script type="text/javascript" src="./geo/geo.js"></script>
+<!--    <script type="text/javascript" src="./edge/edge_new_simple/0104-0105only_addEdges.js"></script>-->
+<!--    <script type="text/javascript" src="./edge/edge_new_simple/0104-0105only_removeEdges.js"></script>-->
+<!--    <script type="text/javascript" src="./node/node_new_simple/0104-0105only_addnode.js"></script>-->
+<!--    <script type="text/javascript" src="./node/node_new_simple/0104-0105only_removenode.js"></script>-->
+    <script type="text/javascript" src="./edge/20200110.js"></script>
+    <script type="text/javascript" src="./node/20200110.js"></script>
+
+
+<body style='padding: 0;margin: 0;'>
+    <a id='download'>20200110</a>
+    <div id="container" style="height: 100%"></div>
+
+<script type="text/javascript">
+function getColor(bili) {
+    return bili < 50 ? '#277DA1' : bili < 100 ? '#577590' : bili < 300 ? '#4D908E' : bili < 800 ? '#43AA8B' : bili < 1500 ? '#90BE6D' : bili < 3000 ? '#F9C74F' : bili < 5000 ? '#F9844A' : bili < 8000 ? '#F8961E' : bili < 12000 ? '#F3722C' : '#A4300C'
+}
+        const a = document.querySelector('#download')
+        a.addEventListener('click', () => {
+            const content = document.querySelector('svg').outerHTML
+            const blob = new Blob([content], { type: 'xml/svg' })
+            a.href = URL.createObjectURL(blob)
+            a.download = '20200125.svg'
+        })
+        var dom = document.getElementById("container");
+        var myChart = echarts.init(dom, null, { renderer: 'svg' });
+        var app = {};
+        option = null;
+
+var convertData = function(data) {
+    var res = [];
+    for (var i = 0; i < data.length; i++) {
+        var dataItem = data[i];
+        var fromCoord = geoCoordMap[dataItem[0].name];
+        var toCoord = geoCoordMap[dataItem[1].name];
+        if (fromCoord && toCoord) {
+            res.push({
+                fromName: dataItem[0].name,
+                toName: dataItem[1].name,
+                coords: [fromCoord, toCoord],
+                value: dataItem[1].value
+            });
+        }
+    }
+    return res;
+};
+        var series = [];
+        [
+            [edges]
+        ].forEach(function(item, i) {
+            series.push({
+                    // name: item[0].name,
+                    type: 'lines',
+                    polyline: true,
+                    zlevel: 2,
+                    // symbol: ['none', 'none'],
+                    symbolSize: 10,
+                    lineStyle: {
+                        color:'rgb(255,100,97)',
+                        width: 1,
+                        opacity: 2,
+                        curveness: 0.2,
+                    },
+                    data: convertData(item[0])
+                })
+        });
+
+
+        // [
+        //     [edges_remove]
+        // ].forEach(function(item, i) {
+        //     series.push({
+        //             // name: item[0].name,
+        //             type: 'lines',
+        //             polyline: true,
+        //             zlevel: 2,
+        //             // symbol: ['none', 'none'],
+        //             symbolSize: 10,
+        //             lineStyle: {
+        //                 color:'rgb(255,133,0)',
+        //                 width: 1.5,
+        //                 opacity: 2,
+        //                 curveness: 0.2
+        //             },
+        //             data: convertData(item[0])
+        //         })
+        // });
+
+
+
+
+
+
+
+
+
+
+
+        [
+            [nodes]
+        ].forEach(function(item, i) {
+            //console.log(item,i);
+            series.push({
+                type: 'scatter',
+                coordinateSystem: 'geo',
+                // data: item[0].map(function(dataItem) {
+                //     console.log("============================="+dataItem[0])
+                //     return {
+                //         label: { fontSize: 20 },
+                //         name: dataItem[0].name
+                //     };
+                // }),
+                symbolSize: 2,
+                zlevel: 2,
+                rippleEffect: {
+                    brushType: 'stroke'
+                },
+                label: {
+                    normal: {
+                        show: true, // 展示地名
+                        position: 'right',
+                        formatter: '{b}',
+
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: 'rgba(255,173,9,0.86)'
+                    }
+                },
+            });
+        });
+
+        // [
+        //     [nodes_remove]
+        // ].forEach(function(item, i) {
+        //     //console.log(item,i);
+        //     series.push({
+        //         type: 'scatter',
+        //         coordinateSystem: 'geo',
+        //         // data: item[0].map(function(dataItem) {
+        //         //     console.log("============================="+dataItem[0])
+        //         //     return {
+        //         //         label: { fontSize: 4 },
+        //         //         name: dataItem[0].name
+        //         //     };
+        //         // }),
+        //         symbolSize: 2,
+        //         zlevel: 2,
+        //         rippleEffect: {
+        //             brushType: 'stroke'
+        //         },
+        //         label: {
+        //             normal: {
+        //                 show: true, // 展示地名
+        //                 position: 'right',
+        //                 formatter: '{b}'
+        //             }
+        //         },
+        //         itemStyle: {
+        //             normal: {
+        //                 color: 'rgba(255,173,9,0.86)'
+        //
+        //             }
+        //         },
+        //
+        //     });
+        // });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        option = {
+            backgroundColor: 'rgba(255,133,0,0)', //背景颜色
+            title: {
+                text: '',
+                subtext: '',
+                left: 'center',
+                textStyle: {
+                    color: 'black'
+                }
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            legend: {
+                orient: 'vertical',
+                top: 'bottom',
+                left: 'right',
+                data: [],
+                textStyle: {
+                    color: '#fff'
+                },
+                selectedMode: 'multiple',
+            },
+            geo: {
+                map: 'china',
+                label: {
+                    emphasis: {
+                        show: true,
+                        color: 'black'
+                    }
+                },
+                roam: true,
+                itemStyle: {
+                    normal: {
+                        areaColor: 'rgba(255,228,162,0)', //省份的着色
+                        borderColor: '#994854' //边界颜色
+                    },
+                    emphasis: {
+                        areaColor: '#333' //点击某个省份的颜色
+                    }
+                }
+            },
+            series: series
+        };
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+    </script>
+</body>
+</html>
