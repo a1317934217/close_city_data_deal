@@ -20,7 +20,7 @@ from tqdm import tqdm
 #迁徙数据位置
 fileNameFront = "F:/百度迁徙数据/比例和指数计算完成后的数据/"
 #处理后存储的位置
-file_project =  r"F:/封城数据处理/封城数据/石家庄/"
+file_project =  r"F:/封城数据处理/封城数据/西安/"
 
 # 石家庄一阶城市
 First_order = ["石家庄","北京","衡水","秦皇岛","唐山","廊坊","天津","承德","保定","沧州","邯郸","邢台","张家口"]
@@ -31,6 +31,19 @@ Third_order =  ['绍兴', '齐齐哈尔', '潍坊', '唐山', '哈尔滨', '大�
 # 石家庄四阶城市
 Fourth_order =  ['扬州', '温州', '池州', '锡林郭勒盟', '南平', '杭州', '黑河', '酒泉', '舟山', '嘉兴', '武汉', '信阳', '攀枝花', '毕节', '威海', '随州', '澳门', '楚雄彝族自治州', '株洲', '琼中黎族苗族自治县', '许昌', '玉溪', '永州', '白城', '蚌埠', '天水', '晋中', '宣城', '昆明', '漳州', '葫芦岛', '益阳', '鹰潭', '青岛', '东方', '桂林', '中卫', '铜陵', '佳木斯', '抚顺', '安康', '襄阳', '遵义', '海东', '玉林', '湘潭', '黔西南布依族苗族自治州', '抚州', '大同', '岳阳', '盘锦', '咸阳', '鹤壁', '淮南', '亳州', '湘西土家族苗族自治州', '张家口', '吴忠', '南昌', '吕梁', '鞍山', '马鞍山', '柳州', '成都', '兴安盟', '齐齐哈尔', '泰安', '濮阳', '邯郸', '锦州', '天门', '泸州', '内蒙古自治区', '长春', '贵港', '南阳', '白山', '湖州', '保定', '六盘水', '上饶', '临高', '郴州', '三明', '来宾', '滁州', '巴中', '阿坝藏族羌族自治州', '绥化', '乌兰察布', '呼和浩特', '绵阳', '宿州', '大庆', '惠州', '廊坊', '万宁', '红河哈尼族彝族自治州', '秦皇岛', '丽水', '梅州', '西双版纳傣族自治州', '韶关', '荆州', '烟台', '百色', '澄迈', '河池', '莆田', '白沙黎族自治县', '深圳', '大连', '汕尾', '萍乡', '双鸭山', '呼伦贝尔', '漯河', '五指山', '宁波', '驻马店', '黄冈', '内江', '北京', '沈阳', '达州', '合肥', '白银', '三门峡', '宜春', '通化', '芜湖', '伊春', '张掖', '松原', '澄迈县', '泉州', '南宁', '宜宾', '周口', '阳泉', '十堰', '济南', '衡水', '安庆', '东营', '济宁', '通辽', '常德', '南充', '七台河', '常州', '宜昌', '东莞', '宿迁', '毕节地区', '临沂', '琼海', '儋州', '鄂州', '怀化', '福州', '定西', '鄂尔多斯', '商丘', '乐东黎族自治县', '乌海', '太原', '海口', '曲靖', '淮安', '陇南', '焦作', '新疆维吾尔自治区', '广元', '衡阳', '鸡西', '黄石', '邢台', '临高县', '珠海', '乐山', '巴彦淖尔', '赣州', '荆门', '无锡', '揭阳', '阿拉善盟', '汕头', '临沧', '吉安', '屯昌县', '仙桃', '佛山', '丹东', '九江', '金昌', '云浮', '晋城', '石家庄', '洛阳', '银川', '张家界', '定安', '安阳', '临汾', '南通', '保亭黎族苗族自治县', '淄博', '文山壮族苗族自治州', '新余', '营口', '渭南', '平顶山', '临夏回族自治州', '陵水黎族自治县', '中山', '固原', '西安', '连云港', '徐州', '江门', '聊城', '资阳', '德州', '武威', '淮北', '上海', '遂宁', '阳江', '南京', '自贡', '钦州', '贺州', '济源', '辽阳', '海东地区', '浙江', '潮州', '西宁', '景德镇', '菏泽', '龙岩', '运城', '梧州', '朔州', '郑州', '包头', '四平', '恩施土家族苗族自治州', '三亚', '贵阳', '黔南布依族苗族自治州', '哈尔滨', '安顺', '黔东南苗族侗族自治州', '吉林', '崇左', '河源', '日照', '牡丹江', '延边朝鲜族自治州', '辽源', '眉山', '宝鸡', '苏州', '潍坊', '潜江', '朝阳', '石嘴山', '广州', '娄底', '莱芜', '长治', '邵阳', '承德', '昌江黎族自治县', '枣庄', '西藏自治区', '文昌', '大理白族自治州', '铜仁', '茂名', '凉山彝族自治州', '甘南藏族自治州', '铁岭', '德宏傣族景颇族自治州', '昭通', '阜阳', '阜新', '黄山', '湛江', '广安', '盐城', '延安', '保山', '本溪', '普洱', '庆阳', '孝感', '鹤岗', '肇庆', '甘孜藏族自治州', '台州', '泰州', '定安县', '沧州', '赤峰', '绍兴', '开封', '铜仁地区', '金华', '天津', '商洛', '滨州', '汉中', '兰州', '平凉', '防城港', '广西壮族自治区', '厦门', '宁夏回族自治区', '宁德', '铜川', '唐山', '长沙', '六安', '北海', '镇江', '忻州', '重庆', '衢州', '屯昌', '清远', '雅安', '榆林', '咸宁', '新乡', '丽江', '德阳']
 #石家庄五阶城市直接全部包括
+
+
+
+#14个
+First_order_xian =  ['铜川', '渭南', '成都', '宝鸡', '咸阳', '延安', '商洛', '榆林', '汉中', '庆阳', '北京', '安康', '西安']
+#55个
+Second_order_xian =  ['雅安', '凉山彝族自治州', '吕梁', '石家庄', '济南', '唐山', '北京', '宜宾', '成都', '资阳', '达州', '安康', '廊坊', '邯郸', '秦皇岛', '延安', '阿坝藏族羌族自治州', '广安', '汉中', '庆阳', '咸阳', '鄂尔多斯', '渭南', '广元', '张家口', '衡水', '榆林', '泸州', '宝鸡', '内江', '南充', '眉山', '商洛', '铜川', '沧州', '上海', '巴中', '武汉', '承德', '重庆', '遂宁', '绵阳', '乐山', '攀枝花', '自贡', '深圳', '郑州', '甘孜藏族自治州', '西安', '德阳', '忻州', '保定', '天津', '运城', '莱芜']
+#144个
+Third_order_xian =  ['唐山', '天门', '苏州', '许昌', '黄冈', '宝鸡', '商洛', '临汾', '常州', '广元', '焦作', '太原', '咸宁', '昭通', '庆阳', '铜仁', '咸阳', '榆林', '朔州', '洛阳', '西安', '保定', '聊城', '忻州', '吕梁', '仙桃', '遂宁', '雅安', '铜仁地区', '郑州', '梅州', '德阳', '鄂尔多斯', '汉中', '驻马店', '德州', '巴彦淖尔', '襄阳', '濮阳', '承德', '乌海', '菏泽', '眉山', '清远', '汕尾', '潍坊', '遵义', '韶关', '黄石', '巴中', '鹤壁', '邢台', '泸州', '合肥', '运城', '攀枝花', '随州', '淄博', '商丘', '广州', '宜宾', '中山', '上海', '泰州', '揭阳', '南充', '荆门', '三门峡', '天津', '枣庄', '漯河', '青岛', '无锡', '惠州', '湛江', '潜江', '张家口', '莱芜', '汕头', '临沂', '延安', '泰安', '铜川', '茂名', '达州', '贵阳', '乐山', '开封', '邯郸', '长沙', '廊坊', '甘孜藏族自治州', '绵阳', '安康', '湖州', '赣州', '孝感', '秦皇岛', '石家庄', '自贡', '江门', '荆州', '盐城', '舟山', '沧州', '河源', '成都', '十堰', '周口', '内江', '宜昌', '凉山彝族自治州', '滨州', '呼和浩特', '济南', '东营', '北京', '南通', '鄂州', '安阳', '恩施土家族苗族自治州', '阿坝藏族羌族自治州', '济宁', '南京', '渭南', '南阳', '包头', '宁波', '衡水', '资阳', '佛山', '深圳', '信阳', '珠海', '晋中', '武汉', '广安', '烟台', '重庆', '嘉兴', '东莞', '杭州', '平顶山', '新乡']
+#212个
+Fourth_order_xian =  ['徐州', '廊坊', '亳州', '上海', '泰州', '鄂尔多斯', '合肥', '黔南布依族苗族自治州', '衡阳', '潜江', '怀化', '周口', '杭州', '洛阳', '邯郸', '贵港', '南充', '驻马店', '遂宁', '淄博', '鹤壁', '长沙', '渭南', '阿坝藏族羌族自治州', '重庆', '镇江', '安顺', '自贡', '石家庄', '南京', '汉中', '菏泽', '达州', '铜陵', '濮阳', '沧州', '聊城', '资阳', '许昌', '南通', '安阳', '巴中', '宿州', '甘孜藏族自治州', '常德', '永州', '东莞', '珠海', '信阳', '阳江', '襄阳', '承德', '攀枝花', '贵阳', '济宁', '三门峡', '咸宁', '平顶山', '黔东南苗族侗族自治州', '台州', '德阳', '张家界', '晋城', '成都', '天津', '荆门', '淮安', '十堰', '咸阳', '张家口', '铜仁', '烟台', '衢州', '太原', '枣庄', '延安', '呼和浩特', '湘潭', '焦作', '吕梁', '金华', '盐城', '佛山', '运城', '池州', '韶关', '玉林', '榆林', '德州', '绍兴', '邢台', '九江', '恩施土家族苗族自治州', '凉山彝族自治州', '天门', '滨州', '舟山', '新乡', '广元', '宿迁', '萍乡', '马鞍山', '郑州', '肇庆', '武汉', '汕头', '宝鸡', '扬州', '庆阳', '阳泉', '衡水', '秦皇岛', '无锡', '巴彦淖尔', '黄冈', '包头', '淮南', '六盘水', '六安', '大同', '滁州', '内江', '荆州', '乌海', '汕尾', '泸州', '铜川', '眉山', '威海', '南昌', '宜昌', '朔州', '阿拉善盟', '泰安', '江门', '连云港', '东营', '安庆', '茂名', '广安', '吉安', '宁波', '随州', '赣州', '湖州', '阜阳', '唐山', '黄石', '晋中', '中山', '潍坊', '济源', '黄山', '温州', '常州', '绵阳', '西安', '乐山', '昆明', '湛江', '铜仁地区', '湘西土家族苗族自治州', '惠州', '开封', '临汾', '鄂州', '澳门', '苏州', '郴州', '清远', '娄底', '保定', '商丘', '日照', '忻州', '安康', '长治', '梧州', '漯河', '青岛', '云浮', '孝感', '济南', '梅州', '株洲', '雅安', '宜宾', '揭阳', '仙桃', '益阳', '宜春', '河源', '黔西南布依族苗族自治州', '嘉兴', '毕节地区', '毕节', '乌兰察布', '深圳', '遵义', '北京', '昭通', '临沂', '芜湖', '宣城', '南阳', '邵阳', '商洛', '广州', '潮州', '岳阳', '莱芜', '蚌埠']
+#241个
+five_order_xian = ['娄底', '烟台', '广安', '邢台', '上饶', '惠州', '温州', '安庆', '宁德', '荆州', '阳江', '北京', '承德', '天门', '贵港', '凉山彝族自治州', '达州', '广州', '北海', '阿坝藏族羌族自治州', '青岛', '大同', '鄂尔多斯', '驻马店', '池州', '济南', '赣州', '扬州', '内江', '毕节', '许昌', '襄阳', '湖州', '包头', '泸州', '上海', '茂名', '鹤壁', '眉山', '苏州', '澳门', '聊城', '柳州', '六盘水', '晋城', '乌兰察布', '武汉', '金华', '无锡', '安康', '雅安', '铜川', '枣庄', '黔南布依族苗族自治州', '来宾', '天津', '云浮', '南京', '长沙', '深圳', '宁波', '舟山', '盐城', '莱芜', '自贡', '乌海', '曲靖', '六安', '保山', '咸阳', '呼和浩特', '东莞', '潍坊', '南昌', '阿拉善盟', '丽江', '汕尾', '遂宁', '玉林', '怀化', '淮安', '成都', '红河哈尼族彝族自治州', '崇左', '常州', '福州', '秦皇岛', '贵阳', '吕梁', '鹰潭', '毕节地区', '马鞍山', '濮阳', '长治', '大理白族自治州', '宣城', '安顺', '防城港', '江门', '湛江', '肇庆', '泰州', '铜仁地区', '新余', '株洲', '阜阳', '漯河', '临沂', '文山壮族苗族自治州', '仙桃', '中山', '河池', '杭州', '蚌埠', '昭通', '韶关', '石家庄', '恩施土家族苗族自治州', '衡水', '宝鸡', '嘉兴', '绍兴', '宜昌', '益阳', '朔州', '昆明', '河源', '郑州', '郴州', '张家界', '资阳', '合肥', '黔西南布依族苗族自治州', '济宁', '玉溪', '运城', '邯郸', '徐州', '宜春', '清远', '十堰', '南宁', '丽水', '桂林', '黄山', '镇江', '铜仁', '咸宁', '黄冈', '芜湖', '潮州', '商洛', '百色', '湘潭', '周口', '安阳', '楚雄彝族自治州', '攀枝花', '永州', '汉中', '滁州', '衡阳', '巴中', '邵阳', '常德', '西安', '德州', '抚州', '九江', '洛阳', '景德镇', '开封', '新乡', '鄂州', '菏泽', '巴彦淖尔', '张家口', '晋中', '宜宾', '南阳', '荆门', '普洱', '乐山', '重庆', '钦州', '湘西土家族苗族自治州', '西双版纳傣族自治州', '平顶山', '黄石', '宿州', '淄博', '三门峡', '甘孜藏族自治州', '保定', '亳州', '揭阳', '台州', '南通', '汕头', '泰安', '阳泉', '济源', '德阳', '梅州', '广元', '廊坊', '连云港', '信阳', '焦作', '随州', '黔东南苗族侗族自治州', '佛山', '淮北', '潜江', '绵阳', '南充', '岳阳', '延安', '衢州', '榆林', '东营', '梧州', '临汾', '沧州', '遵义', '吉安', '孝感', '唐山', '淮南', '忻州', '威海', '萍乡', '宿迁', '珠海', '庆阳', '日照', '铜陵', '滨州', '渭南', '太原', '商丘']
 
 
  #判断2个字符串字符是否完全一样 顺序可不同
@@ -55,7 +68,7 @@ def getdaylist(beginDate,endDate):
 def select_around_city_data(beginTime,endTime,around_city,rank_level):
     """
     属于第一步
-    处理直接去掉0.04阈值后in和out的合并
+    处理直接去掉0.04阈值后in
     :param beginTime:
     :param endTime:
     :return:
@@ -80,10 +93,10 @@ def select_around_city_data(beginTime,endTime,around_city,rank_level):
         # 表头
         field_order_move_in = ["city_name", 'city_id_name', 'num']
         # 开始写入整理完的数据csv
-        path_file_in = file_project+rank_level+"/garbage_self_network/deal_01/in/"
+        path_file_in = file_project+rank_level+"/deal_01/in/"
         if not os.path.exists(path_file_in):
             os.makedirs(path_file_in)
-        with open(path_file_in + dayList[i] + "_石家庄.csv", 'w',encoding="utf-8", newline='') as csvfile:
+        with open(path_file_in + dayList[i] + "_西安.csv", 'w',encoding="utf-8", newline='') as csvfile:
 
             writer = csv.DictWriter(csvfile, field_order_move_in)
             writer.writeheader()
@@ -92,15 +105,15 @@ def select_around_city_data(beginTime,endTime,around_city,rank_level):
                 city_name = getattr(row_in, "city_name")
                 city_id_name = getattr(row_in, "city_id_name")
                 num = getattr(row_in, "num")
-                if num >=0.04:
+                if num >=0.1:
                     if city_name in around_city and city_id_name in around_city:
                         row = {"city_name": city_name, "city_id_name": city_id_name, "num": num}
                         writer.writerow(row)
-
-            path_file_out = file_project +rank_level+ "/garbage_self_network/deal_01/out/"
+            csvfile.close()
+            path_file_out = file_project +rank_level+ "/deal_01/out/"
             if not os.path.exists(path_file_out):
                 os.mkdir(path_file_out)
-            with open(path_file_out+ dayList[i] + "_石家庄.csv", 'w',encoding="utf-8", newline='') as csvfile:
+            with open(path_file_out+ dayList[i] + "_西安.csv", 'w',encoding="utf-8", newline='') as csvfile:
                 writer = csv.DictWriter(csvfile, field_order_move_in)
                 writer.writeheader()
                 # move_in 每一行
@@ -108,147 +121,105 @@ def select_around_city_data(beginTime,endTime,around_city,rank_level):
                     city_name = getattr(row_out, "city_name")
                     city_id_name = getattr(row_out, "city_id_name")
                     num = getattr(row_out, "num")
-                    if num >= 0.04:
-                        if city_name in Second_order and city_id_name in Second_order:
+                    if num >= 0.1:
+                        if city_name in around_city and city_id_name in around_city:
                             row = {"city_name": city_name, "city_id_name": city_id_name, "num": num}
                             writer.writerow(row)
-
-def merge_alone_file(beginTime,endTime,rank_level):
-    """
-    第二步，合并单独的in里面的内容
-    :param beginTime:
-    :param endTime:
-    :return:
-    """
-    global moveIn, moveOut
-    dayList = getdaylist(beginTime, endTime)
-    # 循环取每一天的值
-    for i in tqdm(range(len(dayList)), desc="第二步合并：进度", total=len(dayList)):
-        # 迁入数据
-        try:
-            moveIn = pd.read_csv(file_project +rank_level+ "/garbage_self_network/deal_01/in/" + dayList[i] + "_石家庄.csv")
-        except Exception as problem:
-            print("error打开迁入（in）有问题：", problem)
-
-        # 表头
-        field_order_move_in = ["city_name", 'city_id_name', 'num']
-        # 开始写入整理完的数据csv
-        path_file_in = file_project +rank_level+ "/garbage_self_network/deal_02/in/"
-        if not os.path.exists(path_file_in):
-            os.makedirs(path_file_in)
-        with open(path_file_in + dayList[i] + "_石家庄.csv", 'w', encoding="utf-8", newline='') as csvfile:
-            writer = csv.DictWriter(csvfile, field_order_move_in)
-            writer.writeheader()
-            for row_in in moveIn.itertuples():
-                num_in = getattr(row_in, "num")
-                city_name = getattr(row_in, "city_name")
-                city_id_name = getattr(row_in, "city_id_name")
-                listMoveIn = []
-                listMoveIn.append(getattr(row_in, "city_name"))
-                listMoveIn.append(getattr(row_in, "city_id_name"))
-                for row_in_two in moveIn.itertuples():
-                    num_out = getattr(row_in_two, "num")
-                    listMove_in_two = []
-                    listMove_in_two.append(getattr(row_in_two, "city_name"))
-                    listMove_in_two.append(getattr(row_in_two, "city_id_name"))
-                    # 判断两个列表是否相同 ，来进value值相加除二
-                    if compare_two_str(listMoveIn, listMove_in_two):
-                        valueColThree = (num_in + num_out) / 2
-                        row = {"city_name": city_name, "city_id_name": city_id_name,
-                               "num": valueColThree}
-                        writer.writerow(row)
-        # 迁出数据
-        try:
-            moveOut = pd.read_csv(file_project +rank_level+ "/garbage_self_network/deal_01/out/" + dayList[i] + "_石家庄.csv")
-        except Exception as problem:
-            print("error打开迁出（out）有问题：", problem)
-
-        # 创建处理完的数据csv
-        # 表头
-        field_order_move_in = ["city_name", 'city_id_name', 'num']
-        # 开始写入整理完的数据csv
-        path_file_in = file_project +rank_level+ "/garbage_self_network/deal_02/out/"
-        if not os.path.exists(path_file_in):
-            os.makedirs(path_file_in)
-        with open(path_file_in + dayList[i] + "_石家庄.csv", 'w', encoding="utf-8", newline='') as csvfile:
-            writer = csv.DictWriter(csvfile, field_order_move_in)
-            writer.writeheader()
-            # move_in 每一行
-            for row_out_one in moveOut.itertuples():
-                num_in = getattr(row_out_one, "num")
-                city_name = getattr(row_out_one, "city_name")
-                city_id_name = getattr(row_out_one, "city_id_name")
-                listMove_out_one = []
-                listMove_out_one.append(getattr(row_out_one, "city_name"))
-                listMove_out_one.append(getattr(row_out_one, "city_id_name"))
-                for row_out in moveOut.itertuples():
-                    num_out = getattr(row_out, "num")
-                    listMove_out = []
-                    listMove_out.append(getattr(row_out, "city_name"))
-                    listMove_out.append(getattr(row_out, "city_id_name"))
-                    # 判断两个列表是否相同 ，来进value值相加除二
-                    if compare_two_str(listMove_out_one, listMove_out):
-                        valueColThree = (num_in + num_out) / 2
-                        row = {"city_name": city_name, "city_id_name": city_id_name,
-                               "num": valueColThree}
-                        writer.writerow(row)
-
+                csvfile.close()
 
 def merge_inAndout_file(beginTime,endTime,rank_level):
     """
-    属于第三步 合并in和out里面的重复内容
+    属于第二步 合并in和out里面的重复内容
     :param beginTime:
     :param endTime:
     :return:
     """
-    global moveIn, moveOut
     dayList = getdaylist(beginTime,endTime)
     # 循环取每一天的值
-    for i in tqdm(range(len(dayList)),desc="第三步合并：进度",total=len(dayList)):
-        # 迁入数据
-        try:
-            moveIn = pd.read_csv(file_project+rank_level+"/garbage_self_network/deal_02/in/"+dayList[i]+"_石家庄.csv")
-        except Exception as problem:
-            print("error打开迁入（in）有问题：", problem)
-        # 迁出数据
-        try:
-            moveOut = pd.read_csv(file_project+rank_level+"/garbage_self_network/deal_02/out/"+dayList[i]+"_石家庄.csv")
-        except Exception as problem:
-            print("error打开迁出（out）有问题：", problem)
-
+    for i in tqdm(range(len(dayList)),desc="第二步合并：进度",total=len(dayList)):
         # 创建处理完的数据csv
         # 表头
         field_order_move_in = ["city_name", 'city_id_name', 'num']
         # 开始写入整理完的数据csv
-        path_file_in = file_project+rank_level+"/garbage_self_network/deal_03/"
+        move_in_data = pd.read_csv(file_project+rank_level+"/deal_01/in/"+dayList[i]+"_西安.csv")
+        move_out_data = pd.read_csv(file_project+rank_level+"/deal_01/out/"+dayList[i]+"_西安.csv")
+        path_file_in = file_project + rank_level + "/deal_02/"
         if not os.path.exists(path_file_in):
             os.makedirs(path_file_in)
-        with open(path_file_in+ dayList[i] + "_石家庄.csv", 'w',encoding="utf-8", newline='') as csvfile:
-
+        with open(path_file_in+ dayList[i] + "_西安.csv", 'w',
+                  encoding="utf-8", newline='') as csvfile:
             writer = csv.DictWriter(csvfile, field_order_move_in)
             writer.writeheader()
-            # move_in 每一行
-            for row_in in moveIn.itertuples():
-                num_in = getattr(row_in, "num")
-                city_name = getattr(row_in, "city_name")
-                city_id_name = getattr(row_in, "city_id_name")
-                listMoveIn = []
-                listMoveIn.append(getattr(row_in, "city_name"))
-                listMoveIn.append(getattr(row_in, "city_id_name"))
-                for row_out in moveOut.itertuples():
-                    num_out = getattr(row_out, "num")
-                    listMove_out = []
-                    listMove_out.append(getattr(row_out, "city_name"))
-                    listMove_out.append(getattr(row_out, "city_id_name"))
-                    # 判断两个列表是否相同 ，来进value值相加除二
-                    if compare_two_str(listMoveIn, listMove_out):
-                        valueColThree = (num_in + num_out) / 2
-                        row = {"city_name": city_name, "city_id_name": city_id_name,
-                               "num": valueColThree}
+            for row_in in move_in_data.iterrows():
+                list_a = []
+                city_name_one = row_in[1]["city_name"]
+                city_name_two = row_in[1]["city_id_name"]
+                value_one = row_in[1]["num"]
+                list_a.append(city_name_one)
+                list_a.append(city_name_two)
+                for row_out in move_out_data.iterrows():
+                    list_b = []
+                    city_name_three = row_out[1]["city_name"]
+                    city_name_four = row_out[1]["city_id_name"]
+                    value_two = row_out[1]["num"]
+                    list_b.append(city_name_three)
+                    list_b.append(city_name_four)
+
+                    if compare_two_str(list_a,list_b):
+                        row = {"city_name": city_name_three, "city_id_name": city_name_four,
+                               "num": (float(value_one) + float(value_two))/2}
                         writer.writerow(row)
+                        break
+
+
+def merge_alone_file(beginTime,endTime,rank_level):
+    """
+    第三步，合并单独的in里面的内容
+    :param beginTime:
+    :param endTime:
+    :return:
+    """
+    dayList = getdaylist(beginTime, endTime)
+    # 循环取每一天的值
+    for i in tqdm(range(len(dayList)), desc="第三步合并：进度", total=len(dayList)):
+
+        # 表头
+        field_order_move_in = ["city_name", 'city_id_name', 'num']
+        # 开始写入整理完的数据csv
+        need_deal_file_one = pd.read_csv(file_project +rank_level+ "/deal_02/" + dayList[i] + "_西安.csv")
+        need_deal_file_two = pd.read_csv(file_project +rank_level+ "/deal_02/" + dayList[i] + "_西安.csv")
+        path_file_in = file_project + rank_level + "/deal_03/"
+        if not os.path.exists(path_file_in):
+            os.makedirs(path_file_in)
+        with open(path_file_in + dayList[i] + "_西安.csv", 'w',
+                  encoding="utf-8", newline='') as csvfile:
+            writer = csv.DictWriter(csvfile, field_order_move_in)
+            writer.writeheader()
+            for row_one in need_deal_file_one.iterrows():
+                list_a = []
+                city_name_one = row_one[1]["city_name"]
+                city_name_two = row_one[1]["city_id_name"]
+                value_one = row_one[1]["num"]
+                list_a.append(city_name_one)
+                list_a.append(city_name_two)
+                for row_two in need_deal_file_two.iterrows():
+                    list_b = []
+                    city_name_three = row_two[1]["city_name"]
+                    city_name_four = row_two[1]["city_id_name"]
+                    value_two = row_two[1]["num"]
+                    list_b.append(city_name_three)
+                    list_b.append(city_name_four)
+                    if compare_two_str(list_a, list_b):
+                        valueColThree = (float(value_one) + float(value_two)) / 2
+                        row = {"city_name": city_name_one, "city_id_name": city_name_two, "num": valueColThree}
+                        writer.writerow(row)
+                        break
+
+#西安 封城时间 20211223 20220115  比较时间2021/12/09 -2022/1/31(接近春节) 阈值选取为0.13 确定！
 
 
 if __name__ == '__main__':
-    # select_around_city_data(20210101,20210508,Fourth_order,"石家庄四阶")
-    merge_alone_file(20210101,20210508,"石家庄四阶")
-    merge_inAndout_file(20210101,20210508,"石家庄四阶")
+    select_around_city_data(20211209,20220131,five_order_xian,"西安五阶")
+    merge_inAndout_file(20211209, 20220131, "西安五阶")
+    merge_alone_file(20211209,20220131,"西安五阶")
+
