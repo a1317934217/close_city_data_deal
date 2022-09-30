@@ -1,5 +1,14 @@
 # coding:utf-8
 """
+@file: demo_one.py
+@author: wu hao
+@time: 2022/9/29 22:26
+@env: 封城数据处理
+@desc:
+@ref:
+"""
+# coding:utf-8
+"""
 @file: close_city_caculate_indicator.py
 @author: wu hao
 @time: 2022/9/27 7:53
@@ -194,10 +203,10 @@ def naturecconnectivity(file_path,city_name,nodes_list):
 
 
 if __name__ == '__main__':
-    file_path = "F:/封城数据处理/封城数据/石家庄/石家庄三阶/deal_03/"
+    file_path = "F:/封城数据处理/封城数据/石家庄/石家庄五阶/deal_03/"
 
-    averagenodeconnectivity(file_path,"石家庄",Third_order_SJZ)
-    get_city_degree(file_path,"石家庄",Third_order_SJZ)
-    edge_number(file_path,"石家庄",Third_order_SJZ)
-    naturecconnectivity(file_path,"石家庄",Third_order_SJZ)
+    averagenodeconnectivity(file_path,"石家庄",Five_order_SJZ)
+    get_city_degree(file_path,"石家庄",Five_order_SJZ)
+    edge_number(file_path,"石家庄",Five_order_SJZ)
+    naturecconnectivity(file_path,"石家庄",Five_order_SJZ)
 

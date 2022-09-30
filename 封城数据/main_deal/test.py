@@ -21,7 +21,10 @@ from matplotlib import pyplot as plt
 from matplotlib.font_manager import FontProperties
 from matplotlib.ticker import FuncFormatter, MaxNLocator
 import matplotlib.pyplot as plt
+import networkx as nx
+import matplotlib.pyplot as plt
 
+from nxviz import GeoPlot
 
 reference_file = r"F:\封城数据处理\封城数据\main_deal\data\20210101_merge.csv"
 file_name_test = "F:/封城数据处理/封城数据/石家庄/石家庄一阶/garbage_self_network/deal_03/20210101_石家庄.csv"
@@ -157,3 +160,22 @@ g.layout_grid()
 ig.plot(g,"tmp.png")
 
 
+def github_method():
+    G = nx.read_gpickle("divvy.pkl")
+    print(list(G.nodes(data=True))[0])
+    G_new = G.copy()
+    for n1, n2, d in G.edges(data=True):
+        if d["count"] < 200:
+            G_new.remove_edge(n1, n2)
+
+    g = GeoPlot(
+        G_new,
+        node_lat="latitude",
+        node_lon="longitude",
+        node_color="dpcapacity",
+        node_size=0.005,
+    )
+    g.draw()
+    plt.show()
+if __name__ == '__main__':
+    github_method()
