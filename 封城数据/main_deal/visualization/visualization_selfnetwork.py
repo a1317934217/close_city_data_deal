@@ -72,9 +72,12 @@ def drawpicture(filePath,nodes_list_add):
     return G
 #西安 封城时间 20211223 20220115  比较时间2021/12/09 -2022/1/31(接近春节) 阈值选取为0.08 确定！
 
-#石家庄 封城时间 2021/1/7——2021/1/29日  比较时间2021/01/01 -2021/05/08(接近春节) 阈值选取为0.04 确定！
 
-G_one = drawpicture("F:/封城数据处理/封城数据/西安/西安一阶/deal_03/20220130_西安.csv",First_order_xian)
+
+#石家庄 封城时间 2021/1/7——2021/1/29日  比较时间2021/01/01 -2021/05/08(接近春节) 阈值选取为0.04 确定！
+#石家庄封城前(20210101)   石家庄封城时(20210114)    石家庄封城后(20210301)
+
+G_one = drawpicture("F:/封城数据处理/封城数据/石家庄/石家庄一阶/deal_03/20210101_石家庄.csv",First_order)
 
 
 # G_two = drawpicture("F:/封城数据处理/封城数据/西安/西安二阶/deal_03/20220130_西安.csv",Second_order_xian)
@@ -93,7 +96,7 @@ G_one = drawpicture("F:/封城数据处理/封城数据/西安/西安一阶/deal
 
 plt.rcParams['font.sans-serif'] = ['SimHei']
 pos_one = nx.circular_layout(G_one)
-pos_one["西安"] = (0,0)
+pos_one["石家庄"] = (0,0)
 # pos_one["咸阳"] = (0.2,0)
 # plt.subplot(231)
 nx.draw(G_one, pos_one,font_size=12,with_labels = True,node_color = "red",node_size = 12)

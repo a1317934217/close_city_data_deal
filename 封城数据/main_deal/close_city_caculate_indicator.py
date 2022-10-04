@@ -33,6 +33,8 @@ def getdaylist(begin, end):
     return dayList
 
 #西安 封城时间 20211223 20220115  比较时间2021/12/09 -2022/1/31(接近春节) 阈值选取为0.08 确定！
+#石家庄封城前(20210101)   石家庄封城时(20210114)    石家庄封城后(20210301)
+
 #14个
 First_order_xian =  ['铜川', '渭南', '成都', '宝鸡', '咸阳', '延安', '商洛', '榆林', '汉中', '庆阳', '北京', '安康', '西安']
 #55个
@@ -111,7 +113,7 @@ def averagenodeconnectivity(file_path,city_name,nodes):
         except Exception as problem:
             print("((平均点连通性) error打开迁徙文件出问题：", problem)
         else:
-            listAverageNodeConnectivity.append((nx.average_node_connectivity(G)))
+                listAverageNodeConnectivity.append((nx.average_node_connectivity(G)))
     print("平均点连通性： ", listAverageNodeConnectivity)
 
 
@@ -193,11 +195,67 @@ def naturecconnectivity(file_path,city_name,nodes_list):
 
 
 
-if __name__ == '__main__':
-    file_path = "F:/封城数据处理/封城数据/石家庄/石家庄三阶/deal_03/"
 
-    averagenodeconnectivity(file_path,"石家庄",Third_order_SJZ)
-    get_city_degree(file_path,"石家庄",Third_order_SJZ)
-    edge_number(file_path,"石家庄",Third_order_SJZ)
-    naturecconnectivity(file_path,"石家庄",Third_order_SJZ)
+# 计算  点连通性(单个点)
+def node_connectivity_alone(file_path,city_name,nodes):
+    """
+    返回绘制图表的
+    X轴：日期
+    Y轴：平均点连通性
+    """
+
+    listAverageNodeConnectivity = []
+    for i in tqdm (range(len(listXData)),desc="点连通性（单个）进度",total=len(listXData)):
+        # 循环画图
+        try:
+            filePathInMethon = file_path + listXData[i] +"_"+city_name+".csv"
+            G = drawpicture(filePathInMethon,nodes)
+
+        except Exception as problem:
+            print("点连通性（单独） error打开迁徙文件出问题：", problem)
+        else:
+                listAverageNodeConnectivity.append((nx.node_connectivity(G,s="石家庄",t="唐山")))
+    print("点连通性（单独）： ", listAverageNodeConnectivity)
+
+
+
+
+# 计算 平均度
+def average_degree_alone(file_path,city_name,nodes):
+    listAverage_degree = []
+    for i in tqdm(range(len(listXData)), desc="平均度 进度", total=len(listXData)):
+        # 循环画图
+        try:
+            filePathInMethon = file_path + listXData[i] + "_" + city_name + ".csv"
+            G = drawpicture(filePathInMethon, nodes)
+
+        except Exception as problem:
+            print("平均度   error打开迁徙文件出问题：", problem)
+        else:
+            d = dict(nx.degree(G))
+            listAverage_degree.append(sum(d.values()) / len(G.nodes))
+
+    print("平均度",listAverage_degree)
+
+
+
+
+
+
+
+
+
+
+if __name__ == '__main__':
+    file_path = "F:/封城数据处理/封城数据/石家庄/石家庄五阶/deal_03/"
+
+    # averagenodeconnectivity(file_path,"石家庄",Third_order_SJZ)
+    # get_city_degree(file_path,"石家庄",Third_order_SJZ)
+    # edge_number(file_path,"石家庄",Third_order_SJZ)
+    # naturecconnectivity(file_path,"石家庄",Third_order_SJZ)
+
+
+
+    node_connectivity_alone(file_path,"石家庄",Five_order_SJZ)
+    average_degree_alone(file_path,"石家庄",Five_order_SJZ)
 
