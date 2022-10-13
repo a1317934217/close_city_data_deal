@@ -39,14 +39,14 @@ def getdaylist(begin, end):
 
 
 # 城市迁徙比例数据保存路径 in
-migration_proportion_in = 'F:\\01大连民族\\百度迁徙爬取和数据\\百度迁徙数据更新_经常运行\\迁徙比例\\in\\'
+migration_proportion_in = 'F:/百度迁徙数据_日常维护/迁徙比例/in/'
 # 城市迁徙比例数据保存路径 out
-migration_proportion_out = 'F:\\01大连民族\\百度迁徙爬取和数据\百度迁徙数据更新_经常运行\迁徙比例\\out\\'
+migration_proportion_out = 'F:/百度迁徙数据_日常维护/迁徙比例/out/'
 
 # 城市迁徙指数数据保存路径 in
-migration_index_in = 'F:\\01大连民族\\百度迁徙爬取和数据\百度迁徙数据更新_经常运行\迁徙指数\\in\\'
+migration_index_in = 'F:/百度迁徙数据_日常维护/迁徙指数/in/'
 # 城市迁徙指数数据保存路径 out
-migration_index_out = 'F:\\01大连民族\\百度迁徙爬取和数据\百度迁徙数据更新_经常运行\迁徙指数\\out\\'
+migration_index_out = 'F:/百度迁徙数据_日常维护/迁徙指数/out/'
 
 
 # 爬取迁徙指数 文件
@@ -64,9 +64,11 @@ def get_city_migration_index(file_save_location,task_type):
             code = row[0]
             name = row[1]
             try:
+                #示例url爬取
                 # url = "https://huiyan.baidu.com/migration/historycurve.jsonp?dt=city&id=110000&type=move_in"
-                url = 'https://huiyan.baidu.com/migration/historycurve.jsonp?dt=city&id={}&type={}'.format(code, task_type)
-                # url = 'https://huiyan.baidu.com/migration/historycurve.jsonp?dt=city&id={}&type={}&startDate=20200922&endDate=20210118'.format(code, task_type)
+                # url = 'https://huiyan.baidu.com/migration/historycurve.jsonp?dt=city&id={}&type={}'.format(code, task_type)
+                #整合数据
+                url = 'https://huiyan.baidu.com/migration/historycurve.jsonp?dt=city&id={}&type={}&startDate=20200110&endDate=20200315'.format(code, task_type)
                 try:
                     # https://huiyan.baidu.com/migration/historycurve.jsonp?dt=city&id=110000&type=move_in
                     text = loads_jsonp(requests.get(url).text)
@@ -141,7 +143,8 @@ def makeUp_problem_data(file_save_location,task_type,code,name,t):
     :param t:
     :return:
     """
-    url = 'https://huiyan.baidu.com/migration/cityrank.jsonp?dt=city&id={}&type={}&date={}&startDate=20200922&endDate=20210118'.format(code, task_type, t)
+    # url = 'https://huiyan.baidu.com/migration/cityrank.jsonp?dt=city&id={}&type={}&date={}&startDate=20200922&endDate=20210118'.format(code, task_type, t)
+    url = 'https://huiyan.baidu.com/migration/cityrank.jsonp?dt=city&id={}&type={}&date={}'.format(code, task_type, t)
     try:
         # requests.adapters.DEFAULT_RETRIES = 5
         data = loads_jsonp(requests.get(url).text)['data']["list"]
@@ -180,26 +183,30 @@ def rename_csv(begindata,enddata):
 
 
 if __name__ == '__main__':
-    # 两个迁徙指数 爬取
+
+    #两个迁徙指数 爬取
     # get_city_migration_index(migration_index_in,"move_in")
     # get_city_migration_index(migration_index_out,"move_out")
-    #
-    # # 两个迁徙比例 爬取
-    # get_city_migration_proportion(migration_proportion_in,"move_in",20220509,20220830)
-    # get_city_migration_proportion(migration_proportion_out,"move_out",20220509,20220830)
+
+    get_city_migration_index("F:/百度迁徙数据_日常维护/迁徙指数_需补充/in/", "move_in")
+    get_city_migration_index('F:/百度迁徙数据_日常维护/迁徙指数_需补充/out/', "move_out")
+
+
+    # 两个迁徙比例 爬取
+    # get_city_migration_proportion(migration_proportion_in,"move_in",20220830,20221010)
+    # get_city_migration_proportion(migration_proportion_out,"move_out",20220830,20221010)
 
 
     #补充爬取
-    list_problem_in = [(120000, "天津", 20220615), (140100, "太原", 20220801), (150800, "巴彦淖尔", 20220720),
-                       (370700, "潍坊", 20220827), (530400, "玉溪", 20220720)
-        ,(620900, "酒泉", 20220702), (659008, "可克达拉", 20220620)]
-    list_problem_out = [(140500, "晋城", 20220706), (140900, "忻州", 20220802), (340100, "合肥", 20220629),(510500, "泸州", 20220515), (510800, "广元", 20220724)
-        ,(652700, "博尔塔拉蒙古自治州", 20220626)]
-    for i in list_problem_in:
-        makeUp_problem_data(migration_proportion_in,"move_in",i[0],i[1],i[2])
 
-    for i in list_problem_out:
-        makeUp_problem_data(migration_proportion_out,"move_out",i[0],i[1],i[2])
+    # list_problem_in = [(530600, "昭通", 20221004)]
+    # list_problem_out = [(150100, "呼和浩特", 20220923), (441400, "梅州", 20220907), (510700, "绵阳", 20220903)]
+    #
+    # for i in list_problem_in:
+    #     makeUp_problem_data(migration_proportion_in,"move_in",i[0],i[1],i[2])
+    #
+    # for i in list_problem_out:
+    #     makeUp_problem_data(migration_proportion_out,"move_out",i[0],i[1],i[2])
 
 
 
