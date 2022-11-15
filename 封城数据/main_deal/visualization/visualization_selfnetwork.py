@@ -77,66 +77,72 @@ def drawpicture(filePath,nodes_list_add):
 #石家庄 封城时间 2021/1/7——2021/1/29日  比较时间2021/01/01 -2021/05/08(接近春节) 阈值选取为0.04 确定！
 #石家庄封城前(20210101)   石家庄封城时(20210114)    石家庄封城后(20210301)
 
-G_one = drawpicture("F:/封城数据处理/封城数据/石家庄/石家庄一阶/deal_03/20210101_石家庄.csv",First_order)
-
-
-# G_two = drawpicture("F:/封城数据处理/封城数据/西安/西安二阶/deal_03/20220130_西安.csv",Second_order_xian)
-# G_three = drawpicture("F:/封城数据处理/封城数据/西安/西安三阶/deal_03/20220130_西安.csv",Third_order_xian)
+# G_one = drawpicture("F:/封城数据处理/封城数据/石家庄/石家庄一阶/deal_03/20210101_石家庄.csv",First_order)
+#
+#
+# G_two = drawpicture("F:/封城数据处理/封城数据/石家庄/石家庄一阶/deal_03/20210114_石家庄.csv",First_order)
+# G_three = drawpicture("F:/封城数据处理/封城数据/石家庄/石家庄一阶/deal_03/20210223_石家庄.csv",First_order)
 # G_four = drawpicture("F:/封城数据处理/封城数据/西安/西安四阶/deal_03/20220130_西安.csv",Fourth_order_xian)
 # G_five = drawpicture("F:/封城数据处理/封城数据/西安/西安五阶/deal_03/20220130_西安.csv",five_order_xian)
 
 
-# G_one = drawpicture("F:/封城数据处理/封城数据/石家庄/石家庄一阶/deal_03/20210301_石家庄.csv",First_order)
-# G_two = drawpicture("F:/封城数据处理/封城数据/石家庄/石家庄二阶/deal_03/20210301_石家庄.csv",Second_order)
-# G_three = drawpicture("F:/封城数据处理/封城数据/石家庄/石家庄三阶/deal_03/20210301_石家庄.csv",Third_order)
-# G_four = drawpicture("F:/封城数据处理/封城数据/石家庄/石家庄四阶/deal_03/20210301_石家庄.csv",Fourth_order)
-# G_five = drawpicture("F:/封城数据处理/封城数据/石家庄/石家庄五阶/deal_03/20210301_石家庄.csv",Five_order)
+G_one = drawpicture("F:/封城数据处理/封城数据/石家庄/石家庄一阶/deal_03/20210301_石家庄.csv",First_order)
+G_two = drawpicture("F:/封城数据处理/封城数据/石家庄/石家庄二阶/deal_03/20210301_石家庄.csv",Second_order)
+G_three = drawpicture("F:/封城数据处理/封城数据/石家庄/石家庄三阶/deal_03/20210301_石家庄.csv",Third_order)
+G_four = drawpicture("F:/封城数据处理/封城数据/石家庄/石家庄四阶/deal_03/20210301_石家庄.csv",Fourth_order)
+G_five = drawpicture("F:/封城数据处理/封城数据/石家庄/石家庄五阶/deal_03/20210301_石家庄.csv",Five_order)
 
 
-
+plt.figure(figsize=(7,5),dpi=450)
 plt.rcParams['font.sans-serif'] = ['SimHei']
+
+
+
 pos_one = nx.circular_layout(G_one)
 pos_one["石家庄"] = (0,0)
-# pos_one["咸阳"] = (0.2,0)
-# plt.subplot(231)
+plt.subplot(231)
+plt.title("(a) 一阶")
 nx.draw(G_one, pos_one,font_size=12,with_labels = True,node_color = "red",node_size = 12)
 
 
 
 
-# pos_two = nx.kamada_kawai_layout(G_two)
-# pos_two["西安"] = (0,0)
-# # pos_two["咸阳"] = (0,0.1)
-# labels = {}
-# labels["西安"] = "西安"
-# plt.subplot(232)
-# nx.draw(G_two, pos_two,node_color = "red",node_size = 6)
-# nx.draw_networkx_labels(G_two,pos_two,labels,font_size=12)
+pos_two = nx.kamada_kawai_layout(G_two)
+labels = {}
+# labels["石家庄"] = "石家庄"
+plt.subplot(232)
+plt.title("(b) 二阶")
+print()
+nx.draw(G_two, pos_two,node_color = "red",node_size = 6)
+nx.draw_networkx_labels(G_two,pos_two,labels,font_size=12,font_color='b')
+
+
+plt.subplot(233)
+pos_three = nx.kamada_kawai_layout(G_three)
+pos_three["石家庄"] = (0,0)
+plt.title("(c) 三阶")
+nx.draw(G_three, pos_three,node_color = "red",node_size = 6)
+nx.draw_networkx_labels(G_three,pos_three,labels,font_size=12,font_color='w')
 #
 #
-# plt.subplot(233)
-# pos_three = nx.kamada_kawai_layout(G_three)
-# pos_three["西安"] = (0,0)
-# nx.draw(G_three, pos_three,node_color = "red",node_size = 6)
-# nx.draw_networkx_labels(G_three,pos_three,labels,font_size=12,font_color='w')
-#
-#
-# plt.subplot(234)
-#
-# pos_four = nx.kamada_kawai_layout(G_four)
-# pos_four["西安"] = (0,0)
-# nx.draw(G_four, pos_four,node_color = "red",node_size = 6)
-# nx.draw_networkx_labels(G_four,pos_four,labels,font_size=12,font_color='w')
-#
-#
-#
-# plt.subplot(235)
-# pos_five = nx.kamada_kawai_layout(G_five)
-# pos_five["西安"] = (0,0)
-# nx.draw(G_five, pos_five,node_color = "red",node_size = 6)
-# nx.draw_networkx_labels(G_five,pos_five,labels,font_size=12,font_color='w')
-#
-#
+plt.subplot(234)
+
+pos_four = nx.kamada_kawai_layout(G_four)
+pos_four["石家庄"] = (0,0)
+plt.title("(d) 四阶")
+nx.draw(G_four, pos_four,node_color = "red",node_size = 6)
+nx.draw_networkx_labels(G_four,pos_four,labels,font_size=12,font_color='w')
+
+
+
+plt.subplot(235)
+pos_five = nx.kamada_kawai_layout(G_five)
+pos_five["石家庄"] = (0,0)
+plt.title("(e) 五阶")
+nx.draw(G_five, pos_five,node_color = "red",node_size = 6)
+nx.draw_networkx_labels(G_five,pos_five,labels,font_size=12,font_color='w')
+
+
 
 
 

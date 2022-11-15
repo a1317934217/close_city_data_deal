@@ -15,9 +15,9 @@ import pandas as pd
 # 城市迁徙指数数据保存路径 in
 from tqdm import tqdm
 
-migration_index_in_old = 'F:/百度迁徙数据_日常维护/迁徙指数/in/'
+migration_index_in_old = 'F:/百度迁徙数据_日常维护/迁徙指数_最终版/in/'
 # 城市迁徙指数数据保存路径 out
-migration_index_out_old = 'F:/百度迁徙数据_日常维护/迁徙指数/out/'
+migration_index_out_old = 'F:/百度迁徙数据_日常维护/迁徙指数_最终版/out/'
 
 migration_index_in_new = 'F:/百度迁徙数据_日常维护/迁徙指数_需补充/in/'
 
@@ -34,8 +34,8 @@ def merge_index():
         if row[0] != 'code':
             code = row[0]
             name = row[1]
-            index_old = migration_index_out_old + '{}_{}_{}.csv'.format(code, name, "move_out")
-            index_new = migration_index_out_new+ '{}_{}_{}.csv'.format(code, name, "move_out")
+            index_old = migration_index_in_old + '{}_{}_{}.csv'.format(code, name, "move_in")
+            index_new = migration_index_in_new+ '{}_{}_{}.csv'.format(code, name, "move_in")
 
             data_one= pd.read_csv(index_old)
             data_two = pd.read_csv(index_new)
@@ -44,7 +44,7 @@ def merge_index():
 
             result = pd.concat(df)
             result.sort_values(by=["date"],axis=0,ascending=False,inplace=True)
-            result.to_csv(migration_index_out_final+ '{}_{}_{}.csv'.format(code, name, "move_out"), index=False)
+            result.to_csv(migration_index_in_final+ '{}_{}_{}.csv'.format(code, name, "move_in"), index=False)
 
 
 
