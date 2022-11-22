@@ -34,6 +34,7 @@ first_nature_connecty = [4.594697943773412, 3.4784332105882894, 3.91698043300890
 first_average_SJZ_alone =   [5, 3, 4, 3, 1, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 1, 2, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 2, 3, 2, 2, 3, 3, 3, 4, 3, 3, 3, 4, 3, 3, 4, 3, 4, 4, 4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 4, 4, 4, 4, 5, 6, 6, 6, 5, 6, 6, 6, 6, 5, 5, 5, 5, 5, 6, 6, 4, 6, 5, 6, 5, 5, 5, 4, 5, 4, 4, 5, 6, 8, 8, 6, 6, 7, 6, 6, 6]
 first_degree_SJZ_alone = [6.153846153846154, 4.769230769230769, 5.230769230769231, 4.3076923076923075, 1.5384615384615385, 3.6923076923076925, 3.230769230769231, 2.923076923076923, 2.769230769230769, 2.769230769230769, 2.6153846153846154, 2.4615384615384617, 2.0, 2.0, 2.1538461538461537, 2.0, 1.8461538461538463, 2.0, 1.8461538461538463, 2.1538461538461537, 2.0, 2.4615384615384617, 2.3076923076923075, 2.1538461538461537, 2.4615384615384617, 2.0, 2.4615384615384617, 2.3076923076923075, 2.1538461538461537, 2.3076923076923075, 1.8461538461538463, 2.769230769230769, 2.6153846153846154, 2.6153846153846154, 2.6153846153846154, 2.769230769230769, 2.769230769230769, 2.4615384615384617, 2.769230769230769, 2.4615384615384617, 2.6153846153846154, 2.1538461538461537, 2.1538461538461537, 2.6153846153846154, 3.076923076923077, 3.076923076923077, 2.923076923076923, 3.5384615384615383, 3.6923076923076925, 3.6923076923076925, 3.6923076923076925, 3.8461538461538463, 4.153846153846154, 4.153846153846154, 4.3076923076923075, 4.461538461538462, 4.461538461538462, 5.230769230769231, 4.615384615384615, 4.461538461538462, 4.923076923076923, 4.3076923076923075, 4.615384615384615, 4.769230769230769, 5.076923076923077, 4.615384615384615, 5.076923076923077, 4.769230769230769, 4.769230769230769, 4.769230769230769, 5.076923076923077, 5.384615384615385, 4.923076923076923, 5.076923076923077, 5.076923076923077, 5.384615384615385, 5.384615384615385, 5.384615384615385, 5.538461538461538, 5.230769230769231, 5.384615384615385, 5.384615384615385, 5.230769230769231, 5.384615384615385, 5.538461538461538, 5.6923076923076925, 5.384615384615385, 5.846153846153846, 5.384615384615385, 5.6923076923076925, 5.384615384615385, 6.0, 7.076923076923077, 6.615384615384615, 6.769230769230769, 6.615384615384615, 6.3076923076923075, 6.3076923076923075, 6.3076923076923075, 6.461538461538462, 5.6923076923076925, 5.846153846153846, 5.846153846153846, 6.0, 5.846153846153846, 6.3076923076923075, 6.461538461538462, 6.0, 6.461538461538462, 6.0, 6.0, 5.846153846153846, 6.153846153846154, 6.153846153846154, 5.846153846153846, 6.153846153846154, 5.6923076923076925, 5.846153846153846, 6.3076923076923075, 6.769230769230769, 8.76923076923077, 8.0, 8.307692307692308, 7.538461538461538, 7.538461538461538, 6.923076923076923, 6.461538461538462, 6.3076923076923075]
 
+
 #石家庄二阶
 
 second_average = [2.363382250174703, 1.3249475890985325, 1.4318658280922432, 1.5890985324947589, 0.23549965059399022, 0.5709294199860238, 0.6771488469601677, 0.8777078965758212, 0.7742837176799441, 0.6932215234102026, 0.7393431167016072, 0.7295597484276729, 0.8197064989517819, 0.8120195667365478, 0.9259259259259259, 1.0146750524109014, 0.8539482879105521, 0.9224318658280922, 0.9063591893780573, 0.9007686932215234, 0.944095038434661, 0.8874912648497554, 0.9266247379454927, 0.7819706498951782, 0.8623340321453529, 0.9315164220824598, 1.1320754716981132, 0.9615653389238294, 0.45143256464011183, 0.46331236897274636, 0.4388539482879106, 0.7484276729559748, 0.7211740041928721, 0.7183787561146052, 0.7421383647798742, 0.8721174004192872, 1.5485674353598882, 1.3354297693920336, 1.363382250174703, 1.570230607966457, 1.4122990915443745, 1.2410901467505242, 0.42138364779874216, 0.6387141858839972, 0.7833682739343116, 0.8392732354996506, 0.8972746331236897, 2.80293501048218, 3.593291404612159, 2.561844863731656, 2.8162124388539485, 3.0538085255066387, 3.0314465408805034, 2.776380153738644, 2.2215234102026553, 2.290006988120196, 1.7044025157232705, 3.1474493361285814, 3.530398322851153, 3.2271139063591896, 3.063591893780573, 3.2082459818308875, 2.376659678546471, 2.2641509433962264, 2.5017470300489166, 2.0915443745632425, 2.474493361285814, 2.03424178895877, 1.970649895178197, 2.103424178895877, 2.116701607267645, 2.4954577218728162, 1.8001397624039133, 2.5178197064989516, 2.3780573025856047, 2.5960866526904263, 2.3542976939203353, 2.596785464709993, 3.0328441649196365, 2.3542976939203353, 3.0174703004891685, 2.5541579315164222, 2.5800139762403913, 2.6184486373165616, 2.9000698812019565, 3.0489168413696714, 2.4626135569531797, 3.076869322152341, 2.262753319357093, 2.4122990915443747, 2.5772187281621246, 3.119496855345912, 4.76659678546471, 3.1816911250873514, 3.5625436757512228, 4.4081062194269744, 2.9245283018867925, 2.591893780573026, 2.3144654088050314, 2.7728860936408104, 2.3186582809224316, 2.626135569531796, 2.760307477288609, 3.273934311670161, 3.0069881201956674, 3.041928721174004, 4.053808525506638, 3.161425576519916, 3.881201956673655, 3.3710691823899372, 3.2026554856743537, 2.9322152341020264, 3.2424877707896576, 3.46470999301188, 3.0726764500349404, 3.3067784765897974, 3.1544374563242488, 2.997204751921733, 3.546470999301188, 4.96995108315863, 7.43885394828791, 6.5590496156533895, 4.986722571628232, 4.938504542278127, 6.489867225716282, 5.779175401816912, 4.4570230607966455, 3.0936408106219426]
@@ -161,11 +162,11 @@ def drawpicture(filePath):
     return G
 
 
-def function_encapsulation(first_data,second_data,third_data,fourth_data,five_data,listXData,ax1):
+def function_encapsulation(first_data,second_data,third_data,fourth_data,five_data,listXData,ax1,title_name):
 
     def format_fn(tick_val, tick_pos):
         if int(tick_val) in range(len(listXData)):
-            return listXData[int(tick_val)]
+            return str(listXData[int(tick_val)])[4:8]
         else:
             return ''
     ax1.xaxis.set_major_formatter(FuncFormatter(format_fn))
@@ -175,8 +176,8 @@ def function_encapsulation(first_data,second_data,third_data,fourth_data,five_da
     # plt.xticks(rotation=90)
 
     # 坐标轴ticks的字体大小
-    ax1.set_xlabel('日期', fontsize=14)  # 为x轴添加标签
-    ax1.set_ylabel('数值', fontsize=14)  # 为y轴添加标签  数值
+    ax1.set_xlabel('日期', fontsize=12)  # 为x轴添加标签
+    ax1.set_ylabel('数值', fontsize=12)  # 为y轴添加标签  数值
     ax1.legend()
     plt.rcParams['font.sans-serif'] = ['SimHei']
     # 根据需要设置最大最小值，这里设置最大值为1.最小值为0
@@ -188,23 +189,24 @@ def function_encapsulation(first_data,second_data,third_data,fourth_data,five_da
     fourth_data = tool.fit_transform(array(fourth_data).reshape(-1,1)).tolist()
     five_data = tool.fit_transform(array(five_data).reshape(-1,1)).tolist()
 
+    plt.title(title_name)
 
 
-
-    plt.plot(listXData, first_data, "4-", linewidth=2,  label='一阶')
-    plt.plot(listXData, second_data, "1--", linewidth=1,  label='二阶')
-    plt.plot(listXData, third_data, ".-", linewidth=1,  label='三阶')
-    plt.plot(listXData, fourth_data, ".-", linewidth=1,  label='四阶')
-    plt.plot(listXData, five_data, ".-", linewidth=1,  label='五阶')
+    plt.plot(listXData, first_data,  linewidth=2,  label='一阶') #"4-",
+    plt.plot(listXData, second_data, linewidth=1,  label='二阶')#, "1--"
+    plt.plot(listXData, third_data, linewidth=1,  label='三阶')#, ".-"
+    plt.plot(listXData, fourth_data, linewidth=1,  label='四阶') #, ".-"
+    plt.plot(listXData, five_data, linewidth=1,  label='五阶') #, ".-"
 
 
     plt.scatter(6, 1, s=50, color='cyan')
     plt.plot([6, 6], [1, 0], 'x--', lw=1.5)
-    plt.text(0, 0.90, r'石家庄封城开始', fontdict={'size': '14', 'color': 'black'})
+    plt.text(0, 0.90, r'封城开始', fontdict={'size': '12', 'color': 'black'})
 
     plt.scatter(28, 1, s=50, color='cyan')
     plt.plot([28, 28], [1, 0], 'x--', lw=1.5)
-    plt.text(27, 0.90, r'石家庄封城结束', fontdict={'size': '14', 'color': 'black'})
+    plt.text(27, 0.90, r'封城结束', fontdict={'size': '12', 'color': 'black'})
+    plt.legend()
 
     # plt.scatter(13, 1, s=50, color='cyan')
     # plt.plot([13, 13], [1, 0], 'x--', lw=1.5)
@@ -224,23 +226,40 @@ def draw_every_indeicators(beginData,endData,
                            ):
     listXData = getdaylist(beginData, endData)
     # 画图 设置X轴显示效果
-    fig = plt.figure(figsize=(10, 4))
+    fig = plt.figure(figsize=(14, 7.5),dpi=450)
     ax1 = fig.add_subplot(221)
+    function_encapsulation(first_average, second_average, third_average, fourth_average, Five_average,listXData,ax1,"(a) 平均点连通性")
+
     ax2 = fig.add_subplot(222)
+    function_encapsulation( first_degree,second_degree, third_degree, fourth_degree, Five_degree,listXData,ax2,"(b) 度")
+
     ax3 = fig.add_subplot(223)
+    function_encapsulation(first_edge_number,second_edge_number, third_edge_number,fourth_edge_number, Five_edge_number,listXData,ax3,"(c) 边数量")
+
     ax4 = fig.add_subplot(224)
     # 为了设置x轴时间的显示
 
-
-    #
-
-
-    function_encapsulation(first_average, second_average, third_average, fourth_average, Five_average,listXData,ax1)
-    function_encapsulation( first_degree,second_degree, third_degree, fourth_degree, Five_degree,listXData,ax2)
-    function_encapsulation(first_edge_number,second_edge_number, third_edge_number,fourth_edge_number, Five_edge_number,listXData,ax3)
-    function_encapsulation(first_nature_connecty, second_nature_connecty,third_nature_connecty, fourth_nature_connecty, Five_nature_connecty,listXData,ax4)
+    function_encapsulation(first_nature_connecty, second_nature_connecty,third_nature_connecty, fourth_nature_connecty, Five_nature_connecty,listXData,ax4,"(d) 自然连通性")
 
     plt.show()
+
+
+def draw_three_indeicators(beginData,endData,
+                           first_average, second_average, third_average, fourth_average, Five_average,
+                         first_degree,second_degree, third_degree, fourth_degree, Five_degree):
+    listXData = getdaylist(beginData, endData)
+    # 画图 设置X轴显示效果
+    fig = plt.figure(figsize=(8, 6),dpi=450) #,dpi=450
+    ax1 = fig.add_subplot(211)
+    function_encapsulation(first_average, second_average, third_average, fourth_average, Five_average,listXData,ax1,"(a) 平均点连通性")
+
+    ax2 = fig.add_subplot(212)
+    function_encapsulation(first_degree,second_degree, third_degree, fourth_degree, Five_degree,listXData,ax2,"(b) 度")
+
+
+    plt.show()
+
+
 
 
 #
@@ -276,6 +295,10 @@ if __name__ == '__main__':
     # draw_every_indeicators(20210101, 20210508, first_edge_number, second_edge_number, third_edge_number,
     #                        fourth_edge_number, Five_edge_number)
 
-
+#
     draw_every_indeicators(20210101, 20210508,first_average,second_average,third_average,fourth_average,Five_average,first_degree,second_degree,third_degree,fourth_degree,Five_degree,first_edge_number,second_edge_number,third_edge_number,
 fourth_edge_number,Five_edge_number,first_nature_connecty,second_nature_connecty,third_nature_connecty,fourth_nature_connecty,Five_nature_connecty)
+
+    # draw_three_indeicators(20210101, 20210508,
+    #                    first_average_SJZ_alone, second_average_SJZ_alone, third_average_SJZ_alone,
+    #                    fourth_average_SJZ_alone, Five_average_SJZ_alone,
