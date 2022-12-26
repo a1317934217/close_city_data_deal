@@ -66,9 +66,9 @@ def get_city_migration_index(file_save_location,task_type):
             try:
                 #示例url爬取
                 # url = "https://huiyan.baidu.com/migration/historycurve.jsonp?dt=city&id=110000&type=move_in"
-                # url = 'https://huiyan.baidu.com/migration/historycurve.jsonp?dt=city&id={}&type={}'.format(code, task_type)
+                url = 'https://huiyan.baidu.com/migration/historycurve.jsonp?dt=city&id={}&type={}'.format(code, task_type)
                 #整合数据
-                url = 'https://huiyan.baidu.com/migration/historycurve.jsonp?dt=city&id={}&type={}&startDate=20200110&endDate=20200315'.format(code, task_type)
+                # url = 'https://huiyan.baidu.com/migration/historycurve.jsonp?dt=city&id={}&type={}&startDate=20200110&endDate=20200315'.format(code, task_type)
                 try:
                     # https://huiyan.baidu.com/migration/historycurve.jsonp?dt=city&id=110000&type=move_in
                     text = loads_jsonp(requests.get(url).text)
@@ -192,15 +192,15 @@ if __name__ == '__main__':
     get_city_migration_index('F:/百度迁徙数据_日常维护/迁徙指数_需补充/out/', "move_out")
 
 
-    # 两个迁徙比例 爬取
-    # get_city_migration_proportion(migration_proportion_in,"move_in",20220830,20221010)
-    # get_city_migration_proportion(migration_proportion_out,"move_out",20220830,20221010)
+    #两个迁徙比例 爬取
+    # get_city_migration_proportion(migration_proportion_in,"move_in",20221011,20221206)
+    # get_city_migration_proportion(migration_proportion_out,"move_out",20221011,20221206)
 
 
     #补充爬取
 
-    # list_problem_in = [(530600, "昭通", 20221004)]
-    # list_problem_out = [(150100, "呼和浩特", 20220923), (441400, "梅州", 20220907), (510700, "绵阳", 20220903)]
+    # list_problem_in = [(469001, "五指山", 20221123),(530400, "玉溪", 20221108)]
+    # list_problem_out = [(210900, "阜新", 20221013), (370300, "淄博", 20221205)]
     #
     # for i in list_problem_in:
     #     makeUp_problem_data(migration_proportion_in,"move_in",i[0],i[1],i[2])

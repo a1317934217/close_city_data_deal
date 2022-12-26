@@ -131,18 +131,27 @@ def function_encapsulation(first_data,second_data,listXData,ax1,title_name):
 
 
 
-    plt.scatter(6, 1, s=50, color='cyan')
-    plt.plot([6, 6], [1, 0], 'x--', lw=1.5)
-    plt.text(0, 0.90, r'封城开始', fontdict={'size': '10', 'color': 'black'})
+    # plt.scatter(6, 1, s=50, color='cyan')
+    # plt.plot([6, 6], [1, 0], 'x--', lw=1.5)
+    # plt.text(0, 0.90, r'封城开始', fontdict={'size': '10', 'color': 'black'})
+    #
+    # plt.scatter(28, 1, s=50, color='cyan')
+    # plt.plot([28, 28], [1, 0], 'x--', lw=1.5)
+    # plt.text(27, 0.90, r'封城结束', fontdict={'size': '10', 'color': 'black'})
 
-    plt.scatter(28, 1, s=50, color='cyan')
-    plt.plot([28, 28], [1, 0], 'x--', lw=1.5)
-    plt.text(27, 0.90, r'封城结束', fontdict={'size': '10', 'color': 'black'})
+    plt.scatter(92, 1, s=50, color='cyan')
+    plt.plot([92, 92], [1, 0], 'x--', lw=1.5)
+    plt.text(91, 0.90, r'清明节', fontdict={'size': '10', 'color': 'black'})
+
+    plt.scatter(120, 1, s=50, color='cyan')
+    plt.plot([120, 120], [1, 0], 'x--', lw=1.5)
+    plt.text(119, 0.90, r'劳动节', fontdict={'size': '10', 'color': 'black'})
+
     plt.legend()
 
 def draw_all_city_flow(beginData,endData):
     listXData = getdaylist(beginData, endData)
-    fig = plt.figure(figsize=(16, 12), dpi=300)
+    fig = plt.figure(figsize=(16, 12), dpi=450)
 
     final_file_adress = "F:/封城数据处理/paper_supplement_experiment/data/所有城市迁徙指数/all_city_flow/all_city_index.csv"
     move_data = pd.read_csv(final_file_adress, encoding="utf-8")

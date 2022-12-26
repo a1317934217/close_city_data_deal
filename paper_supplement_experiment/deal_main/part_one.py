@@ -95,49 +95,72 @@ def draw_every_indeicators(beginData,endData,first_data,second_data,third_data,f
     plt.rcParams['font.sans-serif'] = ['SimHei']
 
 
-    # fig = plt.figure(figsize=( 12, 4))
-    fig = plt.figure(figsize=( 6, 4))
+    fig = plt.figure(figsize=( 12, 4))
+    # fig = plt.figure(figsize=( 6, 4))
 
     # plt.rcParams['figure.figsize'] = (8, 16)
     plt.rcParams['savefig.dpi'] = 1200  # 图片像素
-    plt.rcParams['figure.dpi'] = 1200
+    plt.rcParams['figure.dpi'] = 450
     #
 
 
-    ax1 = fig.add_subplot(111)
+    ax1 = fig.add_subplot(121)
     ax1.xaxis.set_major_formatter(FuncFormatter(format_fn))
     ax1.xaxis.set_major_locator(MaxNLocator(integer=True))
     # 坐标轴ticks的字体大小
-    ax1.set_xlabel('日期', fontsize=14)  # 为x轴添加标签
-    ax1.set_ylabel('百度迁徙指数', fontsize=14)  # 为y轴添加标签  数值
+    ax1.set_xlabel('日期', fontsize=12)  # 为x轴添加标签
+    ax1.set_ylabel('百度迁徙指数', fontsize=12)  # 为y轴添加标签  数值
 
-    plt.plot(listXData, first_data, "4-", linewidth=2, label='人口流入')
-    plt.plot(listXData, third_data, "1--", linewidth=2, label='人口流出')
+    # plt.plot(listXData, first_data, "4-", linewidth=2, label='人口流入')
+    # plt.plot(listXData, third_data, "1--", linewidth=2, label='人口流出')
 
-    plt.scatter(6, 5, s=50, color='cyan')
-    plt.plot([6, 6], [5, 0], 'x--', lw=1.5)
-    plt.text(0, 5, r'封城开始', fontdict={'size': '14', 'color': 'black'})
+    plt.plot(listXData, first_data, "4-", linewidth=2, label='2021年节假日人口流出量')
+    plt.plot(listXData, second_data, "1--", linewidth=2, label='2022年节假日人口流出量')
 
-    plt.scatter(28, 5, s=50, color='cyan')
-    plt.plot([28, 28], [5, 0], 'x--', lw=1.5)
-    plt.text(27, 5, r'封城结束', fontdict={'size': '14', 'color': 'black'})
+    # plt.scatter(6, 5, s=50, color='cyan')
+    # plt.plot([6, 6], [5, 0], 'x--', lw=1.5)
+    # plt.text(0, 5, r'封城开始', fontdict={'size': '12', 'color': 'black'})
+    #
+    # plt.scatter(28, 5, s=50, color='cyan')
+    # plt.plot([28, 28], [5, 0], 'x--', lw=1.5)
+    # plt.text(27, 5, r'封城结束', fontdict={'size': '12', 'color': 'black'})
+
+    plt.scatter(92, 5, s=50, color='cyan')
+    plt.plot([92, 92], [5, 0], 'x--', lw=1.5)
+    plt.text(91, 5, r'清明节', fontdict={'size': '12', 'color': 'black'})
+
+    plt.scatter(120, 6.5, s=50, color='cyan')
+    plt.plot([120, 120], [6.5, 0], 'x--', lw=1.5)
+    plt.text(119, 6.5, r'劳动节', fontdict={'size': '12', 'color': 'black'})
+
     ax1.legend()
 
 
-    # ax2 = fig.add_subplot(122)
-    # ax2.xaxis.set_major_formatter(FuncFormatter(format_fn))
-    # ax2.xaxis.set_major_locator(MaxNLocator(integer=True))
-    # ax2.set_xlabel('日期', fontsize=14)  # 为x轴添加标签
-    # ax2.set_ylabel('百度迁徙指数', fontsize=14)  # 为y轴添加标签  数值
-    # plt.plot(listXData, third_data, "4-", linewidth=2, label='2021年封城年份人口流出量')
-    # plt.plot(listXData, four_data, "1--", linewidth=2, label='2022年未封城年份人口流出量')
+    ax2 = fig.add_subplot(122)
+    ax2.xaxis.set_major_formatter(FuncFormatter(format_fn))
+    ax2.xaxis.set_major_locator(MaxNLocator(integer=True))
+    ax2.set_xlabel('日期', fontsize=14)  # 为x轴添加标签
+    ax2.set_ylabel('百度迁徙指数', fontsize=14)  # 为y轴添加标签  数值
+    plt.plot(listXData, third_data, "4-", linewidth=2, label='2021年节假日人口流出量')
+    plt.plot(listXData, four_data, "1--", linewidth=2, label='2022年节假日人口流出量')
+
     # plt.scatter(6, 5, s=50, color='cyan')
     # plt.plot([6, 6], [5, 0], 'x--', lw=1.5)
     # plt.text(0, 5, r'封城开始', fontdict={'size': '14', 'color': 'black'})
     # plt.scatter(28, 5, s=50, color='cyan')
     # plt.plot([28, 28], [5, 0], 'x--', lw=1.5)
     # plt.text(27, 5, r'封城结束', fontdict={'size': '14', 'color': 'black'})
-    # ax2.legend()
+
+    plt.scatter(92, 5, s=50, color='cyan')
+    plt.plot([92, 92], [5, 0], 'x--', lw=1.5)
+    plt.text(91, 5, r'清明节', fontdict={'size': '12', 'color': 'black'})
+
+    plt.scatter(120, 6.5, s=50, color='cyan')
+    plt.plot([120, 120], [6.5, 0], 'x--', lw=1.5)
+    plt.text(119, 6.5, r'劳动节', fontdict={'size': '12', 'color': 'black'})
+
+
+    ax2.legend()
 
 
     plt.show()
@@ -145,3 +168,29 @@ def draw_every_indeicators(beginData,endData,first_data,second_data,third_data,f
 if __name__ == '__main__':
     draw_every_indeicators(20220101,20220508,old_in_index,new_in_index,old_out_index,new_out_index)
     # find_index_data()
+
+
+
+    # listXData = getdaylist(20210101, 20210508)
+    # j=0
+    # for i in listXData:
+    #     print(i,j)
+    #     j+=1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

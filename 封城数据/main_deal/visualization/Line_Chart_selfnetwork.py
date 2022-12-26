@@ -193,10 +193,10 @@ def function_encapsulation(first_data,second_data,third_data,fourth_data,five_da
 
 
     plt.plot(listXData, first_data,  linewidth=2,  label='一阶') #"4-",
-    plt.plot(listXData, second_data, linewidth=1,  label='二阶')#, "1--"
-    plt.plot(listXData, third_data, linewidth=1,  label='三阶')#, ".-"
-    plt.plot(listXData, fourth_data, linewidth=1,  label='四阶') #, ".-"
-    plt.plot(listXData, five_data, linewidth=1,  label='五阶') #, ".-"
+    plt.plot(listXData, second_data, linewidth=2,  label='二阶')#, "1--"
+    plt.plot(listXData, third_data, linewidth=2,  label='三阶')#, ".-"
+    plt.plot(listXData, fourth_data, linewidth=2,  label='四阶') #, ".-"
+    plt.plot(listXData, five_data, linewidth=2,  label='五阶') #, ".-"
 
 
     plt.scatter(6, 1, s=50, color='cyan')
@@ -208,13 +208,13 @@ def function_encapsulation(first_data,second_data,third_data,fourth_data,five_da
     plt.text(27, 0.90, r'封城结束', fontdict={'size': '12', 'color': 'black'})
     plt.legend()
 
-    # plt.scatter(13, 1, s=50, color='cyan')
-    # plt.plot([13, 13], [1, 0], 'x--', lw=1.5)
-    # plt.text(13, 0.90, r'西安封城开始', fontdict={'size': '14', 'color': 'black'})
-    #
-    # plt.scatter(38, 1, s=50, color='cyan')
-    # plt.plot([38, 38], [1, 0], 'x--', lw=1.5)
-    # plt.text(38, 0.90, r'西安封城结束', fontdict={'size': '14', 'color': 'black'})
+    plt.scatter(92, 1, s=50, color='cyan')
+    plt.plot([92, 92], [1, 0], 'x--', lw=1.5)
+    plt.text(91, 0.9, r'清明节', fontdict={'size': '12', 'color': 'black'})
+
+    plt.scatter(120, 1, s=50, color='cyan')
+    plt.plot([120, 120], [1, 0], 'x--', lw=1.5)
+    plt.text(119, 0.9, r'劳动节', fontdict={'size': '12', 'color': 'black'})
 
 
 def draw_every_indeicators(beginData,endData,
@@ -226,17 +226,17 @@ def draw_every_indeicators(beginData,endData,
                            ):
     listXData = getdaylist(beginData, endData)
     # 画图 设置X轴显示效果
-    fig = plt.figure(figsize=(14, 7.5),dpi=450)
-    ax1 = fig.add_subplot(221)
+    fig = plt.figure(figsize=(10, 10),dpi=450)
+    ax1 = fig.add_subplot(311)
     function_encapsulation(first_average, second_average, third_average, fourth_average, Five_average,listXData,ax1,"(a) 平均点连通性")
 
-    ax2 = fig.add_subplot(222)
-    function_encapsulation( first_degree,second_degree, third_degree, fourth_degree, Five_degree,listXData,ax2,"(b) 度")
+    # ax2 = fig.add_subplot(222)
+    # function_encapsulation( first_degree,second_degree, third_degree, fourth_degree, Five_degree,listXData,ax2,"(b) 度")
 
-    ax3 = fig.add_subplot(223)
+    ax3 = fig.add_subplot(312)
     function_encapsulation(first_edge_number,second_edge_number, third_edge_number,fourth_edge_number, Five_edge_number,listXData,ax3,"(c) 边数量")
 
-    ax4 = fig.add_subplot(224)
+    ax4 = fig.add_subplot(313)
     # 为了设置x轴时间的显示
 
     function_encapsulation(first_nature_connecty, second_nature_connecty,third_nature_connecty, fourth_nature_connecty, Five_nature_connecty,listXData,ax4,"(d) 自然连通性")
@@ -296,9 +296,9 @@ if __name__ == '__main__':
     #                        fourth_edge_number, Five_edge_number)
 
 #
-    draw_every_indeicators(20210101, 20210508,first_average,second_average,third_average,fourth_average,Five_average,first_degree,second_degree,third_degree,fourth_degree,Five_degree,first_edge_number,second_edge_number,third_edge_number,
-fourth_edge_number,Five_edge_number,first_nature_connecty,second_nature_connecty,third_nature_connecty,fourth_nature_connecty,Five_nature_connecty)
+#     draw_every_indeicators(20210101, 20210508,first_average,second_average,third_average,fourth_average,Five_average,first_degree,second_degree,third_degree,fourth_degree,Five_degree,first_edge_number,second_edge_number,third_edge_number,
+# fourth_edge_number,Five_edge_number,first_nature_connecty,second_nature_connecty,third_nature_connecty,fourth_nature_connecty,Five_nature_connecty)
 
-    # draw_three_indeicators(20210101, 20210508,
-    #                    first_average_SJZ_alone, second_average_SJZ_alone, third_average_SJZ_alone,
-    #                    fourth_average_SJZ_alone, Five_average_SJZ_alone,
+    draw_three_indeicators(20210101, 20210508,
+                       first_average_SJZ_alone, second_average_SJZ_alone, third_average_SJZ_alone,
+                       fourth_average_SJZ_alone, Five_average_SJZ_alone,first_degree,second_degree,third_degree,fourth_degree,Five_degree)

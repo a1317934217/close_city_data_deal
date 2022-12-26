@@ -2,35 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c619ef58-0715-4b5e-956d-c564aa0b0053" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/all_city_flow/all_city_index.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/in/110000_北京_move_in.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/in/120000_天津_move_in.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/in/130200_唐山_move_in.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/in/130300_秦皇岛_move_in.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/in/130400_邯郸_move_in.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/in/130500_邢台_move_in.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/in/130600_保定_move_in.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/in/130700_张家口_move_in.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/in/130800_承德_move_in.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/in/130900_沧州_move_in.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/in/131000_廊坊_move_in.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/in/131100_衡水_move_in.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/out/110000_北京_move_out.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/out/120000_天津_move_out.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/out/130200_唐山_move_out.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/out/130300_秦皇岛_move_out.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/out/130400_邯郸_move_out.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/out/130500_邢台_move_out.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/out/130600_保定_move_out.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/out/130700_张家口_move_out.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/out/130800_承德_move_out.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/out/130900_沧州_move_out.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/out/131000_廊坊_move_out.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/out/131100_衡水_move_out.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/deal_main/around_city_flow.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/deal_main/build_self_centered_network.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/deal_main/calculation_self_network_index.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/epidemic_situation_index_spider/data/111.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/epidemic_situation_index_spider/data/ChinaAreaCodes_epidemic.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/epidemic_situation_index_spider/main_deal/spider_epidemic_index.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/epidemic_situation_index_spider/main_deal/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrationof_BaiDu_spider/baidu_spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrationof_BaiDu_spider/baidu_spider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paper_supplement_experiment/data/all_city_indicators.csv" beforeDir="false" afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/all_city_indicators.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paper_supplement_experiment/deal_main/around_city_flow.py" beforeDir="false" afterPath="$PROJECT_DIR$/paper_supplement_experiment/deal_main/around_city_flow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paper_supplement_experiment/deal_main/calculation_self_network_index.py" beforeDir="false" afterPath="$PROJECT_DIR$/paper_supplement_experiment/deal_main/calculation_self_network_index.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paper_supplement_experiment/deal_main/part_one.py" beforeDir="false" afterPath="$PROJECT_DIR$/paper_supplement_experiment/deal_main/part_one.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/physicalconnecitvity/indicators/total.py" beforeDir="false" afterPath="$PROJECT_DIR$/physicalconnecitvity/indicators/total.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/封城数据/main_deal/visualization/Line_Chart_selfnetwork.py" beforeDir="false" afterPath="$PROJECT_DIR$/封城数据/main_deal/visualization/Line_Chart_selfnetwork.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,70 +40,99 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/deal_main/around_city_flow.py">
+        <entry file="file://$PROJECT_DIR$/migrationof_BaiDu_spider/baidu_spider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1306">
-              <caret line="147" column="54" lean-forward="true" selection-start-line="147" selection-start-column="54" selection-end-line="147" selection-end-column="54" />
+            <state relative-caret-position="455">
+              <caret line="129" column="40" selection-start-line="103" selection-start-column="4" selection-end-line="129" selection-end-column="40" />
               <folding>
-                <element signature="e#116#126#0" expanded="true" />
+                <element signature="e#301#433#0" />
+                <element signature="e#477#814#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/北京/北京一阶/deal_03/20210102_北京.csv">
-          <provider editor-type-id="csv-table-editor">
-            <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-          </provider>
-          <provider selected="true" editor-type-id="csv-text-editor">
-            <state relative-caret-position="480">
-              <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/deal_main/build_self_centered_network.py">
+        <entry file="file://$PROJECT_DIR$/migrationof_BaiDu_spider/inAndOutintegration.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1024">
-              <caret line="230" lean-forward="true" selection-start-line="230" selection-end-line="230" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/deal_main/part_one.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="915">
-              <caret line="67" column="28" lean-forward="true" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="28" />
-              <folding>
-                <element signature="e#108#123#0" expanded="true" />
-                <element signature="e#7174#9432#0" />
-              </folding>
+            <state relative-caret-position="984">
+              <caret line="44" column="38" selection-start-line="44" selection-start-column="38" selection-end-line="44" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/all_city_indicators.csv">
+          <provider selected="true" editor-type-id="csv-text-editor">
+            <state relative-caret-position="312">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            </state>
+          </provider>
           <provider editor-type-id="csv-table-editor">
             <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
           </provider>
-          <provider selected="true" editor-type-id="csv-text-editor">
-            <state relative-caret-position="32">
-              <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/epidemic_situation_index_spider/main_deal/spider_epidemic_index.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="346">
+              <caret line="162" column="30" lean-forward="true" selection-start-line="162" selection-start-column="30" selection-end-line="162" selection-end-column="30" />
+              <folding>
+                <element signature="e#104#114#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/deal_main/calculation_self_network_index.py">
+        <entry file="file://$PROJECT_DIR$/epidemic_situation_index_spider/data/ChinaAreaCodes_epidemic.csv">
+          <provider selected="true" editor-type-id="csv-text-editor">
+            <state>
+              <caret line="3" column="10" lean-forward="true" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
+            </state>
+          </provider>
+          <provider editor-type-id="csv-table-editor">
+            <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/epidemic_situation_index_spider/data/111.csv">
+          <provider selected="true" editor-type-id="csv-text-editor" />
+          <provider editor-type-id="csv-table-editor">
+            <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/epidemic_situation_index_spider/main_deal/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="282" column="72" lean-forward="true" selection-start-line="282" selection-start-column="72" selection-end-line="282" selection-end-column="72" />
+            <state relative-caret-position="96">
+              <caret line="4" column="17" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/封城数据/main_deal/find_around_city.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="586">
+              <caret line="168" column="5" selection-start-line="168" selection-start-column="5" selection-end-line="168" selection-end-column="5" />
               <folding>
-                <element signature="e#127#137#0" expanded="true" />
+                <element signature="e#15#24#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/deal_main/around_city_flow.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3576">
+              <caret line="161" column="17" selection-start-line="161" selection-start-column="17" selection-end-line="161" selection-end-column="17" />
+              <folding>
+                <element signature="e#116#126#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -131,6 +144,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -151,6 +166,12 @@
       <find>]</find>
       <find>[</find>
       <find>邢台</find>
+      <find>290474</find>
+      <find>Comment</find>
+      <find>s-data</find>
+      <find>杭州市</find>
+      <find>杭州市疫情</find>
+      <find>北京</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -173,7 +194,6 @@
         <option value="$PROJECT_DIR$/physicalconnecitvity/indicators/dealdata/find_same_city.py" />
         <option value="$PROJECT_DIR$/封城数据/石家庄/石家庄一阶/garbage_self_network/deal_02/in/20210101_石家庄.csv" />
         <option value="$PROJECT_DIR$/封城数据/石家庄/石家庄二阶/garbage_self_network/deal_01/in/20210101_石家庄.csv" />
-        <option value="$PROJECT_DIR$/physicalconnecitvity/indicators/total.py" />
         <option value="$PROJECT_DIR$/封城数据/main_deal/visualization_selfnetwork.py" />
         <option value="$PROJECT_DIR$/封城数据/main_deal/find_around_city.py" />
         <option value="$PROJECT_DIR$/封城数据/main_deal/Line_Chart_selfnetwork.py" />
@@ -184,30 +204,36 @@
         <option value="$PROJECT_DIR$/封城数据/main_deal/test.py" />
         <option value="$PROJECT_DIR$/封城数据/main_deal/close_city_caculate_indicator.py" />
         <option value="$PROJECT_DIR$/migrationof_BaiDu_spider/multithreading_spider.py" />
-        <option value="$PROJECT_DIR$/migrationof_BaiDu_spider/baidu_spider.py" />
         <option value="$PROJECT_DIR$/migrationof_BaiDu_spider/merge_index.py" />
         <option value="$PROJECT_DIR$/SODA_Match/main_deal/draw_pic_caculate_indicator.py" />
         <option value="$PROJECT_DIR$/SODA_Match/main_deal/test.py" />
-        <option value="$PROJECT_DIR$/paper_supplement_experiment/deal_main/part_one.py" />
         <option value="$PROJECT_DIR$/paper_supplement_experiment/deal_main/part_two.py" />
         <option value="$PROJECT_DIR$/paper_supplement_experiment/data/石家庄/封城前后差异边/diff_one.csv" />
-        <option value="$PROJECT_DIR$/paper_supplement_experiment/deal_main/visualization_one_order.py" />
         <option value="$PROJECT_DIR$/封城数据/main_deal/visualization/visualization_selfnetwork.py" />
-        <option value="$PROJECT_DIR$/封城数据/main_deal/visualization/Line_Chart_selfnetwork.py" />
         <option value="$PROJECT_DIR$/migrationof_BaiDu_spider/ChinaAreaCodes.csv" />
         <option value="$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/all_city_flow/all_city_index.csv" />
-        <option value="$PROJECT_DIR$/paper_supplement_experiment/data/all_city_indicators.csv" />
-        <option value="$PROJECT_DIR$/paper_supplement_experiment/deal_main/around_city_flow.py" />
-        <option value="$PROJECT_DIR$/paper_supplement_experiment/deal_main/calculation_self_network_index.py" />
         <option value="$PROJECT_DIR$/paper_supplement_experiment/deal_main/build_self_centered_network.py" />
+        <option value="$PROJECT_DIR$/封城数据/main_deal/visualization/Line_Chart_selfnetwork.py" />
+        <option value="$PROJECT_DIR$/physicalconnecitvity/indicators/total.py" />
+        <option value="$PROJECT_DIR$/paper_supplement_experiment/deal_main/around_city_flow.py" />
+        <option value="$PROJECT_DIR$/paper_supplement_experiment/deal_main/part_one.py" />
+        <option value="$PROJECT_DIR$/migrationof_BaiDu_spider/baidu_spider.py" />
+        <option value="$PROJECT_DIR$/paper_supplement_experiment/deal_main/visualization_one_order.py" />
+        <option value="$PROJECT_DIR$/paper_supplement_experiment/deal_main/calculation_self_network_index.py" />
+        <option value="$PROJECT_DIR$/paper_supplement_experiment/data/all_city_indicators.csv" />
+        <option value="$PROJECT_DIR$/epidemic_situation_index_spider/main_deal/test.html" />
+        <option value="$PROJECT_DIR$/epidemic_situation_index_spider/main_deal/12121212.js" />
+        <option value="$PROJECT_DIR$/epidemic_situation_index_spider/main_deal/test.py" />
+        <option value="$PROJECT_DIR$/epidemic_situation_index_spider/data/ChinaAreaCodes_epidemic.csv" />
+        <option value="$PROJECT_DIR$/epidemic_situation_index_spider/main_deal/spider_epidemic_index.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1383" />
-    <option name="y" value="-33" />
-    <option name="width" value="1752" />
-    <option name="height" value="984" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="982" />
+    <option name="height" value="975" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -226,59 +252,24 @@
             <path>
               <item name="封城数据处理" type="b2602c69:ProjectViewProjectNode" />
               <item name="封城数据处理" type="462c0819:PsiDirectoryNode" />
-              <item name="paper_supplement_experiment" type="462c0819:PsiDirectoryNode" />
+              <item name="epidemic_situation_index_spider" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="封城数据处理" type="b2602c69:ProjectViewProjectNode" />
               <item name="封城数据处理" type="462c0819:PsiDirectoryNode" />
-              <item name="paper_supplement_experiment" type="462c0819:PsiDirectoryNode" />
+              <item name="epidemic_situation_index_spider" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="封城数据处理" type="b2602c69:ProjectViewProjectNode" />
               <item name="封城数据处理" type="462c0819:PsiDirectoryNode" />
-              <item name="paper_supplement_experiment" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="所有城市迁徙指数" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="封城数据处理" type="b2602c69:ProjectViewProjectNode" />
-              <item name="封城数据处理" type="462c0819:PsiDirectoryNode" />
-              <item name="paper_supplement_experiment" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="所有城市迁徙指数" type="462c0819:PsiDirectoryNode" />
-              <item name="all_city_flow" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="封城数据处理" type="b2602c69:ProjectViewProjectNode" />
-              <item name="封城数据处理" type="462c0819:PsiDirectoryNode" />
-              <item name="paper_supplement_experiment" type="462c0819:PsiDirectoryNode" />
-              <item name="deal_main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="封城数据处理" type="b2602c69:ProjectViewProjectNode" />
-              <item name="封城数据处理" type="462c0819:PsiDirectoryNode" />
-              <item name="封城数据" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="封城数据处理" type="b2602c69:ProjectViewProjectNode" />
-              <item name="封城数据处理" type="462c0819:PsiDirectoryNode" />
-              <item name="封城数据" type="462c0819:PsiDirectoryNode" />
+              <item name="epidemic_situation_index_spider" type="462c0819:PsiDirectoryNode" />
               <item name="main_deal" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="封城数据处理" type="b2602c69:ProjectViewProjectNode" />
               <item name="封城数据处理" type="462c0819:PsiDirectoryNode" />
               <item name="封城数据" type="462c0819:PsiDirectoryNode" />
-              <item name="main_deal" type="462c0819:PsiDirectoryNode" />
-              <item name="Multithreading_deal" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="封城数据处理" type="b2602c69:ProjectViewProjectNode" />
-              <item name="封城数据处理" type="462c0819:PsiDirectoryNode" />
-              <item name="封城数据" type="462c0819:PsiDirectoryNode" />
-              <item name="main_deal" type="462c0819:PsiDirectoryNode" />
-              <item name="visualization" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="封城数据处理" type="b2602c69:ProjectViewProjectNode" />
@@ -291,26 +282,27 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/paper_supplement_experiment/deal_main" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/epidemic_situation_index_spider/data" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\封城数据处理\paper_supplement_experiment\deal_main" />
-      <recent name="F:\封城数据处理\paper_supplement_experiment\data\所有城市迁徙指数\out" />
-      <recent name="F:\封城数据处理\paper_supplement_experiment\data\所有城市迁徙指数\in" />
-      <recent name="F:\封城数据处理\paper_supplement_experiment\data\所有城市迁徙指数\all_city_flow" />
-      <recent name="F:\封城数据处理\paper_supplement_experiment\data" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\封城数据处理\migrationof_BaiDu_spider\data_deal_origion\old" />
       <recent name="F:\封城数据处理\migrationof_BaiDu_spider\data_deal_origion\new" />
       <recent name="F:\封城数据处理\封城数据\main_deal\visualization" />
       <recent name="F:\封城数据处理\封城数据\石家庄\石家庄一阶" />
       <recent name="F:\封城数据处理\封城数据\main_deal\data\石家庄" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\封城数据处理\epidemic_situation_index_spider\data" />
+      <recent name="F:\封城数据处理\paper_supplement_experiment\deal_main" />
+      <recent name="F:\封城数据处理\paper_supplement_experiment\data\所有城市迁徙指数\out" />
+      <recent name="F:\封城数据处理\paper_supplement_experiment\data\所有城市迁徙指数\in" />
+      <recent name="F:\封城数据处理\paper_supplement_experiment\data\所有城市迁徙指数\all_city_flow" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -325,30 +317,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.calculation_self_network_index">
-    <configuration name="Line_Chart_selfnetwork" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="封城数据处理" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/封城数据/main_deal/visualization" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/封城数据/main_deal/visualization/Line_Chart_selfnetwork.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
+  <component name="RunManager" selected="Python.spider_epidemic_index">
+    <configuration name="test.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/封城数据处理/epidemic_situation_index_spider/main_deal/test.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="around_city_flow" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="baidu_spider" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="封城数据处理" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -356,34 +329,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/paper_supplement_experiment/deal_main" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/migrationof_BaiDu_spider" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/paper_supplement_experiment/deal_main/around_city_flow.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="build_self_centered_network" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="封城数据处理" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/paper_supplement_experiment/deal_main" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/paper_supplement_experiment/deal_main/build_self_centered_network.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/migrationof_BaiDu_spider/baidu_spider.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -414,7 +365,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="visualization_selfnetwork" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="spider_epidemic_index" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="封城数据处理" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -422,12 +373,34 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/封城数据/main_deal/visualization" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/epidemic_situation_index_spider/main_deal" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/封城数据/main_deal/visualization/visualization_selfnetwork.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/epidemic_situation_index_spider/main_deal/spider_epidemic_index.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="封城数据处理" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/epidemic_situation_index_spider/main_deal" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="F:\封城数据处理\epidemic_situation_index_spider\main_deal\spider_epidemic_index.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -438,11 +411,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.spider_epidemic_index" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="JavaScript Debug.test.html" />
         <item itemvalue="Python.calculation_self_network_index" />
-        <item itemvalue="Python.around_city_flow" />
-        <item itemvalue="Python.build_self_centered_network" />
-        <item itemvalue="Python.Line_Chart_selfnetwork" />
-        <item itemvalue="Python.visualization_selfnetwork" />
+        <item itemvalue="Python.baidu_spider" />
       </list>
     </recent_temporary>
   </component>
@@ -484,7 +457,16 @@
       <workItem from="1668431262653" duration="11988000" />
       <workItem from="1668684470724" duration="879000" />
       <workItem from="1668912078328" duration="31748000" />
-      <workItem from="1669030758566" duration="3415000" />
+      <workItem from="1669030758566" duration="11456000" />
+      <workItem from="1669516153619" duration="2663000" />
+      <workItem from="1669725207940" duration="1635000" />
+      <workItem from="1669779823937" duration="1002000" />
+      <workItem from="1670160759344" duration="4735000" />
+      <workItem from="1670380099953" duration="6480000" />
+      <workItem from="1671511431931" duration="41000" />
+      <workItem from="1671521113399" duration="1459000" />
+      <workItem from="1671759384150" duration="981000" />
+      <workItem from="1671961888267" duration="31966000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1664112078577</created>
@@ -542,11 +524,25 @@
       <option name="project" value="LOCAL" />
       <updated>1668510356331</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="日常备份">
+      <created>1669107990280</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1669107990280</updated>
+    </task>
+    <task id="LOCAL-00010" summary="日常备份">
+      <created>1669108444165</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1669108444165</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="312262000" />
+    <option name="totallyTimeSpent" value="371265000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -558,15 +554,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="2575" height="1415" extended-state="6" />
+    <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14421931" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18413174" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.22521247" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.89908624" weight="0.22369447" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.27981293" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.89908624" visible="true" weight="0.36418512" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.27967808" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -579,16 +576,16 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" weight="0.3897497" />
-      <window_info anchor="right" id="Database" order="4" weight="0.025824394" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.22392885" />
+      <window_info anchor="right" id="Database" order="4" weight="0.043565683" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14421931" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18413174" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.22521247" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.89908624" visible="true" weight="0.22369447" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.89908624" visible="true" weight="0.34406438" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.27981293" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -602,8 +599,8 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" id="SciView" order="3" visible="true" weight="0.3897497" />
-      <window_info anchor="right" id="Database" order="4" weight="0.025824394" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.22392885" />
+      <window_info anchor="right" id="Database" order="4" weight="0.043565683" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -675,167 +672,45 @@
     <SUITE FILE_PATH="coverage/$demo_two.coverage" NAME="demo_two Coverage Results" MODIFIED="1664469260608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/封城数据/main_deal/Multithreading_deal" />
     <SUITE FILE_PATH="coverage/$draw_pic_caculate_indicator.coverage" NAME="draw_pic_caculate_indicator Coverage Results" MODIFIED="1666405164696" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SODA_Match/main_deal" />
     <SUITE FILE_PATH="coverage/$visualization_one_order.coverage" NAME="visualization_one_order Coverage Results" MODIFIED="1668431271439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/paper_supplement_experiment/deal_main" />
-    <SUITE FILE_PATH="coverage/$part_one.coverage" NAME="part_one Coverage Results" MODIFIED="1667785866708" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/paper_supplement_experiment/deal_main" />
+    <SUITE FILE_PATH="coverage/$part_one.coverage" NAME="part_one Coverage Results" MODIFIED="1670205927777" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/paper_supplement_experiment/deal_main" />
     <SUITE FILE_PATH="coverage/$demo_one.coverage" NAME="demo_one Coverage Results" MODIFIED="1664461646436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/封城数据/main_deal/Multithreading_deal" />
+    <SUITE FILE_PATH="coverage/$total.coverage" NAME="total Coverage Results" MODIFIED="1669543678514" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/physicalconnecitvity/indicators" />
     <SUITE FILE_PATH="coverage/$find_same_city.coverage" NAME="find_same_city Coverage Results" MODIFIED="1664107182049" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/physicalconnecitvity/indicators/dealdata" />
     <SUITE FILE_PATH="coverage/$visualization_selfnetwork.coverage" NAME="visualization_selfnetwork Coverage Results" MODIFIED="1668481113362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/封城数据/main_deal/visualization" />
     <SUITE FILE_PATH="coverage/$build_self_centered_network.coverage" NAME="build_self_centered_network Coverage Results" MODIFIED="1669002492940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/paper_supplement_experiment/deal_main" />
-    <SUITE FILE_PATH="coverage/$calculation_self_network_index.coverage" NAME="calculation_self_network_index Coverage Results" MODIFIED="1669032240620" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/paper_supplement_experiment/deal_main" />
+    <SUITE FILE_PATH="coverage/$calculation_self_network_index.coverage" NAME="calculation_self_network_index Coverage Results" MODIFIED="1671524054301" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/paper_supplement_experiment/deal_main" />
     <SUITE FILE_PATH="coverage/$merge_index.coverage" NAME="merge_index Coverage Results" MODIFIED="1665712591343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/migrationof_BaiDu_spider" />
     <SUITE FILE_PATH="coverage/$close_city_caculate_indicator.coverage" NAME="close_city_caculate_indicator Coverage Results" MODIFIED="1664783083922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/封城数据/main_deal" />
-    <SUITE FILE_PATH="coverage/$Line_Chart_selfnetwork.coverage" NAME="Line_Chart_selfnetwork Coverage Results" MODIFIED="1668515462854" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/封城数据/main_deal/visualization" />
-    <SUITE FILE_PATH="coverage/$baidu_spider.coverage" NAME="baidu_spider Coverage Results" MODIFIED="1665711809817" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/migrationof_BaiDu_spider" />
-    <SUITE FILE_PATH="coverage/$around_city_flow.coverage" NAME="around_city_flow Coverage Results" MODIFIED="1669032126659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/paper_supplement_experiment/deal_main" />
+    <SUITE FILE_PATH="coverage/$Line_Chart_selfnetwork.coverage" NAME="Line_Chart_selfnetwork Coverage Results" MODIFIED="1669170150521" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/封城数据/main_deal/visualization" />
+    <SUITE FILE_PATH="coverage/$around_city_flow.coverage" NAME="around_city_flow Coverage Results" MODIFIED="1670163225806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/paper_supplement_experiment/deal_main" />
+    <SUITE FILE_PATH="coverage/$baidu_spider.coverage" NAME="baidu_spider Coverage Results" MODIFIED="1670397496224" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/migrationof_BaiDu_spider" />
     <SUITE FILE_PATH="coverage/$find_around_city.coverage" NAME="find_around_city Coverage Results" MODIFIED="1664434760002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/封城数据/main_deal" />
     <SUITE FILE_PATH="coverage/$igraph_selfnetwork.coverage" NAME="igraph_selfnetwork Coverage Results" MODIFIED="1664442080163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/封城数据/main_deal/visualization" />
-    <SUITE FILE_PATH="coverage/$test.coverage" NAME="test Coverage Results" MODIFIED="1666944550943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SODA_Match/main_deal" />
+    <SUITE FILE_PATH="coverage/$test.coverage" NAME="test Coverage Results" MODIFIED="1672042800686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/epidemic_situation_index_spider/main_deal" />
     <SUITE FILE_PATH="coverage/$generate_csv_file.coverage" NAME="generate_csv_file Coverage Results" MODIFIED="1664456829392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/封城数据/main_deal" />
+    <SUITE FILE_PATH="coverage/$spider_epidemic_index.coverage" NAME="spider_epidemic_index Coverage Results" MODIFIED="1672055940545" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/epidemic_situation_index_spider/main_deal" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/石家庄/石家庄一阶/deal_03/20210118_石家庄.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/石家庄/石家庄一阶/deal_03/20210119_石家庄.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/石家庄/石家庄一阶/deal_03/20210120_石家庄.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/石家庄/石家庄一阶/deal_03/20210121_石家庄.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/石家庄/石家庄一阶/deal_03/20210122_石家庄.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/石家庄/石家庄一阶/deal_03/20210123_石家庄.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/石家庄/石家庄一阶/deal_03/20210124_石家庄.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state>
-          <caret column="22" selection-start-column="10" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/migrationof_BaiDu_spider/inAndOutintegration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2528">
-          <caret line="85" column="44" selection-start-line="84" selection-start-column="24" selection-end-line="85" selection-end-column="44" />
-          <folding>
-            <element signature="e#325#400#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/石家庄/石家庄一阶/deal_03/20210125_石家庄.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/石家庄/石家庄一阶/deal_03/20210126_石家庄.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/石家庄/石家庄一阶/deal_03/20210127_石家庄.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/石家庄/石家庄一阶/deal_03/20210128_石家庄.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="512">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/石家庄/石家庄一阶/deal_03/20210115_石家庄.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="352">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/01_anconda/envs/master/Lib/csv.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="154" selection-start-line="154" selection-end-line="154" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/石家庄/封城前后差异边/diff_one.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/in/120000_天津_move_in.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/in/130700_张家口_move_in.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/out/131100_衡水_move_out.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/migrationof_BaiDu_spider/ChinaAreaCodes.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
       <provider selected="true" editor-type-id="csv-text-editor">
         <state relative-caret-position="284">
           <caret line="26" column="10" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="10" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/migrationof_BaiDu_spider/baidu_spider.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-160">
-          <caret line="64" column="25" lean-forward="true" selection-start-line="60" selection-start-column="4" selection-end-line="64" selection-end-column="25" />
-          <folding>
-            <element signature="e#301#433#0" />
-            <element signature="e#477#814#0" />
-          </folding>
-        </state>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/封城数据/main_deal/visualization/visualization_selfnetwork.py">
@@ -848,10 +723,194 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/out/110000_北京_move_out.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="288">
+          <caret line="129" column="8" selection-start-line="129" selection-end-line="129" selection-end-column="8" />
+        </state>
+      </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/out/120000_天津_move_out.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="672">
+          <caret line="141" column="18" selection-start-line="141" selection-start-column="18" selection-end-line="141" selection-end-column="18" />
+        </state>
+      </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/in/131100_衡水_move_in.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/out/131000_廊坊_move_out.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/in/110000_北京_move_in.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state>
+          <caret column="4" selection-end-column="4" />
+        </state>
+      </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/北京/北京一阶/deal_03/20210101_北京.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/封城数据/main_deal/visualization/igraph_selfnetwork.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/邢台/邢台一阶/deal_03/20210109_邢台.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="-27" />
+      </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/邢台/邢台一阶/deal_03/20210506_邢台.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="-27" />
+      </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/邢台/邢台一阶/deal_03/20210508_邢台.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="-27" />
+      </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/邢台/邢台一阶/deal_03/20210504_邢台.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="-27" />
+      </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/邢台/邢台一阶/deal_03/20210501_邢台.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="-27" />
+      </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/邢台/邢台一阶/deal_03/20210428_邢台.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="389">
+          <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+        </state>
+      </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/北京/北京一阶/deal_03/20210107_北京.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/邢台/邢台一阶/deal_03/20210107_邢台.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="-27" />
+      </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/邢台/邢台一阶/deal_03/20210103_邢台.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="-27" />
+      </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/邢台/邢台一阶/deal_03/20210101_邢台.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="453">
+          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+        </state>
+      </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/all_city_flow/all_city_index.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="32">
+          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="4" />
+        </state>
+      </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/北京/北京一阶/deal_03/20210102_北京.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="480">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+        </state>
+      </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/NetSarang Computer/6/Xftp/Temporary/test.py" />
+    <entry file="file://$PROJECT_DIR$/physicalconnecitvity/indicators/total.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7616">
+          <caret line="251" column="74" selection-start-line="251" selection-start-column="74" selection-end-line="251" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/physicalconnecitvity/indicators/indictors.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/封城数据/main_deal/visualization/Line_Chart_selfnetwork.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6784">
+          <caret line="228" column="45" selection-start-line="228" selection-start-column="38" selection-end-line="228" selection-end-column="45" />
+          <folding>
+            <element signature="e#124#141#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/migrationof_BaiDu_spider/merge_index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="37" column="92" selection-start-line="37" selection-start-column="92" selection-end-line="37" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/deal_main/part_two.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="17" selection-start-line="17" selection-end-line="27" selection-end-column="18" />
+        <state relative-caret-position="768">
+          <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
           <folding>
             <element signature="e#107#122#0" expanded="true" />
             <element signature="e#308#645#0" />
@@ -859,77 +918,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/deal_main/visualization_one_order.py">
+    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/deal_main/build_self_centered_network.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8672">
-          <caret line="299" column="8" selection-start-line="299" selection-start-column="8" selection-end-line="299" selection-end-column="8" />
+        <state relative-caret-position="7136">
+          <caret line="230" selection-start-line="230" selection-end-line="230" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/封城数据/main_deal/Multithreading_deal/demo_one.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/deal_main/part_one.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3552">
+          <caret line="148" column="34" selection-start-line="148" selection-start-column="34" selection-end-line="148" selection-end-column="34" />
           <folding>
-            <element signature="e#13596#14079#0" />
+            <element signature="e#108#123#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/out/110000_北京_move_out.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="288">
-          <caret line="129" column="8" selection-start-line="129" selection-end-line="129" selection-end-column="8" />
-        </state>
-      </provider>
+    <entry file="file://E:/01_课题汇报/杨晨论文和代码（最原始版本）/杨晨论文和代码（最原始版本）/研究生_杨晨/wencheng-data/wuhan_feiyan/卫健委爬虫.ipynb">
+      <provider selected="true" editor-type-id="jupyter-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/out/120000_天津_move_out.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="672">
-          <caret line="141" column="18" selection-start-line="141" selection-start-column="18" selection-end-line="141" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/in/131100_衡水_move_in.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/out/131000_廊坊_move_out.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/in/110000_北京_move_in.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state>
-          <caret column="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/封城数据/main_deal/generate_csv_file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="75" selection-start-line="75" selection-end-line="136" />
-          <folding>
-            <element signature="e#14068#16658#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/北京/北京一阶/deal_03/20210101_北京.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
+    <entry file="file://E:/01_课题汇报/杨晨论文和代码（最原始版本）/杨晨论文和代码（最原始版本）/研究生_杨晨/wencheng-data/wuhan_feiyan/百度数据进行预测经济.ipynb">
+      <provider selected="true" editor-type-id="jupyter-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/封城数据/main_deal/close_city_caculate_indicator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="928">
+        <state relative-caret-position="2712">
           <caret line="223" selection-start-line="223" selection-end-line="223" />
           <folding>
             <element signature="e#12292#12741#0" />
@@ -942,9 +959,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/deal_main/visualization_one_order.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3528">
+          <caret line="175" column="4" selection-start-line="175" selection-start-column="4" selection-end-line="214" />
+          <folding>
+            <element signature="e#13596#14079#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/deal_main/calculation_self_network_index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7272">
+          <caret line="324" selection-start-line="324" selection-end-line="324" />
+          <folding>
+            <element signature="e#127#137#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/封城数据/main_deal/generate_csv_file.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1632">
+          <caret line="75" selection-start-line="75" selection-end-line="136" />
+          <folding>
+            <element signature="e#14068#16658#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/封城数据/main_deal/test.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/deal_main/around_city_flow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3576">
+          <caret line="161" column="17" selection-start-line="161" selection-start-column="17" selection-end-line="161" selection-end-column="17" />
+          <folding>
+            <element signature="e#116#126#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/epidemic_situation_index_spider/main_deal/12121212.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/封城数据/main_deal/find_around_city.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5100">
+        <state relative-caret-position="586">
           <caret line="168" column="5" selection-start-line="168" selection-start-column="5" selection-end-line="168" selection-end-column="5" />
           <folding>
             <element signature="e#15#24#0" expanded="true" />
@@ -952,165 +1019,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/封城数据/main_deal/visualization/igraph_selfnetwork.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/封城数据/main_deal/visualization/Line_Chart_selfnetwork.py">
+    <entry file="file://$PROJECT_DIR$/epidemic_situation_index_spider/main_deal/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-455">
-          <caret line="164" column="4" selection-start-line="164" selection-start-column="4" selection-end-line="164" selection-end-column="4" />
-          <folding>
-            <element signature="e#124#141#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="96">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/邢台/邢台一阶/deal_03/20210109_邢台.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/epidemic_situation_index_spider/main_deal/内蒙古自治区-兴安盟疫情指数.csv">
       <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="-27" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/邢台/邢台一阶/deal_03/20210506_邢台.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="-27" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/邢台/邢台一阶/deal_03/20210508_邢台.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="-27" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/邢台/邢台一阶/deal_03/20210504_邢台.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="-27" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/邢台/邢台一阶/deal_03/20210501_邢台.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="-27" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/邢台/邢台一阶/deal_03/20210428_邢台.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="389">
-          <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+        <state relative-caret-position="-387">
+          <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/北京/北京一阶/deal_03/20210107_北京.csv">
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/epidemic_situation_index_spider/main_deal/西藏-那曲疫情指数.csv">
       <provider selected="true" editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/邢台/邢台一阶/deal_03/20210107_邢台.csv">
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="-27" />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/邢台/邢台一阶/deal_03/20210103_邢台.csv">
+    <entry file="file://$PROJECT_DIR$/epidemic_situation_index_spider/data/111.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="-27" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/邢台/邢台一阶/deal_03/20210101_邢台.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="453">
-          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/所有城市迁徙指数/all_city_flow/all_city_index.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="32">
-          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/deal_main/calculation_self_network_index.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="282" column="72" lean-forward="true" selection-start-line="282" selection-start-column="72" selection-end-line="282" selection-end-column="72" />
-          <folding>
-            <element signature="e#127#137#0" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/all_city_indicators.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="312">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="32">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-        </state>
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/data/北京/北京一阶/deal_03/20210102_北京.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="480">
-          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/deal_main/around_city_flow.py">
+    <entry file="file://$PROJECT_DIR$/migrationof_BaiDu_spider/inAndOutintegration.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1306">
-          <caret line="147" column="54" lean-forward="true" selection-start-line="147" selection-start-column="54" selection-end-line="147" selection-end-column="54" />
+        <state relative-caret-position="984">
+          <caret line="44" column="38" selection-start-line="44" selection-start-column="38" selection-end-line="44" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/migrationof_BaiDu_spider/baidu_spider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="129" column="40" selection-start-line="103" selection-start-column="4" selection-end-line="129" selection-end-column="40" />
           <folding>
-            <element signature="e#116#126#0" expanded="true" />
+            <element signature="e#301#433#0" />
+            <element signature="e#477#814#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/deal_main/build_self_centered_network.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1024">
-          <caret line="230" lean-forward="true" selection-start-line="230" selection-end-line="230" />
+    <entry file="file://$PROJECT_DIR$/epidemic_situation_index_spider/data/ChinaAreaCodes_epidemic.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state>
+          <caret line="3" column="10" lean-forward="true" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
         </state>
       </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/paper_supplement_experiment/deal_main/part_one.py">
+    <entry file="file://$PROJECT_DIR$/epidemic_situation_index_spider/main_deal/spider_epidemic_index.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="915">
-          <caret line="67" column="28" lean-forward="true" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="28" />
+        <state relative-caret-position="346">
+          <caret line="162" column="30" lean-forward="true" selection-start-line="162" selection-start-column="30" selection-end-line="162" selection-end-column="30" />
           <folding>
-            <element signature="e#108#123#0" expanded="true" />
-            <element signature="e#7174#9432#0" />
+            <element signature="e#104#114#0" expanded="true" />
           </folding>
         </state>
       </provider>
