@@ -19,6 +19,61 @@ import pandas as pd
 from math import e
 from math import log
 from tqdm import tqdm
+import rpy2.robjects as robjects
+robjects.r('''
+library(igraph)
+library('Matrix')
+library(purrr)
+library(tidyverse)
+''')
+robjects.r('''
+    nodedist<-function(g){
+    N<-length(V(g))
+    r<-c()
+    dg=shortest.paths(g,mode=c("all"),algorithm=c("unweighted"))#geodesic distance
+    dg[which(dg==Inf)]=N
+    q=setdiff(intersect(dg,dg),0)
+    a=Matrix(0,ncol=N,nrow=N)
+    for(i in (1:length(q))){
+    b=dg
+    b[which(b!=q[i])]=0
+    a[1:N,q[i]]=colSums(b)/q[i]
+}
+return(a/(N-1))
+}
+           ''')
+robjects.r('''
+            diversity<-function(a){
+            div=0
+            while(length(a)>1){
+            n=sqrt(length(a))
+            a[matrix(c(1:n,1:n),ncol=2)]=1
+            div=div+min(a)
+            escolhas=ceiling(which(a==min(a))/n)
+            b=a[escolhas,]
+            r<-c()
+            for(j in (1:length(escolhas))){
+            r<-c(r,sort(b[j,])[2])
+            }
+            quem=order(r)[1]
+            quem=escolhas[quem]
+            a=a[setdiff(1:n,quem),setdiff(1:n,quem)]
+            n=sqrt(length(a))
+            }
+            return(div)
+            }
+           ''')
+robjects.r('''
+get_diversity_value_list<-function(file_name_path){
+        data <-read.csv(file_name_path,fileEncoding = "UTF-8-BOM",skip=1,header = T)
+        edges <- data[,1:2]
+        graph_test <- graph_from_data_frame(edges, directed = FALSE, vertices=NULL)
+        adjacent_distance <- dist(nodedist(graph_test),method="euclidean")
+        diversity_value <- diversity(as.matrix(adjacent_distance))
+        return(diversity_value)
+}
+           ''')
+
 # 获取时间列表
 def getdaylist(begin, end):
     """
@@ -194,6 +249,77 @@ def naturecconnectivity(file_path,city_name,nodes_list):
     print("自然连通度： ", listAlgebraicConnectivity)
 
 
+# 计算密度
+def density(file_path,city_name,nodes_list):
+    """
+    返回绘制图表的
+    X轴：日期
+    Y轴：自然连通度数值
+    """
+    # 时间列表
+    listAlgebraicConnectivity = []
+    for i in range(len(listXData)):
+        # 循环画图
+        try:
+            filePathInMethon = file_path + listXData[i] +"_"+city_name+".csv"
+
+        except Exception as problem:
+            print("(自然连通度) error打开迁徙文件出问题：", problem)
+        else:
+            G = drawpicture(filePathInMethon,nodes_list)
+            # 生成邻接矩阵 直接转为稠密矩阵
+            # 作为Y轴
+            listAlgebraicConnectivity.append(nx.density(G))
+    print("密度： ", listAlgebraicConnectivity)
+
+
+
+# 计算全球效率
+def globalefficiency(file_path,city_name,nodes_list):
+    """
+    返回绘制图表的
+    X轴：日期
+    Y轴：自然连通度数值
+    """
+    # 时间列表
+    listAlgebraicConnectivity = []
+    for i in range(len(listXData)):
+        # 循环画图
+        try:
+            filePathInMethon = file_path + listXData[i] +"_"+city_name+".csv"
+
+        except Exception as problem:
+            print("(自然连通度) error打开迁徙文件出问题：", problem)
+        else:
+            G = drawpicture(filePathInMethon,nodes_list)
+            # 生成邻接矩阵 直接转为稠密矩阵
+            # 作为Y轴
+            listAlgebraicConnectivity.append(nx.global_efficiency(G))
+    print("全球效率： ", listAlgebraicConnectivity)
+
+
+# 计算diversity
+def diversity(file_path,city_name,nodes_list):
+    """
+    返回绘制图表的
+    X轴：日期
+    Y轴：自然连通度数值
+    """
+    # 时间列表
+    listAlgebraicConnectivity = []
+    for i in range(len(listXData)):
+        # 循环画图
+        try:
+            filePathInMethon = file_path + listXData[i] +"_"+city_name+".csv"
+
+        except Exception as problem:
+            print("(自然连通度) error打开迁徙文件出问题：", problem)
+        else:
+            t3 = robjects.r['get_diversity_value_list'](robjects.StrVector([filePathInMethon]))
+            listAlgebraicConnectivity.append(t3[0])
+    print("diversity： ", listAlgebraicConnectivity)
+
+
 
 
 # 计算  点连通性(单个点)
@@ -247,15 +373,20 @@ def average_degree_alone(file_path,city_name,nodes):
 
 
 if __name__ == '__main__':
-    file_path = "F:/封城数据处理/封城数据/石家庄/石家庄五阶/deal_03/"
+    file_path = "F:/封城数据处理/封城数据/石家庄/石家庄一阶/deal_03/"
 
     # averagenodeconnectivity(file_path,"石家庄",Third_order_SJZ)
     # get_city_degree(file_path,"石家庄",Third_order_SJZ)
     # edge_number(file_path,"石家庄",Third_order_SJZ)
     # naturecconnectivity(file_path,"石家庄",Third_order_SJZ)
 
+    density(file_path,"石家庄",First_order_SJZ)
+    diversity(file_path,"石家庄",First_order_SJZ)
+    globalefficiency(file_path,"石家庄",First_order_SJZ)
 
 
-    node_connectivity_alone(file_path,"石家庄",Five_order_SJZ)
-    average_degree_alone(file_path,"石家庄",Five_order_SJZ)
+
+
+    # node_connectivity_alone(file_path,"石家庄",Five_order_SJZ)
+    # average_degree_alone(file_path,"石家庄",Five_order_SJZ)
 

@@ -263,8 +263,8 @@ def function_encapsulation(first_data,second_data,third_data,four_data,listXData
     # plt.xticks(rotation=90)
 
     # 坐标轴ticks的字体大小
-    ax1.set_xlabel('日期', fontsize=10)  # 为x轴添加标签
-    ax1.set_ylabel('数值', fontsize=10)  # 为y轴添加标签  数值
+    ax1.set_xlabel('日期', fontsize=14)  # 为x轴添加标签
+    ax1.set_ylabel('数值', fontsize=14)  # 为y轴添加标签  数值
     ax1.legend()
     plt.rcParams['font.sans-serif'] = ['SimHei']
     # 根据需要设置最大最小值，这里设置最大值为1.最小值为0
@@ -276,7 +276,10 @@ def function_encapsulation(first_data,second_data,third_data,four_data,listXData
     third_data = tool.fit_transform(array(third_data).reshape(-1,1)).tolist()
     four_data = tool.fit_transform(array(four_data).reshape(-1,1)).tolist()
 
-    plt.title(title_name)
+    plt.title(title_name,fontsize=14)
+
+    # plt.xticks(fontsize=20)
+    # plt.yticks(fontsize=20)
 
     plt.plot(listXData, first_data,  linewidth=1.5,  label='平均点连通性') #"4-",
     plt.plot(listXData, second_data, linewidth=1.5,  label='度')#, "1--"
@@ -287,20 +290,20 @@ def function_encapsulation(first_data,second_data,third_data,four_data,listXData
 
     plt.scatter(6, 1, s=50, color='cyan')
     plt.plot([6, 6], [1, 0], 'x--', lw=1.5)
-    plt.text(0, 0.90, r'封城开始', fontdict={'size': '10', 'color': 'black'})
+    plt.text(0, 0.90, r'封城开始', fontdict={'size': '14', 'color': 'black'})
 
     plt.scatter(28, 1, s=50, color='cyan')
     plt.plot([28, 28], [1, 0], 'x--', lw=1.5)
-    plt.text(27, 0.90, r'封城结束', fontdict={'size': '10', 'color': 'black'})
+    plt.text(27, 0.90, r'封城结束', fontdict={'size': '14', 'color': 'black'})
     plt.legend()
 
     plt.scatter(92, 1, s=50, color='cyan')
     plt.plot([92, 92], [1, 0], 'x--', lw=1.5)
-    plt.text(91, 0.90, r'清明节', fontdict={'size': '10', 'color': 'black'})
+    plt.text(91, 0.90, r'清明节', fontdict={'size': '14', 'color': 'black'})
 
     plt.scatter(120, 1, s=50, color='cyan')
     plt.plot([120, 120], [1, 0], 'x--', lw=1.5)
-    plt.text(119, 0.90, r'劳动节', fontdict={'size': '10', 'color': 'black'})
+    plt.text(119, 0.90, r'劳动节', fontdict={'size': '14', 'color': 'black'})
 
 
 

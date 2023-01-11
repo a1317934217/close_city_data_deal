@@ -9,6 +9,7 @@
 """
 import csv
 import json
+import re
 
 import requests
 import xlwt
@@ -22,6 +23,8 @@ import bs4
 from tqdm import tqdm
 
 epidemic_data_file_location = "F:/疫情搜索指数数据/整理之后数据/"
+
+epidemic_provence_data_file_location = "F:/疫情搜索指数数据/整理之后数据/31个省数据/"
 #376个地市级信息
 city_location = "F:/封城数据处理/epidemic_situation_index_spider/data/ChinaAreaCodes_epidemic.csv"
 
@@ -112,8 +115,10 @@ def return_spider(list):
             # url = 'https://events.baidu.com/api/ncov/indexlist?callback=jsonp_1671962219776_90684'
 
             # 其余城市的疫情搜索指数
-            url = "https://www.baidu.com/s?sa=re_1_51677&wd={}&rsv_pq=9cf860e800136735&oq=疫情搜索指数&rsv_t=299bc/M9vO7tiAqmufnhJCQgK1H+V2+f9BQxMZeDvjyNvjSuBgGSPzqfpMgdi9uDOLMZ&tn=baiduhome_pg&ie=utf-8".format(
-                cityname)
+            url = "https://www.baidu.com/s?sa=re_1_51677&wd={}疫情指数&rsv_pq=9cf860e800136735&oq=疫情搜索指数&rsv_t=299bc/M9vO7tiAqmufnhJCQgK1H+V2+f9BQxMZeDvjyNvjSuBgGSPzqfpMgdi9uDOLMZ&tn=baiduhome_pg&ie=utf-8".format(cityname)
+
+
+            # url = "https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&tn=baidu&wd={}疫情指数&oq=%25E6%25B8%2585%25E8%25BF%259C%25E7%2596%25AB%25E6%2583%2585%25E6%258C%2587%25E6%2595%25B0&rsv_pq=d51175fe003df102&rsv_t=4564lPPFpjBvzf58Bs%2FTbOKPKLm3SWAStBFxFiIdOD28DHldvDbwaU1vPwg&rqlang=cn&rsv_dl=tb&rsv_enter=1&rsv_n=2&rsv_sug3=26&rsv_sug1=23&rsv_sug7=100&rsv_sug2=0&rsv_btype=t&inputT=7873&rsv_sug4=7873".format(cityname)
 
             try:
 
@@ -152,15 +157,70 @@ def return_spider(list):
             print(why)
     return problem_list
 
+def loads_jsonp(_jsonp):
+    try:
+        return json.loads(re.match(".*?({.*}).*", _jsonp, re.S).group(1))
+    except:
+        raise ValueError('Invalid Input')
+
+
+def to_Excel_Province(date_list,search_data,health_data,title_excel,epidemic_data_file_location):
+    """
+    :param date_list: 日期
+    :param search_data: 疫情搜索指数
+    :param health_data: 健康问诊指数
+    :param title_excel: 生成的excel名称
+    :param epidemic_data_file_location: 文件保存的位置
+    :return:
+    """
+    # 表头
+    field_order_move_in = ["date", '百度疫情搜索指数', '百度健康问诊指数']
+    # 开始写入整理完的数据csv
+    with open(epidemic_data_file_location+title_excel+".csv", 'w',encoding="utf-8", newline='') as csvfile:
+        writer = csv.DictWriter(csvfile, field_order_move_in)
+        writer.writeheader()
+        for date,search,health in zip(date_list,search_data,health_data):
+            row = {"date": date, "百度疫情搜索指数": search, "百度健康问诊指数": health}
+            writer.writerow(row)
+        csvfile.close()
+
+def spider_epidemic_provence():
+    """
+    爬取31个省市的疫情数据
+    :return:
+    """
+    try:
+        url = 'https://events.baidu.com/api/ncov/indexlist?callback=jsonp_1671962219776_90684'
+
+        text = loads_jsonp(requests.get(url).text)
+    except Exception as problem:
+        print(problem)
+    year_current = text["data"]["currentYear"]
+    data_list = []
+    data_list_needDeal = text["data"]["updateDate"]
+    for i in data_list_needDeal:
+        data_list.append(year_current + i.replace(".", ""))
+    for info in text["data"]["list"]:
+        area_alon = info["area"]
+        # 健康问诊指数
+        inquiry_index = info["inquiry_index"]
+        # 疫情搜索指数
+        search_index = info["search_index"]
+        to_Excel_Province(data_list, search_index, inquiry_index, area_alon, epidemic_provence_data_file_location)
+
+
 if __name__ == '__main__':
 
     # list = spider_city()
     # print(list)
-    list =['山东省莱芜疫情', '山东省泰安疫情', '山东省威海疫情', '山东省日照疫情', '山东省临沂疫情', '山东省滨州疫情', '河南省周口疫情', '河南省黄石疫情', '湖北省鄂州疫情', ' 湖北省随州疫情', ' 湖北省天门疫情', ' 湖北省株洲疫情', '湖南省邵阳疫情', '湖南省永州疫情', '湖南省怀化疫情', '广东省珠海疫情', '广东省汕头疫情', '广东省佛山疫情', '广东省湛江疫情', '广东省茂名疫情', '广东省肇庆疫情', '清远', '济源', '揭阳', '南宁', '柳州', '桂林', '北海', '贵港', '贺州', '河池', '来宾', '崇左', '海口', '三亚', '三亚', '五指山', '万宁', '东方', '成都', '攀枝花', '德阳', '绵阳', '广元', '内江', '乐山', '南充', '眉山', '雅安', '巴中', '资阳', '遵义', '安顺', '昆明', '曲靖', '玉溪', '保山', '昭通', '临沧', '拉萨', '西安', '宝鸡', '延安', '兰州', '金昌', '武威', '张掖', '平凉', '定西', '固原', '中卫', '克拉玛依', '石河子', '北屯', '铁门关', '双河', '可克达拉', '昆玉', '恩施土家族苗族自治州', '延边朝鲜族自治州', '神农架林区', '湘西土家族苗族自治州', '白沙黎族自治县', '乐东黎族自治县', '陵水黎族自治县', '保亭黎族苗族自治县', '琼中黎族苗族自治县', '黔西南布依族苗族自治州', '黔南布依族苗族自治州', '西双版纳傣族自治州', '迪庆藏族自治州', '阿里地区', '临夏回族自治州', '黄南藏族自治州', '果洛藏族自治州', '海西蒙古族藏族自治州', '昌吉回族自治州', '博尔塔拉蒙古自治州', '巴音郭楞蒙古自治州', '克孜勒苏柯尔克孜自治州', '伊犁哈萨克自治州', '和田地区', '塔城地区', '阿勒泰地区', '阿拉善盟']
+    # list =[ '新疆维吾尔自治区石河子市疫情', '新疆维吾尔自治区北屯市', '新疆维吾尔自治区双河市', '新疆维吾尔自治区可克达拉市', '新疆维吾尔自治区昆玉市', '恩施土家族苗族自治州', '延边朝鲜族自治州', '神农架林区', '湘西土家族苗族自治州', '白沙黎族自治县', '乐东黎族自治县', '陵水黎族自治县', '保亭黎族苗族自治县', '琼中黎族苗族自治县', '黔西南布依族苗族自治州', '黔南布依族苗族自治州', '西双版纳傣族自治州', '迪庆藏族自治州', '阿里地区', '临夏回族自治州', '黄南藏族自治州', '果洛藏族自治州', '海西蒙古族藏族自治州', '昌吉回族自治州', '博尔塔拉蒙古自治州', '巴音郭楞蒙古自治州', '克孜勒苏柯尔克孜自治州', '伊犁哈萨克自治州', '和田地区', '塔城地区', '阿勒泰地区', '阿拉善盟']
+    # print(return_spider(list))
+
+    spider_epidemic_provence()
 
 
 
-    print(return_spider(list))
+
 
 
 

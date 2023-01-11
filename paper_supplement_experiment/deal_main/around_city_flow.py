@@ -113,8 +113,8 @@ def function_encapsulation(first_data,second_data,listXData,ax1,title_name):
     # plt.xticks(rotation=90)
 
     # 坐标轴ticks的字体大小
-    ax1.set_xlabel('日期', fontsize=10)  # 为x轴添加标签
-    ax1.set_ylabel('数值', fontsize=10)  # 为y轴添加标签  数值
+    ax1.set_xlabel('日期', fontsize=18)  # 为x轴添加标签
+    ax1.set_ylabel('数值', fontsize=18)  # 为y轴添加标签  数值
     ax1.legend()
     plt.rcParams['font.sans-serif'] = ['SimHei']
     # 根据需要设置最大最小值，这里设置最大值为1.最小值为0
