@@ -367,6 +367,59 @@ def average_degree_alone(file_path,city_name,nodes):
 
 
 
+# 计算 平均最短路径长度
+def average_short_length(file_path,city_name,nodes):
+    average_short_length_list = []
+    global G
+    for i in tqdm(range(len(listXData)), desc="平均最短路径长度 进度", total=len(listXData)):
+        # 循环画图
+        try:
+            filePathInMethon = file_path + listXData[i] + "_" + city_name + ".csv"
+            print(filePathInMethon)
+            G = drawpicture(filePathInMethon, nodes)
+        except Exception as problem:
+            print("平均最短路径长度   error打开迁徙文件出问题：", problem)
+        else:
+            S = [G.subgraph(c).copy() for c in nx.connected_components(G)]
+
+            AEC_LastValue = 0
+            for C in (G.subgraph(c).copy() for c in nx.connected_components(G)):
+                AEC_LastValue = AEC_LastValue + nx.average_shortest_path_length(C)
+
+            average_short_length_list.append(AEC_LastValue / len(S))
+
+
+    print("平均最短路径长度",average_short_length_list)
+
+
+
+
+
+# 计算 代数连通性
+def algebraic_connectivity(file_path,city_name,nodes):
+    algebraic_connectivity_list = []
+    for i in tqdm(range(len(listXData)), desc="代数连通性 进度", total=len(listXData)):
+        # 循环画图
+        try:
+            filePathInMethon = file_path + listXData[i] + "_" + city_name + ".csv"
+            G = drawpicture(filePathInMethon, nodes)
+
+        except Exception as problem:
+            print("代数连通性   error打开迁徙文件出问题：", problem)
+        else:
+
+            algebraic_connectivity_list.append(nx.algebraic_connectivity(G))
+
+    print("代数连通性",algebraic_connectivity_list)
+
+
+
+
+
+
+
+
+
 
 
 
@@ -380,9 +433,12 @@ if __name__ == '__main__':
     # edge_number(file_path,"石家庄",Third_order_SJZ)
     # naturecconnectivity(file_path,"石家庄",Third_order_SJZ)
 
-    density(file_path,"石家庄",First_order_SJZ)
-    diversity(file_path,"石家庄",First_order_SJZ)
-    globalefficiency(file_path,"石家庄",First_order_SJZ)
+    # density(file_path,"石家庄",First_order_SJZ)
+    # diversity(file_path,"石家庄",First_order_SJZ)
+    # globalefficiency(file_path,"石家庄",First_order_SJZ)
+
+    average_short_length(file_path,"石家庄",First_order_SJZ)
+    algebraic_connectivity(file_path,"石家庄",First_order_SJZ)
 
 
 

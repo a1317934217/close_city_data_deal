@@ -193,8 +193,8 @@ if __name__ == '__main__':
 
 
     #两个迁徙比例 爬取
-    # get_city_migration_proportion(migration_proportion_in,"move_in",20221011,20221206)
-    # get_city_migration_proportion(migration_proportion_out,"move_out",20221011,20221206)
+    get_city_migration_proportion(migration_proportion_in,"move_in",20230114,20230225)
+    get_city_migration_proportion(migration_proportion_out,"move_out",20230114,20230225)
 
 
     #补充爬取

@@ -55,14 +55,14 @@ def draw_every_indeicators(lable_x,first_data,second_data):
     x = np.arange(0, 51, 1)
 
     # fig = plt.figure(figsize=( 12, 4))
-    fig = plt.figure(figsize=( 6, 4))
+    # fig = plt.figure(figsize=( 6, 4))
 
     # plt.rcParams['figure.figsize'] = (8, 16)
-    plt.rcParams['savefig.dpi'] = 1200  # 图片像素
-    plt.rcParams['figure.dpi'] = 1200
+    # plt.rcParams['savefig.dpi'] = 1200  # 图片像素
+    # plt.rcParams['figure.dpi'] = 1200
     #
 
-
+    fig = plt.figure(figsize=(6, 4), dpi=450)  # ,dpi=450
     ax1 = fig.add_subplot(111)
     # ax1.xaxis.set_major_formatter(FuncFormatter(format_fn))
     # ax1.xaxis.set_major_locator(MaxNLocator(integer=True))
@@ -70,13 +70,16 @@ def draw_every_indeicators(lable_x,first_data,second_data):
     aaaaaa=[0.00,0.05,0.10,0.15,0.20,0.25]
     plt.xticks(aaaaaa)
 
+    plt.xticks(fontsize=12)
+    plt.yticks(fontsize=12)
+
     # 坐标轴ticks的字体大小
     ax1.set_xlabel('阈值', fontsize=12)  # 为x轴添加标签
     ax1.set_ylabel('城市节点个数', fontsize=12)  # 为y轴添加标签  数值
 
 
-    plt.plot(lable_x,first_data, "4-", linewidth=2, label='最大连接组件内城市数量')
-    plt.plot(lable_x,second_data, "1--", linewidth=2, label='弱连接组件数量')
+    plt.plot(lable_x,first_data,  linewidth=2, label='最大连接组件内城市数量')
+    plt.plot(lable_x,second_data,  linewidth=2, label='弱连接组件数量')
 
     ax1.legend(prop = {'size':12})
 

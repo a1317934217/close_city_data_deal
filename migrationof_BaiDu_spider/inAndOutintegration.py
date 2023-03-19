@@ -129,5 +129,7 @@ def dealRepeat_Physical(beginTime,endTime):
         lastdata_finall.to_csv(fileNameFront + "物理联通指标所需数据\\" + dayList[i] + "physicalNew_deal_complet.csv", index=False, encoding="utf-8-sig")
 
 # dealRepeat_Physical(20200101,20200101)
-InAndOut_Merge(20200101,20200101)
+
+if __name__ == '__main__':
+    InAndOut_Merge(20200101,20200101)
 

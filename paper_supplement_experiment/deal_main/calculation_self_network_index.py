@@ -66,14 +66,10 @@ def getdaylist(begin, end):
     return dayList
 
 
-
-
 # file_path = "F:/封城数据处理/封城数据/石家庄/石家庄四阶/garbage_self_network/deal_01/in/"
 
 
-
 listXData = getdaylist(20210101,20210508)
-
 
 
 
@@ -95,8 +91,6 @@ def drawpicture(filePath,nodes_list_one):
         city_id_name = getattr(row, "city_id_name")
         G.add_edges_from([(city_name, city_id_name)])
     return G
-
-
 
 
 
@@ -204,7 +198,6 @@ def naturecconnectivity(file_path,city_name,nodes_list):
 
 
 
-
 # 计算  点连通性(单个点)
 def node_connectivity_alone(file_path,city_name,nodes):
     """
@@ -227,8 +220,6 @@ def node_connectivity_alone(file_path,city_name,nodes):
     # print("点连通性（单独）： ", listAverageNodeConnectivity)
 
 
-
-
 # 计算 平均度
 def average_degree_alone(file_path,city_name,nodes):
     listAverage_degree = []
@@ -245,6 +236,58 @@ def average_degree_alone(file_path,city_name,nodes):
             listAverage_degree.append(sum(d.values()) / len(G.nodes))
 
     # print("平均度",listAverage_degree)
+
+
+
+# 计算 平均最短路径长度
+def average_short_length(file_path,city_name,nodes):
+    average_short_length_list = []
+    for i in tqdm(range(len(listXData)), desc="平均最短路径长度 进度", total=len(listXData)):
+        # 循环画图
+        try:
+            filePathInMethon = file_path + listXData[i] + "_" + city_name + ".csv"
+            G = drawpicture(filePathInMethon, nodes)
+
+        except Exception as problem:
+            print("平均最短路径长度   error打开迁徙文件出问题：", problem)
+        else:
+            S = [G.subgraph(c).copy() for c in nx.connected_components(G)]
+
+            AEC_LastValue =0
+            for C in (G.subgraph(c).copy() for c in nx.connected_components(G)):
+                AEC_LastValue = AEC_LastValue + nx.average_shortest_path_length(C)
+
+            average_short_length_list.append(AEC_LastValue/len(S))
+    print("平均最短路径长度",average_short_length_list)
+
+
+
+# 计算 代数连通性
+def algebraic_connectivity(file_path,city_name,nodes):
+    algebraic_connectivity_list = []
+    for i in tqdm(range(len(listXData)), desc="代数连通性 进度", total=len(listXData)):
+        # 循环画图
+        try:
+            filePathInMethon = file_path + listXData[i] + "_" + city_name + ".csv"
+            G = drawpicture(filePathInMethon, nodes)
+
+        except Exception as problem:
+            print("代数连通性   error打开迁徙文件出问题：", problem)
+        else:
+
+            algebraic_connectivity_list.append(nx.algebraic_connectivity(G))
+
+    print("代数连通性",algebraic_connectivity_list)
+
+
+
+
+
+
+
+
+
+
 
 
 
