@@ -240,7 +240,7 @@ def draw_every_indeicators(beginData,endData,
                            ):
     listXData = getdaylist(beginData, endData)
     # 画图 设置X轴显示效果
-    fig = plt.figure(figsize=(10, 10),dpi=450)
+    fig = plt.figure(figsize=(12, 12),dpi=450)
     ax1 = fig.add_subplot(311)
     function_encapsulation(first_average, second_average, third_average, fourth_average, Five_average,listXData,ax1,"(a) 平均点连通性")
 
@@ -263,7 +263,7 @@ def draw_three_indeicators(beginData,endData,
                          first_degree,second_degree, third_degree, fourth_degree, Five_degree):
     listXData = getdaylist(beginData, endData)
     # 画图 设置X轴显示效果
-    fig = plt.figure(figsize=(8, 6),dpi=450) #,dpi=450
+    fig = plt.figure(figsize=(8, 4),dpi=450) #,dpi=450
     ax1 = fig.add_subplot(211)
     function_encapsulation(first_average, second_average, third_average, fourth_average, Five_average,listXData,ax1,"(a) 平均点连通性")
 
@@ -310,7 +310,7 @@ def draw_city_index(first_data,second_data,third_data,fourth_data,five_data,six_
             return ''
 
 
-    fig = plt.figure(figsize=(8, 7), dpi=450)  # ,dpi=450
+    fig = plt.figure(figsize=(12, 10))  # ,dpi=450
 
     ax1 = fig.add_subplot(211)
     ax1.xaxis.set_major_formatter(FuncFormatter(format_fn))
@@ -322,12 +322,11 @@ def draw_city_index(first_data,second_data,third_data,fourth_data,five_data,six_
     # plt.xticks(rotation=90)
 
     # 坐标轴ticks的字体大小
-    ax1.set_xlabel('日期', fontsize=12)  # 为x轴添加标签
+    # ax1.set_xlabel('日期', fontsize=12)  # 为x轴添加标签
     ax1.set_ylabel('数值', fontsize=12)  # 为y轴添加标签  数值
     ax1.legend()
 
-
-
+    # ax1.axes.xaxis.set_visible(False)
 
     plt.rcParams['font.sans-serif'] = ['SimHei']
     # 根据需要设置最大最小值，这里设置最大值为1.最小值为0

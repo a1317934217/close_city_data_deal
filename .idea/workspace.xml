@@ -1,47 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/Anna-main/demo/test.py" line="201" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c619ef58-0715-4b5e-956d-c564aa0b0053" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Anna-main/demo/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/epidemic_situation_index_spider/main_deal/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fengyoujing2.0/build/fengyoujing/Analysis-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fengyoujing2.0/build/fengyoujing/EXE-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fengyoujing2.0/build/fengyoujing/PKG-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fengyoujing2.0/build/fengyoujing/PYZ-00.pyz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fengyoujing2.0/build/fengyoujing/PYZ-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fengyoujing2.0/build/fengyoujing/Tree-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fengyoujing2.0/build/fengyoujing/Tree-01.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fengyoujing2.0/build/fengyoujing/Tree-02.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fengyoujing2.0/build/fengyoujing/base_library.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fengyoujing2.0/build/fengyoujing/fengyoujing.exe.manifest" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fengyoujing2.0/build/fengyoujing/fengyoujing.pkg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fengyoujing2.0/build/fengyoujing/warn-fengyoujing.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fengyoujing2.0/build/fengyoujing/xref-fengyoujing.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fengyoujing2.0/dist/fengyoujing.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fengyoujing2.0/fengyoujing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fengyoujing2.0/fengyoujing.spec" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fengyoujing2.0/使用前先看.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/data/city_around_by_time/主要城市月度价格.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/deal_main/caculate_all_indicort_acedamic.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/deal_main/simple_deal.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/deal_main/test_file.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/shao_plot/data.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/shao_plot/main.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/shao_plot/plot_shaply.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_supplement_experiment/shao_plot/shap.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/epidemic_situation_index_spider/main_deal/spider_epidemic_index.py" beforeDir="false" afterPath="$PROJECT_DIR$/epidemic_situation_index_spider/main_deal/spider_epidemic_index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrationof_BaiDu_spider/baidu_spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrationof_BaiDu_spider/baidu_spider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrationof_BaiDu_spider/inAndOutintegration.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrationof_BaiDu_spider/inAndOutintegration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrationof_BaiDu_spider/readcsvMoveOut.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrationof_BaiDu_spider/readcsvMoveOut.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrationof_BaiDu_spider/readcsvMovein.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrationof_BaiDu_spider/readcsvMovein.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/paper_supplement_experiment/deal_main/calculation_self_network_index.py" beforeDir="false" afterPath="$PROJECT_DIR$/paper_supplement_experiment/deal_main/calculation_self_network_index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/paper_supplement_experiment/deal_main/part_two.py" beforeDir="false" afterPath="$PROJECT_DIR$/paper_supplement_experiment/deal_main/part_two.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/封城数据/main_deal/close_city_caculate_indicator.py" beforeDir="false" afterPath="$PROJECT_DIR$/封城数据/main_deal/close_city_caculate_indicator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paper_supplement_experiment/shao_plot/main.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/paper_supplement_experiment/shao_plot/main.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paper_supplement_experiment/shao_plot/plot_shaply.py" beforeDir="false" afterPath="$PROJECT_DIR$/paper_supplement_experiment/shao_plot/plot_shaply.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/封城数据/main_deal/visualization/Line_Chart_selfnetwork.py" beforeDir="false" afterPath="$PROJECT_DIR$/封城数据/main_deal/visualization/Line_Chart_selfnetwork.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -171,6 +140,9 @@
       </list>
     </option>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1909" />
     <option name="y" value="-507" />
@@ -259,6 +231,10 @@
   "keyToString": {
     "WebServerToolWindowFactoryState": "true",
     "last_opened_file_path": "F:/封城数据处理",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
@@ -459,7 +435,7 @@
       <workItem from="1676969473164" duration="8202000" />
       <workItem from="1677382963513" duration="1360000" />
       <workItem from="1677393318613" duration="86861000" />
-      <workItem from="1679220144764" duration="329000" />
+      <workItem from="1679220144764" duration="15828000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1664112078577</created>
@@ -545,7 +521,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673422058429</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="日常备份">
+      <created>1679220517473</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1679220517473</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -670,9 +653,9 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/$peppa_pig.coverage" NAME="peppa_pig Coverage Results" MODIFIED="1675947780970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Anna-main" />
-    <SUITE FILE_PATH="coverage/$plot_shaply.coverage" NAME="plot_shaply Coverage Results" MODIFIED="1678799883562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/paper_supplement_experiment/shao_plot" />
     <SUITE FILE_PATH="coverage/$spider_epidemic_index.coverage" NAME="spider_epidemic_index Coverage Results" MODIFIED="1675689050721" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/epidemic_situation_index_spider/main_deal" />
-    <SUITE FILE_PATH="coverage/$Line_Chart_selfnetwork.coverage" NAME="Line_Chart_selfnetwork Coverage Results" MODIFIED="1678848189694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/封城数据/main_deal/visualization" />
+    <SUITE FILE_PATH="coverage/$plot_shaply.coverage" NAME="plot_shaply Coverage Results" MODIFIED="1679280688833" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/paper_supplement_experiment/shao_plot" />
+    <SUITE FILE_PATH="coverage/$Line_Chart_selfnetwork.coverage" NAME="Line_Chart_selfnetwork Coverage Results" MODIFIED="1679316331441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/封城数据/main_deal/visualization" />
     <SUITE FILE_PATH="coverage/$demo_one.coverage" NAME="demo_one Coverage Results" MODIFIED="1664461646436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/封城数据/main_deal/Multithreading_deal" />
     <SUITE FILE_PATH="coverage/$simple_deal.coverage" NAME="simple_deal Coverage Results" MODIFIED="1678540360867" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/paper_supplement_experiment/deal_main" />
     <SUITE FILE_PATH="coverage/$draw_pic_caculate_indicator.coverage" NAME="draw_pic_caculate_indicator Coverage Results" MODIFIED="1666405164696" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SODA_Match/main_deal" />
