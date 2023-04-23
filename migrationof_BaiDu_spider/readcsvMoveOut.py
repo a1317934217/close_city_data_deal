@@ -73,4 +73,4 @@ def merge_moveOut_data(beginData,endData):
         csv_chinaCityCode.close()
 
 if __name__ == '__main__':
-    merge_moveOut_data(20220831,20230220)
+    merge_moveOut_data(20230221,20230413)

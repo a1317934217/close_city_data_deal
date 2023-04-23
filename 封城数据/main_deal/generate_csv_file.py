@@ -20,7 +20,7 @@ from tqdm import tqdm
 #迁徙数据位置
 fileNameFront = "F:/百度迁徙数据/比例和指数计算完成后的数据/"
 #处理后存储的位置
-file_project =  r"F:/封城数据处理/封城数据/石家庄/"
+file_project =  r"F:/封城数据处理/封城数据/西安/"
 
 #石家庄 封城时间 2021/1/7——2021/1/29日  比较时间2021/01/01 -2021/05/08(接近春节) 阈值选取为0.04 确定！
 # 石家庄一阶城市 13城市
@@ -104,7 +104,7 @@ def select_around_city_data(beginTime,endTime,around_city,rank_level):
         path_file_in = file_project+rank_level+"/deal_01/in/"
         if not os.path.exists(path_file_in):
             os.makedirs(path_file_in)
-        with open(path_file_in + dayList[i] + "_石家庄.csv", 'w',encoding="utf-8", newline='') as csvfile:
+        with open(path_file_in + dayList[i] + "_西安.csv", 'w',encoding="utf-8", newline='') as csvfile:
 
             writer = csv.DictWriter(csvfile, field_order_move_in)
             writer.writeheader()
@@ -113,7 +113,7 @@ def select_around_city_data(beginTime,endTime,around_city,rank_level):
                 city_name = getattr(row_in, "city_name")
                 city_id_name = getattr(row_in, "city_id_name")
                 num = getattr(row_in, "num")
-                if num >=0.04:
+                if num >=0.01:
                     if city_name in around_city and city_id_name in around_city:
                         row = {"city_name": city_name, "city_id_name": city_id_name, "num": num}
                         writer.writerow(row)
@@ -121,7 +121,7 @@ def select_around_city_data(beginTime,endTime,around_city,rank_level):
             path_file_out = file_project +rank_level+ "/deal_01/out/"
             if not os.path.exists(path_file_out):
                 os.mkdir(path_file_out)
-            with open(path_file_out+ dayList[i] + "_石家庄.csv", 'w',encoding="utf-8", newline='') as csvfile:
+            with open(path_file_out+ dayList[i] + "_西安.csv", 'w',encoding="utf-8", newline='') as csvfile:
                 writer = csv.DictWriter(csvfile, field_order_move_in)
                 writer.writeheader()
                 # move_in 每一行
@@ -129,7 +129,7 @@ def select_around_city_data(beginTime,endTime,around_city,rank_level):
                     city_name = getattr(row_out, "city_name")
                     city_id_name = getattr(row_out, "city_id_name")
                     num = getattr(row_out, "num")
-                    if num >= 0.04:
+                    if num >= 0.01:
                         if city_name in around_city and city_id_name in around_city:
                             row = {"city_name": city_name, "city_id_name": city_id_name, "num": num}
                             writer.writerow(row)
@@ -149,12 +149,12 @@ def merge_inAndout_file(beginTime,endTime,rank_level):
         # 表头
         field_order_move_in = ["city_name", 'city_id_name', 'num']
         # 开始写入整理完的数据csv
-        move_in_data = pd.read_csv(file_project+rank_level+"/deal_01/in/"+dayList[i]+"_石家庄.csv")
-        move_out_data = pd.read_csv(file_project+rank_level+"/deal_01/out/"+dayList[i]+"_石家庄.csv")
+        move_in_data = pd.read_csv(file_project+rank_level+"/deal_01/in/"+dayList[i]+"_西安.csv")
+        move_out_data = pd.read_csv(file_project+rank_level+"/deal_01/out/"+dayList[i]+"_西安.csv")
         path_file_in = file_project + rank_level + "/deal_02/"
         if not os.path.exists(path_file_in):
             os.makedirs(path_file_in)
-        with open(path_file_in+ dayList[i] + "_石家庄.csv", 'w',
+        with open(path_file_in+ dayList[i] + "_西安.csv", 'w',
                   encoding="utf-8", newline='') as csvfile:
             writer = csv.DictWriter(csvfile, field_order_move_in)
             writer.writeheader()
@@ -194,12 +194,12 @@ def merge_alone_file(beginTime,endTime,rank_level):
         # 表头
         field_order_move_in = ["city_name", 'city_id_name', 'num']
         # 开始写入整理完的数据csv
-        need_deal_file_one = pd.read_csv(file_project +rank_level+ "/deal_02/" + dayList[i] + "_石家庄.csv")
-        need_deal_file_two = pd.read_csv(file_project +rank_level+ "/deal_02/" + dayList[i] + "_石家庄.csv")
+        need_deal_file_one = pd.read_csv(file_project +rank_level+ "/deal_02/" + dayList[i] + "_西安.csv")
+        need_deal_file_two = pd.read_csv(file_project +rank_level+ "/deal_02/" + dayList[i] + "_西安.csv")
         path_file_in = file_project + rank_level + "/deal_03/"
         if not os.path.exists(path_file_in):
             os.makedirs(path_file_in)
-        with open(path_file_in + dayList[i] + "_石家庄.csv", 'w',
+        with open(path_file_in + dayList[i] + "_西安.csv", 'w',
                   encoding="utf-8", newline='') as csvfile:
             writer = csv.DictWriter(csvfile, field_order_move_in)
             writer.writeheader()
@@ -227,7 +227,11 @@ def merge_alone_file(beginTime,endTime,rank_level):
 
 if __name__ == '__main__':
 
-    select_around_city_data(20210101,20210508,Five_order,"石家庄五阶")
-    merge_inAndout_file(20210101,20210508, "石家庄五阶")
-    merge_alone_file(20210101,20210508,"石家庄五阶")
+    select_around_city_data(20211201,20220215,First_order_xian,"西安一阶")
+    merge_inAndout_file(20211201,20220215, "西安一阶")
+    merge_alone_file(20211201,20220215,"西安一阶")
+
+    # select_around_city_data(20201201, 20210508, First_order, "石家庄一阶")
+    # merge_inAndout_file(20201201, 20210508, "石家庄一阶")
+    # merge_alone_file(20201201, 20210508, "石家庄一阶")
 

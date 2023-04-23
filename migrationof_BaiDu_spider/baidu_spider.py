@@ -108,6 +108,12 @@ def get_city_migration_proportion(file_save_location,task_type,beginTime,endTime
             name = row[1]
             try:
                 for t in timeList:
+
+
+                    #https://huiyan.baidu.com/migration/cityrank.jsonp?dt=city&id=130100&type=move_in&date=20210308&startDate=20210109&endDate=20210308
+
+
+
                     # 迁徙比例
                     # url = 'https://huiyan.baidu.com/migration/cityrank.jsonp?dt=city&id=110000&type=move_in&date=20211029'
                     url = 'https://huiyan.baidu.com/migration/cityrank.jsonp?dt=city&id={}&type={}&date={}'.format(code,task_type,t)
@@ -128,7 +134,6 @@ def get_city_migration_proportion(file_save_location,task_type,beginTime,endTime
             except Exception as why:
                 print(why)
                 print(code + ' No Data')
-
 
 
 
@@ -184,20 +189,23 @@ def rename_csv(begindata,enddata):
 
 if __name__ == '__main__':
 
+
     #两个迁徙指数 爬取
     # get_city_migration_index(migration_index_in,"move_in")
     # get_city_migration_index(migration_index_out,"move_out")
 
-    get_city_migration_index("F:/百度迁徙数据_日常维护/迁徙指数_需补充/in/", "move_in")
-    get_city_migration_index('F:/百度迁徙数据_日常维护/迁徙指数_需补充/out/', "move_out")
+
+    # get_city_migration_index("F:/百度迁徙数据_日常维护/迁徙指数_需补充/in/", "move_in")
+    # get_city_migration_index('F:/百度迁徙数据_日常维护/迁徙指数_需补充/out/', "move_out")
 
 
     #两个迁徙比例 爬取
-    get_city_migration_proportion(migration_proportion_in,"move_in",20230114,20230225)
-    get_city_migration_proportion(migration_proportion_out,"move_out",20230114,20230225)
+    get_city_migration_proportion(migration_proportion_in,"move_in",20230221,20230225)
+    get_city_migration_proportion(migration_proportion_out,"move_out",20230221,20230225)
 
 
     #补充爬取
+
 
     # list_problem_in = [(469001, "五指山", 20221123),(530400, "玉溪", 20221108)]
     # list_problem_out = [(210900, "阜新", 20221013), (370300, "淄博", 20221205)]
@@ -207,6 +215,8 @@ if __name__ == '__main__':
     #
     # for i in list_problem_out:
     #     makeUp_problem_data(migration_proportion_out,"move_out",i[0],i[1],i[2])
+
+
 
 
 

@@ -81,7 +81,7 @@ def merge_moveIn_data(beginData,endData):
 
 
 if __name__ == '__main__':
-    merge_moveIn_data(20220831,20230220)
+    merge_moveIn_data(20230221,20230413)
 
 # baiduMigrationProportion = pd.read_csv(
 #     "F:\\01大连民族\\百度迁徙爬取和数据\\百度迁徙数据更新_经常运行\\迁徙比例\\in\\""" + csv_row[0] + "_" + csv_row[1] + "_move_in_" + dayList[

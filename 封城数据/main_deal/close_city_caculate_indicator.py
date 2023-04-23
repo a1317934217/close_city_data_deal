@@ -121,8 +121,12 @@ Five_order_SJZ = ['烟台', '文山壮族苗族自治州', '仙桃', '铜川', '
 # file_path = "F:/封城数据处理/封城数据/石家庄/石家庄四阶/garbage_self_network/deal_01/in/"
 
 
+#石家庄日期
+# listXData = getdaylist(20201201,20210508)
 
-listXData = getdaylist(20210101,20210508)
+
+#西安日期
+listXData = getdaylist(20211201,20220215)
 
 
 
@@ -426,19 +430,37 @@ def algebraic_connectivity(file_path,city_name,nodes):
 
 
 if __name__ == '__main__':
-    file_path = "F:/封城数据处理/封城数据/石家庄/石家庄一阶/deal_03/"
 
-    # averagenodeconnectivity(file_path,"石家庄",Third_order_SJZ)
-    # get_city_degree(file_path,"石家庄",Third_order_SJZ)
-    # edge_number(file_path,"石家庄",Third_order_SJZ)
-    # naturecconnectivity(file_path,"石家庄",Third_order_SJZ)
+    # file_path = "F:/封城数据处理/封城数据/石家庄/石家庄一阶/deal_03/"
+    file_path = "F:/封城数据处理/封城数据/西安/西安一阶/deal_03/"
+
+
+
+    # averagenodeconnectivity(file_path,"石家庄",First_order_SJZ)
+    # get_city_degree(file_path,"石家庄",First_order_SJZ)
+    # edge_number(file_path,"石家庄",First_order_SJZ)
+    # naturecconnectivity(file_path,"石家庄",First_order_SJZ)
+
+
+
+    averagenodeconnectivity(file_path, "西安", First_order_xian)
+    get_city_degree(file_path, "西安", First_order_xian)
+    edge_number(file_path, "西安", First_order_xian)
+    naturecconnectivity(file_path, "西安", First_order_xian)
+
+
+
+
+
 
     # density(file_path,"石家庄",First_order_SJZ)
     # diversity(file_path,"石家庄",First_order_SJZ)
     # globalefficiency(file_path,"石家庄",First_order_SJZ)
 
-    average_short_length(file_path,"石家庄",First_order_SJZ)
-    algebraic_connectivity(file_path,"石家庄",First_order_SJZ)
+    # average_short_length(file_path,"西安",First_order_xian)
+    # algebraic_connectivity(file_path,"石家庄",First_order_SJZ)
+
+
 
 
 

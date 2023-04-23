@@ -20,7 +20,7 @@ from tqdm import tqdm
 #迁徙数据位置
 fileNameFront = "F:/百度迁徙数据/比例和指数计算完成后的数据/"
 #处理后存储的位置
-file_project =  r"F:/封城数据处理/paper_supplement_experiment/data/"
+file_project =  r"F:/封城数据处理/paper_supplement_experiment/data/西安封城信息/"
 
 around_city=["北京","衡水","秦皇岛","唐山","廊坊","天津","承德","保定","沧州","邯郸","邢台","张家口"]
 list_code_name =[['110000', '北京'], ['131100', '衡水'], ['130300', '秦皇岛'], ['130200', '唐山'], ['131000', '廊坊'], ['120000', '天津'], ['130800', '承德'], ['130600', '保定'], ['130900', '沧州'], ['130400', '邯郸'], ['130500', '邢台'], ['130700', '张家口']]
@@ -47,6 +47,34 @@ alon_list =[zhangjiakou_one_network]
 
 
 
+# beijing_one_network_xa=[]
+# zhengzhou_one_network_xa=[]
+# chengdu_one_network_xa=[]
+# baoji_one_network_xa=[]
+# tongchuan_one_network_xa=[]
+# hanzhong_one_network_xa=[]
+# yanan_one_network_xa=[]
+# shangluo_one_network_xa=[]
+# qingyang_one_network_xa=[]
+# ankang_one_network_xa=[]
+# yuncheng_one_network_xa=[]
+# xian_one_network_xa=[]
+
+
+
+
+#西安一阶自我中心网络城市
+First_order_xian =  ['北京', '郑州', '成都', '宝鸡', '榆林', '铜川', '汉中', '延安', '咸阳',
+                     '商洛', '庆阳', '兰州', '安康', '运城', '渭南', '西安']
+
+#西安 周边城市一阶自我中西网络城市点集合
+xianyang_one_network_xa=["西安","宝鸡","渭南","庆阳","铜川","榆林","延安","南阳","平凉","商洛","咸阳"]
+weinan_one_network_xa=["西安","运城","铜川","延安","咸阳","三门峡","临汾","榆林","宝鸡","郑州","渭南"]
+lanzhou_one_network_xa=["定西","白银","临夏回族自治州","武威","天水","西宁","平凉","陇南","甘南藏族自治州","张掖","兰州"]
+yulin_one_network_xa=["鄂尔多斯","吕梁","忻州","延安","临汾","银川","石家庄","吴忠","晋中","包头","榆林"]
+#集合列表
+around_city_xian = ["咸阳","渭南","兰州","榆林"]
+list_cityName_xian=[xianyang_one_network_xa,weinan_one_network_xa,lanzhou_one_network_xa,yulin_one_network_xa]
 
 
 
@@ -222,9 +250,9 @@ def merge_alone_file(beginTime,endTime,rank_level):
 
 if __name__ == '__main__':
 
-    for city_all_name_code,around_city_name  in zip(list_cityName,around_city):
+    for city_all_name_code,around_city_name  in zip(list_cityName_xian,around_city_xian):
 
-        select_around_city_data(20210101,20210508,city_all_name_code,"{}一阶".format(around_city_name))
-        merge_inAndout_file(20210101,20210508, "{}一阶".format(around_city_name))
-        merge_alone_file(20210101,20210508,"{}一阶".format(around_city_name))
+        select_around_city_data(20211209,20220131,city_all_name_code,"{}一阶".format(around_city_name))
+        merge_inAndout_file(20211209,20220131, "{}一阶".format(around_city_name))
+        merge_alone_file(20211209,20220131,"{}一阶".format(around_city_name))
 

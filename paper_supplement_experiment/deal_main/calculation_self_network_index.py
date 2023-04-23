@@ -30,7 +30,7 @@ import numpy as np
 from numpy import array
 from sklearn.preprocessing import MinMaxScaler
 #处理后存储的位置
-file_project =  r"F:/封城数据处理/paper_supplement_experiment/data/"
+file_project =  r"F:/封城数据处理/paper_supplement_experiment/data/西安封城信息/"
 
 beijing_one_network = ["北京","廊坊","天津","保定","张家口","唐山","石家庄","上海","承德","沧州","邯郸"]
 hengshui_one_network = ["衡水","石家庄","北京","保定","沧州","德州","天津","张家口","唐山","邢台","廊坊"]
@@ -48,6 +48,21 @@ zhangjiakou_one_network = ["张家口","石家庄","北京","保定","天津","�
 list_cityName =[beijing_one_network,hengshui_one_network,qinhuangdao_one_network,tangshan_one_network,langfang_one_network,tianjin_one_network,
                 chengde_one_network,baoding_one_network,cangzhou_one_network,handan_one_network,xingtai_one_network,zhangjiakou_one_network]
 
+
+
+
+#西安一阶自我中心网络城市
+First_order_xian =  ['北京', '郑州', '成都', '宝鸡', '榆林', '铜川', '汉中', '延安', '咸阳',
+                     '商洛', '庆阳', '兰州', '安康', '运城', '渭南', '西安']
+
+#西安 周边城市一阶自我中西网络城市点集合
+xianyang_one_network_xa=["西安","宝鸡","渭南","庆阳","铜川","榆林","延安","南阳","平凉","商洛","咸阳"]
+weinan_one_network_xa=["西安","运城","铜川","延安","咸阳","三门峡","临汾","榆林","宝鸡","郑州","渭南"]
+lanzhou_one_network_xa=["定西","白银","临夏回族自治州","武威","天水","西宁","平凉","陇南","甘南藏族自治州","张掖","兰州"]
+yulin_one_network_xa=["鄂尔多斯","吕梁","忻州","延安","临汾","银川","石家庄","吴忠","晋中","包头","榆林"]
+#集合列表
+around_city_xian = ["咸阳","渭南","兰州","榆林"]
+list_cityName_xian=[xianyang_one_network_xa,weinan_one_network_xa,lanzhou_one_network_xa,yulin_one_network_xa]
 
 
 
@@ -69,7 +84,7 @@ def getdaylist(begin, end):
 # file_path = "F:/封城数据处理/封城数据/石家庄/石家庄四阶/garbage_self_network/deal_01/in/"
 
 
-listXData = getdaylist(20210101,20210508)
+listXData = getdaylist(20211209,20220131)
 
 
 
@@ -356,9 +371,9 @@ def function_encapsulation(first_data,second_data,third_data,four_data,listXData
 
 def draw_all_city_indicators(beginData,endData):
     listXData = getdaylist(beginData, endData)
-    fig = plt.figure(figsize=(8, 6), dpi=300)
+    fig = plt.figure(figsize=(8, 6)) #, dpi=300
 
-    final_file_adress = "F:/封城数据处理/paper_supplement_experiment/data/all_city_indicators.csv"
+    final_file_adress = "F:/封城数据处理/paper_supplement_experiment/data/西安封城信息/all_city_indicators.csv"
     move_data = pd.read_csv(final_file_adress, encoding="utf-8")
     i=1
     for move_data in move_data.iterrows():
@@ -381,7 +396,10 @@ def draw_all_city_indicators(beginData,endData):
 
 
 def caculate_indicators():
-    around_city = ["北京", "衡水", "秦皇岛", "唐山", "廊坊", "天津", "承德", "保定", "沧州", "邯郸", "邢台", "张家口"]
+    #石家庄城市
+    # around_city = ["北京", "衡水", "秦皇岛", "唐山", "廊坊", "天津", "承德", "保定", "沧州", "邯郸", "邢台", "张家口"]
+    #西安封闭城市
+    around_city = ["咸阳","渭南","兰州","榆林"]
     # 表头
     field_order_move_in = ["city_name", 'level', 'list_avarge_node', 'list_degree', 'list_edge', 'list_nature']
     path_file_in = file_project +"all_city_indicators.csv"
@@ -389,8 +407,8 @@ def caculate_indicators():
     with open(path_file_in, 'w',encoding="utf-8", newline='') as csvfile:
         writer = csv.DictWriter(csvfile, field_order_move_in)
         writer.writeheader()
-        for city_all_name_code,around_city_name  in zip(list_cityName,around_city):
-            file_path = "F:/封城数据处理/paper_supplement_experiment/data/{0}/{1}/deal_03/".format(around_city_name,around_city_name+"一阶")
+        for city_all_name_code,around_city_name  in zip(list_cityName_xian,around_city):
+            file_path = "F:/封城数据处理/paper_supplement_experiment/data/西安封城信息/{0}/{1}/deal_03/".format(around_city_name,around_city_name+"一阶")
             list_avarge_node = averagenodeconnectivity(file_path,around_city_name,city_all_name_code)
             list_degree = get_city_degree(file_path,around_city_name,city_all_name_code)
             list_edge = edge_number(file_path,around_city_name,city_all_name_code)
@@ -401,8 +419,11 @@ def caculate_indicators():
 
 
 if __name__ == '__main__':
-    # caculate_indicators()
-    draw_all_city_indicators(20210101,20210508)
+    #计算封闭城市周边城市的四个指标
+    caculate_indicators()
+
+    #画图
+    draw_all_city_indicators(20211209,20220131)
 
 
 

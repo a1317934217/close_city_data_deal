@@ -21,51 +21,53 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-data = pd.read_csv('data.csv')
-data_copy = data.copy()
-del data_copy['City_name']
+def plot_shap_and_bar():
 
-data_x = data_copy.copy()
-del data_x['eco_value']
-data_y = data_copy['eco_value']
-#%%
-# data_x
-# #%%
-# data_y
-# #%%
-#
-from sklearn.model_selection import cross_val_score
-model = xgb.XGBRegressor(max_depth=6,learning_rate=0.05,n_estimators=100,randam_state=42)
-model.fit(data_x,data_y)
+    data = pd.read_csv('data.csv')
+    data_copy = data.copy()
+    del data_copy['City_name']
 
-
-scores = cross_val_score(model, X=data_x, y=data_y, verbose=0, cv = 5, scoring='neg_mean_squared_error')
-print(scores.mean())
-#  -1.9411996002939156
-
-# #%%
-# explainer = shap.TreeExplainer(model)
-# # compute SHAP values
+    data_x = data_copy.copy()
+    del data_x['eco_value']
+    data_y = data_copy['eco_value']
+    #%%
+    # data_x
+    # #%%
+    # data_y
+    # #%%
+    #
+    from sklearn.model_selection import cross_val_score
+    model = xgb.XGBRegressor(max_depth=6,learning_rate=0.05,n_estimators=100,randam_state=42)
+    model.fit(data_x,data_y)
 
 
+    scores = cross_val_score(model, X=data_x, y=data_y, verbose=0, cv = 5, scoring='neg_mean_squared_error')
+    print(scores.mean())
+    #  -1.9411996002939156
+
+    # #%%
+    # explainer = shap.TreeExplainer(model)
+    # # compute SHAP values
 
 
-plt.figure(dpi=450) # 设置图片的清晰度
-plt.rcParams['font.sans-serif'] = ['SimHei']
-plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
-plt.xlabel('影响数值', fontsize=20)#设置x轴标签和大小
 
 
-# fig = plt.gcf() # 获取后面图像的句柄
-# explainer = shap.Explainer(model, data_x)
-# shap_values = explainer(data_x)
-#
-# #shap图示
-# shap.summary_plot(shap_values, data_x,show=False)
-# plt.savefig("shap1213.jpg")
-#
-# #柱状图
-# shap.summary_plot(shap_values, data_x, plot_type="bar")
+    plt.figure(dpi=450) # 设置图片的清晰度
+    plt.rcParams['font.sans-serif'] = ['SimHei']
+    plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
+    plt.xlabel('影响数值', fontsize=20)#设置x轴标签和大小
+
+
+    fig = plt.gcf() # 获取后面图像的句柄
+    explainer = shap.Explainer(model, data_x)
+    shap_values = explainer(data_x)
+    #
+    # #shap图示
+    # shap.summary_plot(shap_values, data_x,show=False)
+    # plt.savefig("shap1213.jpg")
+    #
+    # #柱状图
+    shap.summary_plot(shap_values, data_x, plot_type="bar")
 
 
 
@@ -161,6 +163,7 @@ def plot_Box_diagram(RandomForestRegressor_MSE,RandomForestRegressor_MAE,RandomF
     fig.tight_layout()
 
     # 显示图形
+    plt.savefig("box_fig.jpg")
     plt.show()
 
 
@@ -244,24 +247,15 @@ if __name__ == '__main__':
 
     name_list = ["随机森林回归","线性回归","KNN回归","SVM支持向量机","岭回归","Lasso回归","Xgboost"]
 
-    plot_Box_diagram(RandomForestRegressor_MSE, RandomForestRegressor_MAE, RandomForestRegressor_MSLE,
-                     LinearRegression_MSE, LinearRegression_MAE, LinearRegression_MSLE,
-                     KNeighborsRegressor_MSE, KNeighborsRegressor_MAE, KNeighborsRegressor_MSLE,
-                     SVRZ_MSE, SVRZ_MAE, SVRZ_MSLE,
-                     Ridge_MSE, Ridge_MAE, Ridge_MSLE,
-                     Lasso_MSE, Lasso_MAE, Lasso_MSLE,
-                     xgboost_MSE, xgboost_MAE, xgboost_MSLE,name_list)
+    # plot_Box_diagram(RandomForestRegressor_MSE, RandomForestRegressor_MAE, RandomForestRegressor_MSLE,
+    #                  LinearRegression_MSE, LinearRegression_MAE, LinearRegression_MSLE,
+    #                  KNeighborsRegressor_MSE, KNeighborsRegressor_MAE, KNeighborsRegressor_MSLE,
+    #                  SVRZ_MSE, SVRZ_MAE, SVRZ_MSLE,
+    #                  Ridge_MSE, Ridge_MAE, Ridge_MSLE,
+    #                  Lasso_MSE, Lasso_MAE, Lasso_MSLE,
+    #                  xgboost_MSE, xgboost_MAE, xgboost_MSLE,name_list)
 
-
-    # for i in range(7):
-    #     print(xgboost_MSE[i])
-    # data3 = [RandomForestRegressor_MSLE, LinearRegression_MSLE, KNeighborsRegressor_MSLE,
-    #          SVRZ_MSLE, Ridge_MSLE, Lasso_MSLE, xgboost_MSLE]
-    #
-    # tool = MinMaxScaler(feature_range=(0, 1))
-    # first_data = tool.fit_transform(data3).reshape(-1, 1).tolist()
-    # # 创建一个包含三个子图的画布
-    # print(first_data)
+    plot_shap_and_bar()
 
 
 
