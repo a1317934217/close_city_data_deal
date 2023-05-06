@@ -19,10 +19,9 @@ import datetime
 from tqdm import tqdm
 #迁徙数据位置
 fileNameFront = "F:/百度迁徙数据/比例和指数计算完成后的数据/"
-#处理后存储的位置
-file_project =  r"F:/封城数据处理/封城数据/西安/"
 
-#石家庄 封城时间 2021/1/7——2021/1/29日  比较时间2021/01/01 -2021/05/08(接近春节) 阈值选取为0.04 确定！
+
+#石家庄 封城时间 2021/1/7——2021/1/29日  比较时间2020/12/01 -2021/05/08(接近春节) 阈值选取为0.04 确定！
 # 石家庄一阶城市 13城市
 First_order = ["石家庄","北京","衡水","秦皇岛","唐山","廊坊","天津","承德","保定","沧州","邯郸","邢台","张家口"]
 # 石家庄二阶城市 54城市
@@ -54,6 +53,17 @@ Fourth_order_xian =  ['衡水', '太原', '榆林', '怀化', '徐州', '上饶'
 five_order_xian = ['资阳', '楚雄彝族自治州', '天水', '鞍山', '固原', '铜川', '柳州', '日照', '福州', '中山', '孝感', '眉山', '西宁', '铜陵', '揭阳', '海南藏族自治州', '无锡', '南阳', '白银', '云浮', '盘锦', '温州', '肇庆', '随州', '岳阳', '甘南藏族自治州', '舟山', '深圳', '松原', '张家口', '驻马店', '西安', '南昌', '百色', '盐城', '自贡', '雅安', '玉溪', '洛阳', '鄂州', '来宾', '连云港', '屯昌', '石家庄', '河池', '巴彦淖尔', '上海', '黄冈', '咸阳', '莱芜', '丽水', '济宁', '仙桃', '内江', '烟台', '南通', '临沧', '威海', '朔州', '渭南', '恩施土家族苗族自治州', '贵阳', '淮北', '丽江', '吕梁', '天门', '白城', '朝阳', '定西', '茂名', '汉中', '沧州', '聊城', '万宁', '锦州', '儋州', '黄石', '白山', '阜阳', '绍兴', '安顺', '宝鸡', '湛江', '毕节地区', '大同', '蚌埠', '昭通', '扬州', '湘西土家族苗族自治州', '常德', '泸州', '景德镇', '乌海', '屯昌县', '株洲', '阳泉', '六安', '榆林', '沈阳', '文山壮族苗族自治州', '中卫', '汕尾', '台州', '凉山彝族自治州', '滨州', '安康', '阿拉善盟', '西双版纳傣族自治州', '黔南布依族苗族自治州', '晋中', '昆明', '临高', '大连', '潍坊', '红河哈尼族彝族自治州', '黔东南苗族侗族自治州', '襄阳', '延边朝鲜族自治州', '湖州', '江门', '周口', '遂宁', '德州', '甘孜藏族自治州', '呼和浩特', '延安', '大理白族自治州', '赤峰', '定安', '重庆', '阜新', '枣庄', '永州', '阿坝藏族羌族自治州', '嘉兴', '营口', '河源', '泰安', '六盘水', '韶关', '新余', '海北藏族自治州', '庆阳', '临汾', '咸宁', '铜仁地区', '镇江', '金昌', '郑州', '三门峡', '邯郸', '邵阳', '兴安盟', '长治', '临高县', '苏州', '北海', '包头', '淮南', '南宁', '桂林', '北京', '廊坊', '安庆', '佛山', '海西蒙古族藏族自治州', '钦州', '长春', '锡林郭勒盟', '迪庆藏族自治州', '合肥', '本溪', '安阳', '衡阳', '萍乡', '贺州', '娄底', '梧州', '忻州', '新乡', '唐山', '商丘', '亳州', '抚州', '辽源', '宜春', '平顶山', '马鞍山', '益阳', '南京', '辽阳', '陵水黎族自治县', '保定', '成都', '晋城', '德阳', '石嘴山', '琼海', '青岛', '武威', '张家界', '潮州', '焦作', '澄迈', '东莞', '兰州', '普洱', '达州', '潜江', '铁岭', '太原', '漯河', '玉林', '宜昌', '文昌', '鹤壁', '临沂', '宜宾', '信阳', '攀枝花', '广元', '乐山', '鹰潭', '崇左', '濮阳', '汕头', '承德', '葫芦岛', '宣城', '运城', '防城港', '杭州', '宁波', '珠海', '商洛', '惠州', '菏泽', '泰州', '郴州', '曲靖', '衡水', '广州', '济南', '衢州', '广安', '上饶', '十堰', '临夏回族自治州', '宿州', '怒江傈僳族自治州', '东营', '滁州', '吉安', '通辽', '常州', '清远', '银川', '济源', '贵港', '东方', '荆州', '邢台', '抚顺', '淄博', '九江', '丹东', '绵阳', '巴中', '陇南', '黄山', '毕节', '宿迁', '乌兰察布', '三亚', '芜湖', '保山', '武汉', '徐州', '荆门', '秦皇岛', '吉林', '赣州', '澄迈县', '梅州', '许昌', '澳门', '黔西南布依族苗族自治州', '四平', '池州', '海东', '鄂尔多斯', '开封', '南充', '黄南藏族自治州', '阳江', '通化', '金华', '长沙', '遵义', '铜仁', '海东地区', '吴忠', '宁德', '怀化', '海口', '湘潭', '淮安', '天津', '定安县']
 #西安六阶全部相同
 
+
+
+
+
+
+#张家界封城时间段 2021/8/1-2021/8/25 封城时间25天，比较时间2021/11/15-2021/5/8
+list_ZJJ = ["张家界","常德","长沙","湘西土家族苗族自治州","恩施土家族苗族自治州","益阳","重庆","株洲","岳阳","邵阳","广州","衡阳","深圳"]
+
+
+
+
  #判断2个字符串字符是否完全一样 顺序可不同
 def compare_two_str(a,b):
     if len(a) != len(b):
@@ -70,10 +80,7 @@ def getdaylist(beginDate,endDate):
         beginDate += datetime.timedelta(days=+1)
     return dayList
 
-
-
-
-def select_around_city_data(beginTime,endTime,around_city,rank_level):
+def select_around_city_data(beginTime,endTime,around_city,rank_level,cityName,threshold,file_project):
     """
     属于第一步
     处理直接去掉0.04阈值后in
@@ -104,7 +111,7 @@ def select_around_city_data(beginTime,endTime,around_city,rank_level):
         path_file_in = file_project+rank_level+"/deal_01/in/"
         if not os.path.exists(path_file_in):
             os.makedirs(path_file_in)
-        with open(path_file_in + dayList[i] + "_西安.csv", 'w',encoding="utf-8", newline='') as csvfile:
+        with open(path_file_in + dayList[i] + "_"+cityName+".csv", 'w',encoding="utf-8", newline='') as csvfile:
 
             writer = csv.DictWriter(csvfile, field_order_move_in)
             writer.writeheader()
@@ -113,7 +120,11 @@ def select_around_city_data(beginTime,endTime,around_city,rank_level):
                 city_name = getattr(row_in, "city_name")
                 city_id_name = getattr(row_in, "city_id_name")
                 num = getattr(row_in, "num")
-                if num >=0.01:
+                # 石家庄阈值选择0.03
+                # 西安阈值选择0.01
+                # 张家界阈值选择0.02
+
+                if num >=threshold:
                     if city_name in around_city and city_id_name in around_city:
                         row = {"city_name": city_name, "city_id_name": city_id_name, "num": num}
                         writer.writerow(row)
@@ -121,7 +132,7 @@ def select_around_city_data(beginTime,endTime,around_city,rank_level):
             path_file_out = file_project +rank_level+ "/deal_01/out/"
             if not os.path.exists(path_file_out):
                 os.mkdir(path_file_out)
-            with open(path_file_out+ dayList[i] + "_西安.csv", 'w',encoding="utf-8", newline='') as csvfile:
+            with open(path_file_out+ dayList[i] + "_"+cityName+".csv", 'w',encoding="utf-8", newline='') as csvfile:
                 writer = csv.DictWriter(csvfile, field_order_move_in)
                 writer.writeheader()
                 # move_in 每一行
@@ -129,13 +140,18 @@ def select_around_city_data(beginTime,endTime,around_city,rank_level):
                     city_name = getattr(row_out, "city_name")
                     city_id_name = getattr(row_out, "city_id_name")
                     num = getattr(row_out, "num")
-                    if num >= 0.01:
+                    #石家庄阈值选择0.03
+                    #西安阈值选择0.01
+                    # 张家界阈值选择0.02
+
+
+                    if num >= threshold:
                         if city_name in around_city and city_id_name in around_city:
                             row = {"city_name": city_name, "city_id_name": city_id_name, "num": num}
                             writer.writerow(row)
                 csvfile.close()
 
-def merge_inAndout_file(beginTime,endTime,rank_level):
+def merge_inAndout_file(beginTime,endTime,rank_level,cityName,file_project):
     """
     属于第二步 合并in和out里面的重复内容
     :param beginTime:
@@ -149,12 +165,12 @@ def merge_inAndout_file(beginTime,endTime,rank_level):
         # 表头
         field_order_move_in = ["city_name", 'city_id_name', 'num']
         # 开始写入整理完的数据csv
-        move_in_data = pd.read_csv(file_project+rank_level+"/deal_01/in/"+dayList[i]+"_西安.csv")
-        move_out_data = pd.read_csv(file_project+rank_level+"/deal_01/out/"+dayList[i]+"_西安.csv")
+        move_in_data = pd.read_csv(file_project+rank_level+"/deal_01/in/"+dayList[i]+"_"+cityName+".csv")
+        move_out_data = pd.read_csv(file_project+rank_level+"/deal_01/out/"+dayList[i]+"_"+cityName+".csv")
         path_file_in = file_project + rank_level + "/deal_02/"
         if not os.path.exists(path_file_in):
             os.makedirs(path_file_in)
-        with open(path_file_in+ dayList[i] + "_西安.csv", 'w',
+        with open(path_file_in+ dayList[i] + "_"+cityName+".csv", 'w',
                   encoding="utf-8", newline='') as csvfile:
             writer = csv.DictWriter(csvfile, field_order_move_in)
             writer.writeheader()
@@ -180,7 +196,7 @@ def merge_inAndout_file(beginTime,endTime,rank_level):
                         break
 
 
-def merge_alone_file(beginTime,endTime,rank_level):
+def merge_alone_file(beginTime,endTime,rank_level,cityName,file_project):
     """
     第三步，合并单独的in里面的内容
     :param beginTime:
@@ -194,12 +210,12 @@ def merge_alone_file(beginTime,endTime,rank_level):
         # 表头
         field_order_move_in = ["city_name", 'city_id_name', 'num']
         # 开始写入整理完的数据csv
-        need_deal_file_one = pd.read_csv(file_project +rank_level+ "/deal_02/" + dayList[i] + "_西安.csv")
-        need_deal_file_two = pd.read_csv(file_project +rank_level+ "/deal_02/" + dayList[i] + "_西安.csv")
+        need_deal_file_one = pd.read_csv(file_project +rank_level+ "/deal_02/" + dayList[i] + "_"+cityName+".csv")
+        need_deal_file_two = pd.read_csv(file_project +rank_level+ "/deal_02/" + dayList[i] + "_"+cityName+".csv")
         path_file_in = file_project + rank_level + "/deal_03/"
         if not os.path.exists(path_file_in):
             os.makedirs(path_file_in)
-        with open(path_file_in + dayList[i] + "_西安.csv", 'w',
+        with open(path_file_in + dayList[i] + "_"+cityName+".csv", 'w',
                   encoding="utf-8", newline='') as csvfile:
             writer = csv.DictWriter(csvfile, field_order_move_in)
             writer.writeheader()
@@ -226,12 +242,28 @@ def merge_alone_file(beginTime,endTime,rank_level):
 
 
 if __name__ == '__main__':
+    # 430800, 张家界
 
-    select_around_city_data(20211201,20220215,First_order_xian,"西安一阶")
-    merge_inAndout_file(20211201,20220215, "西安一阶")
-    merge_alone_file(20211201,20220215,"西安一阶")
 
-    # select_around_city_data(20201201, 20210508, First_order, "石家庄一阶")
-    # merge_inAndout_file(20201201, 20210508, "石家庄一阶")
-    # merge_alone_file(20201201, 20210508, "石家庄一阶")
+    # select_around_city_data(20211115, 20220508, list_ZJJ, "张家界一阶")
+    # merge_inAndout_file(20211115, 20220508, "张家界一阶")
+    # merge_alone_file(20211115, 20220508, "张家界一阶")
+
+
+    file_project = r"F:/封城数据处理/封城数据/西安/"
+    select_around_city_data(20201111, 20220519,First_order_xian,"西安一阶","西安",0.01,file_project)
+    merge_inAndout_file(20201111, 20220519, "西安一阶","西安",file_project)
+    merge_alone_file(20201111, 20220519,"西安一阶","西安",file_project)
+
+
+    #20211121,20220528
+    # 石家庄阈值选择0.03
+    # 西安阈值选择0.01
+    # 张家界阈值选择0.02
+    # 处理后存储的位置
+
+    # file_project = r"F:/封城数据处理/封城数据/石家庄/"
+    # select_around_city_data(20221110,20230406, First_order, "石家庄一阶","石家庄",0.03,file_project)
+    # merge_inAndout_file(20221110,20230406, "石家庄一阶","石家庄",file_project)
+    # merge_alone_file(20221110,20230406, "石家庄一阶","石家庄",file_project)
 

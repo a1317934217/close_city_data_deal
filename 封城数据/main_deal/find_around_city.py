@@ -211,7 +211,7 @@ def merge_index_city(file_index_in,file_index_out,final_file_adress):
 
 if __name__ == '__main__':
     #一阶城市
-    # get_around_city(["西安"],0.08)
+    get_around_city(["西安"],0.08)
     # 二阶城市
     # get_around_city(First_order_xian,0.08)
     # 三阶城市
@@ -219,7 +219,7 @@ if __name__ == '__main__':
     # 四阶城市
     # get_around_city(Third_order_xian,0.08)
     # 五阶城市
-    get_around_city(Fourth_order,0.04)
+    # get_around_city(Fourth_order,0.04)
 
 
     #取样标本某一天的网络
@@ -239,4 +239,9 @@ if __name__ == '__main__':
 # 城市集合 {'深圳', '商洛', '渭南', '平凉', '咸阳', '成都', '榆林', '天水', '上海', '宝鸡', '重庆', '三门峡', '银川', '洛阳', '安康', '太原', '北京', '西安', '汉中', '郑州', '铜川', '兰州', '运城', '延安', '庆阳'}
 
 
+
+
+
+#张家界封城时间段 2021/8/1-2021/8/25 封城时间25天，选用时间2021/11/15-2021/5/8
+list_ZJJ = ["常德","长沙","湘西土家族苗族自治州","恩施土家族苗族自治州","益阳","重庆","株洲","岳阳","邵阳","广州","衡阳","深圳"]
 

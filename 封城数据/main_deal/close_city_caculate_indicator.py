@@ -118,15 +118,26 @@ Five_order_SJZ = ['烟台', '文山壮族苗族自治州', '仙桃', '铜川', '
 #石家庄六阶 城市直接全部包括
 
 
+
+
+
+
+#张家界封城时间段 2021/8/1-2021/8/25 封城时间25天，比较时间2021/11/15-2021/5/8
+list_ZJJ = ["常德","长沙","湘西土家族苗族自治州","恩施土家族苗族自治州","益阳","重庆","株洲","岳阳","邵阳","广州","衡阳","深圳"]
+
+
+
+
+
 # file_path = "F:/封城数据处理/封城数据/石家庄/石家庄四阶/garbage_self_network/deal_01/in/"
 
 
 #石家庄日期
-# listXData = getdaylist(20201201,20210508)
+listXData = getdaylist(20211121,20220416)
 
 
 #西安日期
-listXData = getdaylist(20211201,20220215)
+# listXData = getdaylist(20211121,20220528)
 
 
 
@@ -149,8 +160,6 @@ def drawpicture(filePath,nodes_list_one):
         city_id_name = getattr(row, "city_id_name")
         G.add_edges_from([(city_name, city_id_name)])
     return G
-
-
 
 
 
@@ -431,25 +440,33 @@ def algebraic_connectivity(file_path,city_name,nodes):
 
 if __name__ == '__main__':
 
-    # file_path = "F:/封城数据处理/封城数据/石家庄/石家庄一阶/deal_03/"
-    file_path = "F:/封城数据处理/封城数据/西安/西安一阶/deal_03/"
+    file_path = "F:/封城数据处理/封城数据/石家庄/石家庄一阶/deal_03/"
+    # file_path = "F:/封城数据处理/封城数据/西安/西安一阶/deal_03/"
+    # file_path = "F:/封城数据处理/封城数据/张家界/张家界一阶/deal_03/"
+
+
+    # averagenodeconnectivity(file_path,"张家界",list_ZJJ)
+    # get_city_degree(file_path,"张家界",list_ZJJ)
+    # edge_number(file_path,"张家界",list_ZJJ)
+    # naturecconnectivity(file_path,"张家界",list_ZJJ)
 
 
 
-    # averagenodeconnectivity(file_path,"石家庄",First_order_SJZ)
-    # get_city_degree(file_path,"石家庄",First_order_SJZ)
-    # edge_number(file_path,"石家庄",First_order_SJZ)
-    # naturecconnectivity(file_path,"石家庄",First_order_SJZ)
 
 
 
-    averagenodeconnectivity(file_path, "西安", First_order_xian)
-    get_city_degree(file_path, "西安", First_order_xian)
-    edge_number(file_path, "西安", First_order_xian)
-    naturecconnectivity(file_path, "西安", First_order_xian)
+
+    averagenodeconnectivity(file_path,"石家庄",First_order_SJZ)
+    get_city_degree(file_path,"石家庄",First_order_SJZ)
+    edge_number(file_path,"石家庄",First_order_SJZ)
+    naturecconnectivity(file_path,"石家庄",First_order_SJZ)
 
 
 
+    # averagenodeconnectivity(file_path, "西安", First_order_xian)
+    # get_city_degree(file_path, "西安", First_order_xian)
+    # edge_number(file_path, "西安", First_order_xian)
+    # naturecconnectivity(file_path, "西安", First_order_xian)
 
 
 
@@ -459,10 +476,6 @@ if __name__ == '__main__':
 
     # average_short_length(file_path,"西安",First_order_xian)
     # algebraic_connectivity(file_path,"石家庄",First_order_SJZ)
-
-
-
-
 
 
     # node_connectivity_alone(file_path,"石家庄",Five_order_SJZ)
