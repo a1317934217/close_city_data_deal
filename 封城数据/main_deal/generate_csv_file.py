@@ -41,6 +41,7 @@ Five_order = ['烟台', '文山壮族苗族自治州', '仙桃', '铜川', '泰�
 
 #16个
 First_order_xian =  ['北京', '郑州', '成都', '宝鸡', '榆林', '铜川', '汉中', '延安', '咸阳', '商洛', '庆阳', '兰州', '安康', '运城', '渭南', '西安']
+
 #89个
 Second_order_xian =  ['临汾', '兰州', '廊坊', '呼和浩特', '汉中', '延安', '铜川', '西安', '宜宾', '周口', '上海', '榆林', '遂宁', '成都', '石家庄', '广元', '凉山彝族自治州', '达州', '白银', '邯郸', '庆阳', '攀枝花', '邢台', '济南', '衡水', '张家口', '新乡', '洛阳', '贵阳', '沈阳', '焦作', '广安', '阿坝藏族羌族自治州', '沧州', '莱芜', '雅安', '开封', '甘南藏族自治州', '保定', '自贡', '眉山', '青岛', '商丘', '濮阳', '甘孜藏族自治州', '天津', '乐山', '武汉', '南阳', '南京', '安阳', '资阳', '三门峡', '南充', '巴中', '信阳', '临夏回族自治州', '吕梁', '咸阳', '昆明', '秦皇岛', '绵阳', '定西', '驻马店', '漯河', '商洛', '泸州', '运城', '宝鸡', '平顶山', '许昌', '重庆', '鹤壁', '唐山', '郑州', '北京', '天水', '太原', '渭南', '承德', '安康', '深圳', '德阳', '武威', '鄂尔多斯', '忻州', '银川', '西宁', '内江']
 
@@ -240,21 +241,99 @@ def merge_alone_file(beginTime,endTime,rank_level,cityName,file_project):
                         break
 
 
+def getPreMonth(input_date) :
+
+    #做转译
+    s_date = input_date[:4]+"-"+input_date[4:6]+"-"+input_date[6:8]
+    # 设置日期
+    s_date = pd.Timestamp(s_date)
+    # 获得前一月的这一天
+    s_date1 = s_date + pd.DateOffset(n=-1, months=1)
+    #
+    data_needdeal = str(s_date1)
+    # print("前一月日期：", data_needdeal)
+    #格式变换输出
+    return int(data_needdeal[:10].replace("-",""))
+
+
+
+
+
+def generate_csf_lock():
+    file_project = r"F:/封城数据处理/封城数据/"
+    file_lock_info = r"F:/封城数据处理/封城数据/data_lockdown/data_save_info.py"
+    need_deal_file_one = pd.read_csv(file_lock_info)
+    for row_one in tqdm(need_deal_file_one.iterrows(), desc="开始计算封城指标数据", total=len(need_deal_file_one)):
+        # list_a = []
+        city_name = row_one[1]["cityName"]
+        # 开始封城时间
+        start_date = int(row_one[1]["start_date"])
+        end_date = int(row_one[1]["end_date"])
+        lockdown_day = row_one[1]["lockdown_day"]
+        # 一阶城市周围的城市
+        list_cityone = row_one[1]["list_cityone"]
+        # 城市阈值
+        Threshold = row_one[1]["Threshold"]
+        # 提前一个月的月份
+        data_oneMonth = getPreMonth(str(start_date))
+        # 文件保存的位置
+        file_project_in = file_project + city_name + "/"
+
+        select_around_city_data(data_oneMonth, end_date, list_cityone, city_name + "一阶", city_name, Threshold,
+                                file_project_in)
+        merge_inAndout_file(data_oneMonth, end_date, city_name + "一阶", city_name, file_project_in)
+        merge_alone_file(data_oneMonth, end_date, city_name + "一阶", city_name, file_project_in)
+
 
 if __name__ == '__main__':
+    #这里开始处理生成指标数值的列表
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     # 430800, 张家界
+    #
+    # file_project = r"F:/封城数据处理/封城数据/张家界/"  #0.01好用
+    # select_around_city_data(20210601,20210930, list_ZJJ, "张家界一阶","张家界",0.025,file_project)
+    # merge_inAndout_file(20210601,20210930, "张家界一阶","张家界",file_project)
+    # merge_alone_file(20210601,20210930, "张家界一阶","张家界",file_project)
 
 
-    # select_around_city_data(20211115, 20220508, list_ZJJ, "张家界一阶")
-    # merge_inAndout_file(20211115, 20220508, "张家界一阶")
-    # merge_alone_file(20211115, 20220508, "张家界一阶")
-
-
-    file_project = r"F:/封城数据处理/封城数据/西安/"
-    select_around_city_data(20201111, 20220519,First_order_xian,"西安一阶","西安",0.01,file_project)
-    merge_inAndout_file(20201111, 20220519, "西安一阶","西安",file_project)
-    merge_alone_file(20201111, 20220519,"西安一阶","西安",file_project)
-
+    # file_project = r"F:/封城数据处理/封城数据/西安/"
+    # select_around_city_data(20211115, 20220508,First_order_xian,"西安一阶","西安",0.01,file_project)
+    # merge_inAndout_file(20211115, 20220508, "西安一阶","西安",file_project)
+    # merge_alone_file(20211115, 20220508,"西安一阶","西安",file_project)
+    #
 
     #20211121,20220528
     # 石家庄阈值选择0.03
@@ -263,7 +342,13 @@ if __name__ == '__main__':
     # 处理后存储的位置
 
     # file_project = r"F:/封城数据处理/封城数据/石家庄/"
-    # select_around_city_data(20221110,20230406, First_order, "石家庄一阶","石家庄",0.03,file_project)
-    # merge_inAndout_file(20221110,20230406, "石家庄一阶","石家庄",file_project)
-    # merge_alone_file(20221110,20230406, "石家庄一阶","石家庄",file_project)
+    # select_around_city_data(20201201, 20210508, First_order, "石家庄一阶","石家庄",0.04,file_project)
+    # merge_inAndout_file(20201201, 20210508, "石家庄一阶","石家庄",file_project)
+    # merge_alone_file(20201201, 20210508, "石家庄一阶","石家庄",file_project)
 
+    # city_list_qqhe=["齐齐哈尔",'哈尔滨', '大庆', '呼伦贝尔', '兴安盟', '黑河', '绥化', '天津', '白城', '北京', '长春', '廊坊', '青岛', '大连']
+    # #齐齐哈尔, 20210112, 20210207, 27
+    # file_project = r"F:/封城数据处理/封城数据/齐齐哈尔/"
+    # select_around_city_data(20201101, 20210401, city_list_qqhe, "齐齐哈尔一阶","齐齐哈尔",0.01,file_project)
+    # merge_inAndout_file(20201101, 20210401, "齐齐哈尔一阶","齐齐哈尔",file_project)
+    # merge_alone_file(20201101, 20210401, "齐齐哈尔一阶","齐齐哈尔",file_project)

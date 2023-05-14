@@ -7,6 +7,8 @@
 @desc:
 @ref:
 """
+from numpy import array
+
 # coding:utf-8
 """
 @file: close_city_caculate_indicator.py
@@ -81,7 +83,7 @@ Five_order_SJZ = ['烟台', '文山壮族苗族自治州', '仙桃', '铜川', '
 
 
 #张家界封城时间段 2021/8/1-2021/8/25 封城时间25天，比较时间2021/11/15-2021/5/8
-list_ZJJ = ["常德","长沙","湘西土家族苗族自治州","恩施土家族苗族自治州","益阳","重庆","株洲","岳阳","邵阳","广州","衡阳","深圳"]
+list_ZJJ = ["张家界","常德","长沙","湘西土家族苗族自治州","恩施土家族苗族自治州","益阳","重庆","株洲","岳阳","邵阳","广州","衡阳","深圳"]
 
 
 
@@ -246,6 +248,7 @@ def caculate_down_propotion(first_number,second_number):
     # print(num_new)
 
 
+    # result = (num_old - num_new) / num_new
     result = (num_old - num_new) / num_old
 
     return round(result, 4)
@@ -256,7 +259,7 @@ def down_propotion_slice(list_name,flags):
     list_propotion_two = []
     list_propotion_three = []
     list_propotion_four = []
-    list_name_list = [list_propotion_one,list_propotion_two,list_propotion_three,list_propotion_four]
+    list_name_list = [list_propotion_one,list_propotion_two,list_propotion_three]
     for index_name,listname in zip(list_name,list_name_list):
         #石家庄
         #range(0,115), range(22, 137)
@@ -272,13 +275,24 @@ def down_propotion_slice(list_name,flags):
                 first_list = index_name[i:j]
                 second_list = index_name[i + 22:j + 22]
                 listname.append(caculate_down_propotion(first_list, second_list))
+        elif flags == 2:
+            for i, j in zip(range(0, 72), range(25, 97)):
+                first_list = index_name[i:j]
+                second_list = index_name[i + 25:j + 25]
+                listname.append(caculate_down_propotion(first_list, second_list))
+        elif flags == 3:
+            for i, j in zip(range(0, 64), range(27, 91)):
+                first_list = index_name[i:j]
+                second_list = index_name[i + 27:j + 27]
+                listname.append(caculate_down_propotion(first_list, second_list))
     # print((list_propotion))
     # print(len(list_propotion_one))
     print((list_propotion_one))
     print((list_propotion_two))
     print((list_propotion_three))
-    print((list_propotion_four))
-    return list_propotion_one,list_propotion_two,list_propotion_three ,list_propotion_four
+    # print((list_propotion_four))
+    print(len(list_propotion_three))
+    return list_propotion_one,list_propotion_two,list_propotion_three
     # print((list_propotion))
 
 
@@ -294,13 +308,13 @@ def merge_data(one,two):
     # copy_two = two[:]
     # for i in copy_two:
     #     two.append(i)
-    for i in range(len(two)):
-        if two[i]<=0:
-            one[i] = one[i]+two[i]
-        else:
-            one[i] = one[i] - two[i]
-    print(one)
-    print(len(one))
+    for i ,j in zip(range(len(two)),two):
+        # if j <= 0:
+        #     one[i] = one[i] + (2*two[i])
+        # else:
+            one[i] = one[i] - (two[i])
+    print (one)
+    # print(len(one))
     return one
 
 def merge_data_new(one,two):
@@ -314,7 +328,7 @@ def merge_data_new(one,two):
     # copy_two = two[:]
     # for i in copy_two:
     #     two.append(i)
-    for i,j in zip(two[75:105],range(75,105)):
+    for i,j in zip(two[75:95],range(75,95)):
         if i<=0:
             one[j] = one[j]+two[j]
         else:
@@ -326,9 +340,14 @@ def merge_data_new(one,two):
 
 
 
-def function_encapsulation(first_data,second_data,third_data,fourth_data,listXData_SJz,
-                           five_data,six_data,seven_data,eight_data,listXData_xian):
-
+def function_encapsulation(first_data,third_data,fourth_data,listXData_SJz,
+                           five_data,seven_data,eight_data,listXData_xian):
+    print(first_data)
+    print(third_data)
+    print(fourth_data)
+    print(five_data)
+    print(seven_data)
+    print(eight_data)
 
     def format_fn(tick_val, tick_pos):
         if int(tick_val) in range(len(listXData_SJz)):
@@ -336,7 +355,7 @@ def function_encapsulation(first_data,second_data,third_data,fourth_data,listXDa
         else:
             return ''
 
-    fig = plt.figure(figsize=(10, 4))  # ,dpi=450
+    fig = plt.figure(figsize=(10,4))  # ,dpi=450  10, 4 (6,8)
     ax1 = fig.add_subplot(121)
     ax1.xaxis.set_major_formatter(FuncFormatter(format_fn))
     ax1.xaxis.set_major_locator(MaxNLocator(integer=True))
@@ -346,7 +365,7 @@ def function_encapsulation(first_data,second_data,third_data,fourth_data,listXDa
 
     # 坐标轴ticks的字体大小
     ax1.set_xlabel('日期', fontsize=12)  # 为x轴添加标签
-    ax1.set_ylabel('经济下降比例', fontsize=12)  # 为y轴添加标签  数值
+    ax1.set_ylabel('经济变化比例', fontsize=12)  # 为y轴添加标签  数值
     ax1.legend()
     plt.rcParams['font.sans-serif'] = ['SimHei']
     plt.rcParams["axes.unicode_minus"] = False
@@ -356,8 +375,8 @@ def function_encapsulation(first_data,second_data,third_data,fourth_data,listXDa
     tool = MinMaxScaler(feature_range=(0, 1))
     # first_data = tool.fit_transform(array(first_data).reshape(-1,1)).tolist()
 
-
-    plt.title("石家庄封城经济下降比例",fontsize=12)
+    # 石家庄对比经济变化比例
+    plt.title("2021年石家庄封城经济变化比例(含节假日)",fontsize=12)
     plt.xticks(fontsize=12)
     plt.yticks(fontsize=12)
 
@@ -372,9 +391,10 @@ def function_encapsulation(first_data,second_data,third_data,fourth_data,listXDa
     plt.axhline(y=0, xmin=0, xmax=1,c="r", ls="--", lw=2)
 
     # plt.axhspan(ymin=0.4, ymax=0.6, facecolor="g", alpha=0.2)
-    plt.axhspan(ymin=-0.4, ymax=-0.6, facecolor="g", alpha=0.2)
 
-    plt.axvspan(xmin=33, xmax=62, facecolor='r', alpha=0.2)
+    plt.axhspan(ymin=-0.4, ymax=-0.6, facecolor="g", alpha=0.2)
+    # xmin=33, xmax=62
+    plt.axvspan(xmin=36, xmax=62, facecolor='r', alpha=0.2)
     # plt.scatter(6, 1, s=50, color='cyan')
     # plt.plot([6, 6], [1, 0], 'x--', lw=1.5)
     # plt.text(0, 0.90, r'封城开始', fontdict={'size': '12', 'color': 'black'})
@@ -398,7 +418,7 @@ def function_encapsulation(first_data,second_data,third_data,fourth_data,listXDa
 
     # 坐标轴ticks的字体大小
     ax2.set_xlabel('日期', fontsize=12)  # 为x轴添加标签
-    ax2.set_ylabel('经济下降比例', fontsize=12)  # 为y轴添加标签  数值
+    ax2.set_ylabel('经济变化比例', fontsize=12)  # 为y轴添加标签  数值
 
     ax2.legend()
 
@@ -407,17 +427,17 @@ def function_encapsulation(first_data,second_data,third_data,fourth_data,listXDa
     plt.plot(listXData_xian, seven_data, color="#FFAD5A", linewidth=2, label='边数量')  # , ".-"
     plt.plot(listXData_xian, eight_data, color="#FF5959", linewidth=2, label='平均最短路径长度')  # , ".-"
 
-    plt.title("石家庄公历2022年同期经济下降比例", fontsize=12)
+    plt.title("2022年西安封城经济变化比例(含节假日)", fontsize=12)
     plt.xticks(fontsize=12, rotation=45)
     plt.yticks(fontsize=12)
     plt.legend(fontsize=12,)  #
 
     plt.axhline(y=0, xmin=0, xmax=1, c="r", ls="--", lw=2)
 
-    # plt.axhspan(ymin=0.4, ymax=0.6, facecolor="g", alpha=0.2)
+    plt.axhspan(ymin=-0.4, ymax=-0.6, facecolor="g", alpha=0.2)
 
-    # plt.axvspan(xmin=31, xmax=52, facecolor='r', alpha=0.2)
-    plt.axvspan(xmin=36, xmax=60, facecolor='r', alpha=0.2)
+    # plt.axvspan(xmin=30, xmax=54, facecolor='r', alpha=0.2)
+    plt.axvspan(xmin=30, xmax=54, facecolor='r', alpha=0.2)
 
     # plt.scatter(22, 1, s=50, color='cyan')
     # plt.plot([22, 22], [1, 0], 'x--', lw=1.5)
@@ -435,48 +455,318 @@ def function_encapsulation(first_data,second_data,third_data,fourth_data,listXDa
 
 
 
+
+def function_encapsulation_sigle(first_data,second_data,third_data,listXData_SJz):
+    print(first_data)
+    print(second_data)
+    print(third_data)
+
+
+    def format_fn(tick_val, tick_pos):
+        if int(tick_val) in range(len(listXData_SJz)):
+            return str(listXData_SJz[int(tick_val)])
+        else:
+            return ''
+
+    fig = plt.figure(figsize=(10,4))  # ,dpi=450  10, 4 (6,8)
+    ax1 = fig.add_subplot(121)
+    ax1.xaxis.set_major_formatter(FuncFormatter(format_fn))
+    ax1.xaxis.set_major_locator(MaxNLocator(integer=True))
+    # plt.ylim((-5, 40))
+    # 横坐标每个值旋转90度
+    plt.xticks(rotation=45)
+
+    # 坐标轴ticks的字体大小
+    ax1.set_xlabel('日期', fontsize=12)  # 为x轴添加标签
+    ax1.set_ylabel('经济变化比例', fontsize=12)  # 为y轴添加标签  数值
+    ax1.legend()
+    plt.rcParams['font.sans-serif'] = ['SimHei']
+    plt.rcParams["axes.unicode_minus"] = False
+
+    # 根据需要设置最大最小值，这里设置最大值为1.最小值为0
+    # 数据归一化
+    tool = MinMaxScaler(feature_range=(0, 1))
+    # first_data = tool.fit_transform(array(first_data).reshape(-1,1)).tolist()
+
+    # 石家庄对比经济变化比例
+    plt.title("2021年张家界封城经济变化比例(含节假日)",fontsize=12)
+    plt.xticks(fontsize=12)
+    plt.yticks(fontsize=12)
+
+
+    plt.plot(listXData_SJz, first_data,  linewidth=2,  label="平均点连通性") #"4-",
+    # plt.plot(listXData_SJz, second_data, linewidth=2, label='城市度')  # , "1--"
+    plt.plot(listXData_SJz, second_data, linewidth=2, label='边数量')  # , ".-"
+    plt.plot(listXData_SJz, third_data, linewidth=2, label='平均最短路径长度')  # , ".-"
+
+    ax1.legend(fontsize=12)  # fontsize=12
+
+    plt.axhline(y=0, xmin=0, xmax=1,c="r", ls="--", lw=2)
+
+    # plt.axhspan(ymin=0.4, ymax=0.6, facecolor="g", alpha=0.2)
+
+    plt.axhspan(ymin=-0.4, ymax=-0.6, facecolor="g", alpha=0.2)
+    # xmin=33, xmax=62
+    plt.axvspan(xmin=36, xmax=62, facecolor='r', alpha=0.2)
+    # plt.scatter(6, 1, s=50, color='cyan')
+    # plt.plot([6, 6], [1, 0], 'x--', lw=1.5)
+    # plt.text(0, 0.90, r'封城开始', fontdict={'size': '12', 'color': 'black'})
+    #
+    # plt.scatter(28, 1, s=50, color='cyan')
+    # plt.plot([28, 28], [1, 0], 'x--', lw=1.5)
+    # plt.text(27, 0.90, r'封城结束', fontdict={'size': '12', 'color': 'black'})
+
+
+
+
+
+
+    fig.tight_layout()
+    plt.show()
+
+
+
+
+
+def draw_onePic_plot(first_data,second_data,third_data,fourth_data,listXData,title_name):
+
+    def format_fn(tick_val, tick_pos):
+        if int(tick_val) in range(len(listXData)):
+            return str(listXData[int(tick_val)])
+        else:
+            return ''
+
+    fig = plt.figure(figsize=(10, 12))  # ,dpi=450
+    ax1 = fig.add_subplot(111)
+    ax1.xaxis.set_major_formatter(FuncFormatter(format_fn))
+    ax1.xaxis.set_major_locator(MaxNLocator(integer=True))
+    # plt.ylim((-5, 40))
+    # 横坐标每个值旋转90度
+    plt.xticks(rotation=45)
+
+    # 坐标轴ticks的字体大小
+    ax1.set_xlabel('日期', fontsize=12)  # 为x轴添加标签
+    ax1.set_ylabel('数值', fontsize=12)  # 为y轴添加标签  数值
+    ax1.legend()
+    plt.rcParams['font.sans-serif'] = ['SimHei']
+    # 根据需要设置最大最小值，这里设置最大值为1.最小值为0
+    # 数据归一化
+    tool = MinMaxScaler(feature_range=(0, 1))
+    first_data = tool.fit_transform(array(first_data).reshape(-1,1)).tolist()
+    second_data = tool.fit_transform(array(second_data).reshape(-1,1)).tolist()
+    third_data = tool.fit_transform(array(third_data).reshape(-1,1)).tolist()
+    fourth_data = tool.fit_transform(array(fourth_data).reshape(-1,1)).tolist()
+
+    plt.title(title_name,fontsize=12)
+    plt.xticks(fontsize=12)
+    plt.yticks(fontsize=12)
+
+
+    plt.plot(listXData, first_data,  linewidth=2,  label='一阶') #"4-",
+    plt.plot(listXData, second_data, linewidth=2,  label='二阶')#, "1--"
+    plt.plot(listXData, third_data, linewidth=2,  label='三阶')#, ".-"
+    plt.plot(listXData, fourth_data, linewidth=2,  label='四阶') #, ".-"
+
+    # plt.plot(listXData, first_data, linewidth=2, color="#1663a9", label='平均点连通性')  # "4-",
+    # plt.plot(listXData, second_data, linewidth=2, color="#FFAD5A", label='城市度')  # , "1--"
+    # plt.plot(listXData, third_data, linewidth=2, color="#FF5959", label='边数量')  # , ".-"
+    # plt.plot(listXData, fourth_data, linewidth=2, color="#4F9DA6", label='平均最短路径长度')  #
+
+
+    plt.scatter(6, 1, s=50, color='cyan')
+    plt.plot([6, 6], [1, 0], 'x--', lw=1.5)
+    plt.text(0, 0.90, r'封城开始', fontdict={'size': '12', 'color': 'black'})
+
+    plt.scatter(28, 1, s=50, color='cyan')
+    plt.plot([28, 28], [1, 0], 'x--', lw=1.5)
+    plt.text(27, 0.90, r'封城结束', fontdict={'size': '12', 'color': 'black'})
+    plt.legend(fontsize=12,loc="lower right")#fontsize=12
+
+    # plt.scatter(92, 1, s=50, color='cyan')
+    # plt.plot([92, 92], [1, 0], 'x--', lw=1.5)
+    # plt.text(91, 0.9, r'清明节', fontdict={'size': '12', 'color': 'black'})
+    #
+    # plt.scatter(120, 1, s=50, color='cyan')
+    # plt.plot([120, 120], [1, 0], 'x--', lw=1.5)
+    # plt.text(119, 0.9, r'劳动节', fontdict={'size': '12', 'color': 'black'})
+    fig.tight_layout()
+    plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+city_list_qqhe=["齐齐哈尔",'哈尔滨', '大庆', '呼伦贝尔', '兴安盟', '黑河', '绥化', '天津', '白城', '北京', '长春', '廊坊', '青岛', '大连']
+
 if __name__ == '__main__':
 
     file_path_SJZ = "F:/封城数据处理/封城数据/石家庄/石家庄一阶/deal_03/"
     file_path_xian = "F:/封城数据处理/封城数据/西安/西安一阶/deal_03/"
-    # file_path = "F:/封城数据处理/封城数据/张家界/张家界一阶/deal_03/"
+    file_path_zjj = "F:/封城数据处理/封城数据/张家界/张家界一阶/deal_03/"
+    file_path_qqhe = "F:/封城数据处理/封城数据/齐齐哈尔/齐齐哈尔一阶/deal_03/"
 
 
     # # 石家庄有封城日期
     listXData_Lock_sjz = getdaylist(20201201, 20210508)
-    # # 石家庄对比日期 农历
-    listXData_contrast_sjz = getdaylist(20221110,20230406)
+    print(len(listXData_Lock_sjz))
+    # 石家庄对比日期 农历   比较有可比性的时间 20221030,20230406   20221113, 20230420   20220201, 20220709
+    listXData_contrast_sjz = getdaylist(20211201, 20220508)
+    print(len(listXData_contrast_sjz))
 
 
-    # # 西安有封城日期
+
+    # 西安有封城日期
     listXData_Lock_xian = getdaylist(20211115, 20220508)
-    # # 西安对比日期 农历
-    # listXData_contrast = getdaylist(20201125, 20210519)
-    # listXData_contrast = getdaylist(20201115, 20210508)
+    # print(len(listXData_Lock_xian))
+    # # 西安对比日期 农历   20210105, 20210628
+    # listXData_contrast = getdaylist(20210105, 20210628)
+    listXData_contrast = getdaylist(20201115, 20210508)
+    print(len(listXData_contrast))
 
 
+
+
+    # # 张家界现有封城日期 20210801,20210825
+    # listXData_Lock_zjj = getdaylist(20210601,20210930)
+    # print(len(listXData_Lock_zjj))
+    # # 石家庄对比日期 农历   比较有可比性的时间 20221030,20230406   20221113, 20230420   20220201, 20220709  72
+    # listXData_contrast_zjj = getdaylist(20210626,20210905)
+    # print(len(listXData_contrast_zjj))
+
+
+    #齐齐哈尔  20201201, 20210301  91天 27天封城
+    listXData_Lock_qqhe = getdaylist(20211101, 20220401)  #(20201101, 20210401)
+    print(len(listXData_Lock_qqhe))
+    # 石家庄对比日期 农历   比较有可比性的时间 20221030,20230406   20221113, 20230420   20220201, 20220709  72
+    listXData_contrast_qqhe = getdaylist(20201128, 20210130)
+    print(len(listXData_contrast_qqhe))
 
 
 
 
     # 石家庄对比日期 公历
-    # listXData_contrast = getdaylist(20211201, 20220508)
+    # print(getdaylist(20211201, 20220508))
 
+    #石家庄处理后的日期（第一幅）
     list_SJZ_xticks =['20201201', '20201202', '20201203', '20201204', '20201205', '20201206', '20201207', '20201208', '20201209', '20201210', '20201211', '20201212', '20201213', '20201214', '20201215', '20201216', '20201217', '20201218', '20201219', '20201220', '20201221', '20201222', '20201223', '20201224', '20201225', '20201226', '20201227', '20201228', '20201229', '20201230', '20201231', '20210101', '20210102', '20210103', '20210104', '20210105', '20210106', '20210107', '20210108', '20210109', '20210110', '20210111', '20210112', '20210113', '20210114', '20210115', '20210116', '20210117', '20210118', '20210119', '20210120', '20210121', '20210122', '20210123', '20210124', '20210125', '20210126', '20210127', '20210128', '20210129', '20210130', '20210131', '20210201', '20210202', '20210203', '20210204', '20210205', '20210206', '20210207', '20210208', '20210209', '20210210', '20210211', '20210212', '20210213', '20210214', '20210215', '20210216', '20210217', '20210218', '20210219', '20210220', '20210221', '20210222', '20210223', '20210224', '20210225', '20210226', '20210227', '20210228', '20210301', '20210302', '20210303', '20210304', '20210305', '20210306', '20210307', '20210308', '20210309', '20210310', '20210311', '20210312', '20210313', '20210314', '20210315', '20210316', '20210317', '20210318', '20210319', '20210320', '20210321', '20210322', '20210323', '20210324', '20210325']
-    print("石家庄日期长度",len(list_SJZ_xticks))
-    list_xian_xticks = ['20211115', '20211116', '20211117', '20211118', '20211119', '20211120', '20211121', '20211122', '20211123', '20211124', '20211125', '20211126', '20211127', '20211128', '20211129', '20211130', '20211201', '20211202', '20211203', '20211204', '20211205', '20211206', '20211207', '20211208', '20211209', '20211210', '20211211', '20211212', '20211213', '20211214', '20211215', '20211216', '20211217', '20211218', '20211219', '20211220', '20211221', '20211222', '20211223', '20211224', '20211225', '20211226', '20211227', '20211228', '20211229', '20211230', '20211231', '20220101', '20220102', '20220103', '20220104', '20220105', '20220106', '20220107', '20220108', '20220109', '20220110', '20220111', '20220112', '20220113', '20220114', '20220115', '20220116', '20220117', '20220118', '20220119', '20220120', '20220121', '20220122', '20220123', '20220124', '20220125', '20220126', '20220127', '20220128', '20220129', '20220130', '20220131', '20220201', '20220202', '20220203', '20220204', '20220205', '20220206', '20220207', '20220208', '20220209', '20220210', '20220211', '20220212', '20220213', '20220214', '20220215', '20220216', '20220217', '20220218', '20220219', '20220220', '20220221', '20220222', '20220223', '20220224', '20220225', '20220226', '20220227', '20220228', '20220301', '20220302', '20220303', '20220304', '20220305', '20220306', '20220307', '20220308', '20220309', '20220310', '20220311', '20220312', '20220313', '20220314', '20220315', '20220316', '20220317', '20220318', '20220319', '20220320', '20220321', '20220322', '20220323', '20220324', '20220325']
+    # list_SJZ_xticks=getdaylist(20211201, 20220325)
 
-    print("西安日期长度",len(list_xian_xticks))
+    # print("石家庄日期长度",len(list_SJZ_xticks))
+    # list_xian_xticks = ['20211115', '20211116', '20211117', '20211118', '20211119', '20211120', '20211121', '20211122', '20211123', '20211124', '20211125', '20211126', '20211127', '20211128', '20211129', '20211130', '20211201', '20211202', '20211203', '20211204', '20211205', '20211206', '20211207', '20211208', '20211209', '20211210', '20211211', '20211212', '20211213', '20211214', '20211215', '20211216', '20211217', '20211218', '20211219', '20211220', '20211221', '20211222', '20211223', '20211224', '20211225', '20211226', '20211227', '20211228', '20211229', '20211230', '20211231', '20220101', '20220102', '20220103', '20220104', '20220105', '20220106', '20220107', '20220108', '20220109', '20220110', '20220111', '20220112', '20220113', '20220114', '20220115', '20220116', '20220117', '20220118', '20220119', '20220120', '20220121', '20220122', '20220123', '20220124', '20220125', '20220126', '20220127', '20220128', '20220129', '20220130', '20220131', '20220201', '20220202', '20220203', '20220204', '20220205', '20220206', '20220207', '20220208', '20220209', '20220210', '20220211', '20220212', '20220213', '20220214', '20220215', '20220216', '20220217', '20220218', '20220219', '20220220', '20220221', '20220222', '20220223', '20220224', '20220225', '20220226', '20220227', '20220228', '20220301', '20220302', '20220303', '20220304', '20220305', '20220306', '20220307', '20220308', '20220309', '20220310', '20220311', '20220312', '20220313', '20220314', '20220315', '20220316', '20220317', '20220318', '20220319', '20220320', '20220321', '20220322', '20220323', '20220324', '20220325']
 
-    # list_index_name_Lock_xian = [averagenodeconnectivity(file_path_xian, "西安", First_order_xian,listXData_Lock_xian),
-    #                         get_city_degree(file_path_xian, "西安", First_order_xian,listXData_Lock_xian),
-    #                         edge_number(file_path_xian, "西安", First_order_xian,listXData_Lock_xian),
-    #                         naturecconnectivity(file_path_xian, "西安", First_order_xian,listXData_Lock_xian)]
+    # 西安处理后的日期（第一幅）
+    list_xian_xticks = ['20211123', '20211124', '20211125', '20211126', '20211127', '20211128', '20211129', '20211130', '20211201', '20211202', '20211203', '20211204', '20211205', '20211206', '20211207', '20211208', '20211209', '20211210', '20211211', '20211212', '20211213', '20211214', '20211215', '20211216', '20211217', '20211218', '20211219', '20211220', '20211221', '20211222', '20211223', '20211224', '20211225', '20211226', '20211227', '20211228', '20211229', '20211230', '20211231', '20220101', '20220102', '20220103', '20220104', '20220105', '20220106', '20220107', '20220108', '20220109', '20220110', '20220111', '20220112', '20220113', '20220114', '20220115', '20220116', '20220117', '20220118', '20220119', '20220120', '20220121', '20220122', '20220123', '20220124', '20220125', '20220126', '20220127', '20220128', '20220129', '20220130', '20220131', '20220201', '20220202', '20220203', '20220204', '20220205', '20220206', '20220207', '20220208', '20220209', '20220210', '20220211', '20220212', '20220213', '20220214', '20220215', '20220216', '20220217', '20220218', '20220219', '20220220', '20220221', '20220222', '20220223', '20220224', '20220225', '20220226', '20220227', '20220228', '20220301', '20220302', '20220303', '20220304', '20220305', '20220306', '20220307', '20220308', '20220309', '20220310', '20220311', '20220312', '20220313', '20220314', '20220315', '20220316', '20220317', '20220318', '20220319', '20220320', '20220321', '20220322', '20220323', '20220324', '20220325', '20220326', '20220327', '20220328', '20220329', '20220330', '20220331', '20220401', '20220402']
+    # list_xian_xticks = getdaylist(20201123, 20210402)
+    # print("西安日期长度",len(list_xian_xticks))
+
+
+
+
+
+    # list_index_name_Lock_zjj = [averagenodeconnectivity(file_path_zjj, "张家界", list_ZJJ,listXData_Lock_zjj),
+    #                         get_city_degree(file_path_zjj, "张家界", list_ZJJ,listXData_Lock_zjj),
+    #                         edge_number(file_path_zjj, "张家界", list_ZJJ,listXData_Lock_zjj),
+    #                         naturecconnectivity(file_path_zjj, "张家界", list_ZJJ,listXData_Lock_zjj)]
     #
     #
-    # list_propotion_one_Lock_xian, list_propotion_two_Lock_xian, list_propotion_three_Lock_xian, list_propotion_four_Lock_xian \
-    #     = down_propotion_slice(list_index_name_Lock_xian,0)
+    # list_propotion_one_Lock_zjj, list_propotion_two_Lock_zjj, list_propotion_three_Lock_zjj, list_propotion_four_Lock_zjj \
+    #     = down_propotion_slice(list_index_name_Lock_zjj,2)
     #
+    # function_encapsulation_sigle( [-l for l in list_propotion_one_Lock_zjj],[-l for l in list_propotion_two_Lock_zjj],
+    #                               [-l for l in list_propotion_three_Lock_zjj],
+    #                               [-l for l in list_propotion_four_Lock_zjj],
+    #                         # list_propotion_one_Lock_zjj, list_propotion_two_Lock_zjj, list_propotion_three_Lock_zjj,
+    #                         #       list_propotion_four_Lock_zjj,
+    #                               listXData_contrast_zjj)
+
+
+
+
+
+
+
+
+    # list_index_name_Lock_qqhe = [averagenodeconnectivity(file_path_qqhe, "齐齐哈尔", city_list_qqhe, listXData_Lock_qqhe),
+    #                             # get_city_degree(file_path_qqhe, "齐齐哈尔", city_list_qqhe, listXData_Lock_qqhe),
+    #                             edge_number(file_path_qqhe, "齐齐哈尔", city_list_qqhe, listXData_Lock_qqhe),
+    #                             naturecconnectivity(file_path_qqhe, "齐齐哈尔", city_list_qqhe, listXData_Lock_qqhe)]
+    #
+    # list_propotion_one_Lock_qqhe, list_propotion_two_Lock_qqhe, list_propotion_three_Lock_qqhe \
+    #     = down_propotion_slice(list_index_name_Lock_qqhe, 3)
+    # #
+    # function_encapsulation_sigle(
+    #                             # [-l for l in list_propotion_one_Lock_zjj],
+    #                             # [-l for l in list_propotion_two_Lock_zjj],
+    #                             #  [-l for l in list_propotion_three_Lock_zjj],
+    #                             #  [-l for l in list_propotion_four_Lock_zjj],
+    #                              list_propotion_one_Lock_qqhe, list_propotion_two_Lock_qqhe,
+    #                              list_propotion_three_Lock_qqhe,
+    #                              listXData_contrast_qqhe)
+
+
+
+
+    #齐齐哈尔  0.01是最合适的阈值
+    # list_index_name_contrast_qqhe = [
+    #     averagenodeconnectivity(file_path_qqhe, "齐齐哈尔", city_list_qqhe, listXData_Lock_qqhe),
+    #     # get_city_degree(file_path_qqhe, "齐齐哈尔", city_list_qqhe, listXData_Lock_qqhe),
+    #     edge_number(file_path_qqhe, "齐齐哈尔", city_list_qqhe, listXData_Lock_qqhe),
+    #     naturecconnectivity(file_path_qqhe, "齐齐哈尔", city_list_qqhe, listXData_Lock_qqhe)]
+    #
+    # list_propotion_one_contrast_qqhe, list_propotion_two_contrast_qqhe, list_propotion_contrast_qqhe \
+    #     = down_propotion_slice(list_index_name_contrast_qqhe, 3)
+    # #
+    # function_encapsulation_sigle(
+    #     # [-l for l in list_propotion_one_Lock_zjj],
+    #     # [-l for l in list_propotion_two_Lock_zjj],
+    #     #  [-l for l in list_propotion_three_Lock_zjj],
+    #     #  [-l for l in list_propotion_four_Lock_zjj],
+    #     list_propotion_one_contrast_qqhe, list_propotion_two_contrast_qqhe,
+    #     list_propotion_contrast_qqhe,
+    #     listXData_contrast_qqhe)
+
+
+
+
+
+
+
+    # draw_onePic_plot(averagenodeconnectivity(file_path_qqhe, "齐齐哈尔", city_list_qqhe, listXData_Lock_qqhe),
+    #                             get_city_degree(file_path_qqhe, "齐齐哈尔", city_list_qqhe, listXData_Lock_qqhe),
+    #                             edge_number(file_path_qqhe, "齐齐哈尔", city_list_qqhe, listXData_Lock_qqhe),
+    #                             naturecconnectivity(file_path_qqhe, "齐齐哈尔", city_list_qqhe, listXData_Lock_qqhe),
+    #                         listXData_Lock_qqhe,"齐齐哈尔市")
+
+
+
+
+
+
+
+
+
+
+    list_index_name_Lock_xian = [averagenodeconnectivity(file_path_xian, "西安", First_order_xian,listXData_Lock_xian),
+                            # get_city_degree(file_path_xian, "西安", First_order_xian,listXData_Lock_xian),
+                            edge_number(file_path_xian, "西安", First_order_xian,listXData_Lock_xian),
+                            naturecconnectivity(file_path_xian, "西安", First_order_xian,listXData_Lock_xian)]
+
+
+    list_propotion_one_Lock_xian, list_propotion_two_Lock_xian, list_propotion_three_Lock_xian\
+        = down_propotion_slice(list_index_name_Lock_xian,0)
+
 
 
 
@@ -488,9 +778,9 @@ if __name__ == '__main__':
     #                             edge_number(file_path_xian, "西安", First_order_xian, listXData_contrast),
     #                             naturecconnectivity(file_path_xian, "西安", First_order_xian, listXData_contrast)]
     #
-    # list_propotion_one_contrast, list_propotion_two_contrast, list_propotion_three_contrast, list_propotion_four_contrast \
-    #     = down_propotion_slice(list_index_name_contrast_xian,2)
-
+    # list_propotion_one_contrast_xian, list_propotion_two_contrast_xian, list_propotion_three_contrast_xian, list_propotion_four_contrast_xian \
+    #     = down_propotion_slice(list_index_name_contrast_xian,0)
+    #
 
 
 
@@ -504,11 +794,13 @@ if __name__ == '__main__':
     #                        list_propotion_four_contrast,
     #                        list_xian_xticks)
 
+
+
     # 使用公历/农历时间减去正常时间段后绘制的对比图
-    # function_encapsulation(merge_data(list_propotion_one_Lock, list_propotion_one_contrast[60:75]),
-    #                        merge_data(list_propotion_two_Lock, list_propotion_two_contrast[60:75]),
-    #                        merge_data(list_propotion_three_Lock, list_propotion_three_contrast[60:75]),
-    #                        merge_data(list_propotion_four_Lock, list_propotion_four_contrast[60:75]),
+    # function_encapsulation(merge_data(list_propotion_one_Lock_xian, list_propotion_one_contrast[60:75]),
+    #                        merge_data(list_propotion_two_Lock_xian, list_propotion_two_contrast[60:75]),
+    #                        merge_data(list_propotion_three_Lock_xian, list_propotion_three_contrast[60:75]),
+    #                        merge_data(list_propotion_four_Lock_xian, list_propotion_four_contrast[60:75]),
     #                        list_xian_xticks,
     #                        list_propotion_one_contrast,
     #                        list_propotion_two_contrast,
@@ -521,16 +813,16 @@ if __name__ == '__main__':
 
 
 
-
-
     #
-    # list_index_name_Lock_sjz=[averagenodeconnectivity(file_path_SJZ,"石家庄",First_order_SJZ,listXData_Lock_sjz),
-    #                  get_city_degree(file_path_SJZ,"石家庄",First_order_SJZ,listXData_Lock_sjz),
-    #                  edge_number(file_path_SJZ,"石家庄",First_order_SJZ,listXData_Lock_sjz),
-    #                  naturecconnectivity(file_path_SJZ,"石家庄",First_order_SJZ,listXData_Lock_sjz)]
     #
-    # list_propotion_one_Lock_sjz,list_propotion_two_Lock_sjz,list_propotion_three_Lock_sjz ,list_propotion_four_Lock_sjz \
-    #     = down_propotion_slice(list_index_name_Lock_sjz,1)
+    #
+    list_index_name_Lock_sjz=[averagenodeconnectivity(file_path_SJZ,"石家庄",First_order_SJZ,listXData_Lock_sjz),
+                     # get_city_degree(file_path_SJZ,"石家庄",First_order_SJZ,listXData_Lock_sjz),
+                     edge_number(file_path_SJZ,"石家庄",First_order_SJZ,listXData_Lock_sjz),
+                     naturecconnectivity(file_path_SJZ,"石家庄",First_order_SJZ,listXData_Lock_sjz)]
+
+    list_propotion_one_Lock_sjz,list_propotion_two_Lock_sjz,list_propotion_three_Lock_sjz  \
+        = down_propotion_slice(list_index_name_Lock_sjz,1)
 
     # list_index_name_contrast_sjz = [averagenodeconnectivity(file_path_SJZ, "石家庄", First_order_SJZ, listXData_contrast_sjz),
     #                    get_city_degree(file_path_SJZ, "石家庄", First_order_SJZ, listXData_contrast_sjz),
@@ -539,7 +831,7 @@ if __name__ == '__main__':
     #
     # list_propotion_one_contrast_sjz, list_propotion_two_contrast_sjz, list_propotion_three_contrast_sjz, list_propotion_four_contrast_sjz \
     # = down_propotion_slice(list_index_name_contrast_sjz,1)
-    #
+    # #
     # listy_one = [list_propotion_one_contrast_sjz, list_propotion_two_contrast_sjz, list_propotion_three_contrast_sjz, list_propotion_four_contrast_sjz]
     #
     # five =  [-0.010100000000000001, 0.0773, 0.1064, 0.1247, 0.1491, 0.16310000000000002, 0.175, 0.18860000000000002, 0.19960000000000003, 0.21559999999999999, 0.19879999999999998, 0.172, 0.1432, 0.13329999999999997, 0.11680000000000001, 0.08779999999999999, 0.07419999999999993, 0.03920000000000001, -0.00550000000000006, -0.051899999999999946, -0.09209999999999996, -0.1301, -0.14919999999999994, -0.18059999999999998, -0.20080000000000003, -0.24380000000000002, -0.2980999999999999, -0.36050000000000004, -0.4409, -0.52, -0.6102000000000001, -0.7545999999999999, -0.911, -1.1006, -1.3441, -1.5327000000000002, -1.6772, -1.7381, -1.8168000000000002, -1.7979, -1.7492, -1.6605999999999999, -1.583, -1.546, -1.5038, -1.4127, -1.3762, -1.2713, -1.2007, -1.1093, -1.0165, -0.9414, -0.8583000000000001, -0.7516, -0.6425000000000001, -0.5207, -0.4208, -0.3708, -0.3404, -0.3639, -0.3786, -0.3875, -0.3443, -0.3035, -0.2666, -0.2131, -0.17109999999999997, -0.1717, -0.1732, -0.1749, -0.0446, -0.0329, -0.0136, 0.0184, 0.0367, 0.0696, 0.1072, 0.1322, 0.1583, 0.201, 0.236, 0.2728, 0.3117, 0.3443, 0.3567, 0.374, 0.3961, 0.4043, 0.4058, 0.4259, 0.434, 0.4442, 0.4536, 0.4643, 0.4685, 0.4618, 0.4462, 0.4366, 0.4156, 0.3964, 0.3782, 0.341, 0.3046, 0.2677, 0.2198, 0.1765, 0.1346, 0.1079, 0.0795, 0.0664, 0.0757, 0.0508, 0.0352, 0.0191, -0.0011, -0.02, -0.0431, -0.0565, -0.0365, -0.0567, -0.0631, -0.0656, -0.0754, -0.0853, -0.0819, -0.0818, -0.0726, -0.0974, -0.0929, -0.1192, -0.151]
@@ -551,35 +843,78 @@ if __name__ == '__main__':
     # seven = [0.0878, 0.1037, 0.1195, 0.1325, 0.1486, 0.15740000000000004, 0.1658, 0.18039999999999998, 0.19209999999999997, 0.20819999999999997, 0.20229999999999998, 0.19030000000000002, 0.19310000000000005, 0.19240000000000002, 0.18840000000000007, 0.16619999999999996, 0.15419999999999995, 0.12060000000000004, 0.07919999999999999, 0.046999999999999986, 0.017199999999999993, -0.018799999999999983, -0.04510000000000003, -0.07640000000000002, -0.10930000000000001, -0.15280000000000002, -0.20600000000000002, -0.2617, -0.3337, -0.4114, -0.49520000000000003, -0.6128, -0.7412, -0.8893, -1.0576, -1.1963, -1.3078, -1.3467, -1.3878, -1.3582999999999998, -1.3092, -1.2695, -1.228, -1.1945000000000001, -1.1601, -1.1042, -1.059, -0.9866999999999999, -0.9206000000000001, -0.8498, -0.7771, -0.715, -0.6479, -0.5662, -0.48310000000000003, -0.39039999999999997, -0.32010000000000005, -0.28290000000000004, -0.25129999999999997, -0.25839999999999996, -0.2653, -0.26580000000000004, -0.23620000000000002, -0.2011, -0.1655, -0.1225, -0.08979999999999999, -0.0868, -0.0887, -0.08979999999999999, -0.0054, -0.0009, 0.0097, 0.0299, 0.0421, 0.0638, 0.0904, 0.1054, 0.125, 0.1579, 0.1819, 0.2085, 0.2373, 0.2589, 0.2678, 0.2813, 0.2952, 0.3031, 0.3042, 0.3201, 0.328, 0.3381, 0.3434, 0.3531, 0.3539, 0.3493, 0.3355, 0.3246, 0.304, 0.2853, 0.2659, 0.2314, 0.2004, 0.1645, 0.1244, 0.0905, 0.061, 0.0348, 0.0098, -0.0125, -0.0152, -0.0363, -0.0487, -0.0695, -0.0824, -0.1029, -0.112, -0.1182, -0.1034, -0.1091, -0.1058, -0.0981, -0.0959, -0.0955, -0.0875, -0.0785, -0.0711, -0.0806, -0.0799, -0.0833, -0.0906]
     #
     # eight =[0.152, 0.1615, 0.1777, 0.19069999999999998, 0.20820000000000002, 0.2143, 0.2165, 0.2267, 0.23340000000000002, 0.248, 0.2344, 0.21409999999999996, 0.2012, 0.20329999999999998, 0.20500000000000002, 0.17440000000000005, 0.1592, 0.10799999999999998, 0.055400000000000005, 0.024500000000000077, 0.00019999999999997797, -0.03660000000000002, -0.06530000000000002, -0.09970000000000001, -0.14400000000000002, -0.20240000000000002, -0.2743, -0.3499, -0.4486, -0.5636, -0.6926, -0.8714999999999999, -1.0741, -1.3195000000000001, -1.6017000000000001, -1.8697, -2.1211, -2.1547, -2.2086, -2.0275, -1.8634, -1.7953, -1.7232999999999998, -1.6486, -1.5744, -1.4743, -1.3846, -1.2696, -1.1649, -1.0602, -0.9583999999999999, -0.8691, -0.7764, -0.6716, -0.5703, -0.4558, -0.3754, -0.3276, -0.2631, -0.2586, -0.25739999999999996, -0.2612, -0.2317, -0.1883, -0.1451, -0.097, -0.0611, -0.058800000000000005, -0.0625, -0.0636, 0.0182, 0.0204, 0.0302, 0.0502, 0.0597, 0.0794, 0.1067, 0.1186, 0.138, 0.1709, 0.1889, 0.2119, 0.2388, 0.2586, 0.2668, 0.2789, 0.2907, 0.2979, 0.2971, 0.3131, 0.3239, 0.3327, 0.3373, 0.3443, 0.3436, 0.3384, 0.3276, 0.3176, 0.2965, 0.2786, 0.2568, 0.2189, 0.1859, 0.1455, 0.1012, 0.0646, 0.0338, 0.0074, -0.0175, -0.0415, -0.0405, -0.0564, -0.0683, -0.086, -0.0962, -0.1076, -0.1118, -0.116, -0.1039, -0.1077, -0.1024, -0.0935, -0.086, -0.0848, -0.0758, -0.0652, -0.0595, -0.0712, -0.0738, -0.0818, -0.0925]
-    #
+    # #
     # listy_two = [five,six,seven,eight ]
     # for i,j in zip(listy_two,listy_one):
     #     merge_data_new(i,j)
 
+    # #绘制第一个场面的图片
+    function_encapsulation(list_propotion_one_Lock_sjz,list_propotion_two_Lock_sjz,list_propotion_three_Lock_sjz ,
+                           list_SJZ_xticks,
+                           list_propotion_one_Lock_xian, list_propotion_two_Lock_xian, list_propotion_three_Lock_xian,
+                           list_xian_xticks)
+
+    # 绘制第二个场面的图片
+    #[-l for l in list_propotion_one_contrast_sjz], [-l for l in list_propotion_two_contrast_sjz],
+    #[-l for l in list_propotion_three_contrast_sjz], [-l for l in list_propotion_four_contrast_sjz],
+
+    second_one = [ 0.0459, 0.1107, 0.1571, 0.2147, 0.2438, 0.2944, 0.3352, 0.3891, 0.4392, 0.473, 0.4921, 0.5113, 0.5383, 0.5638, 0.5685, 0.5743, 0.5783, 0.576, 0.58, 0.5707, 0.5559, 0.5411, 0.525, 0.4997, 0.4772, 0.454, 0.4369, 0.4081, 0.3887, 0.3217, 0.2525, 0.2065, 0.1696, 0.1191, 0.0771, 0.0453, 0.016, -0.0063, -0.0184, -0.0448, -0.0738, -0.0627, -0.0517, -0.0453, -0.0514, -0.0572, -0.0738, -0.1087, -0.1268, -0.1689, -0.2367, -0.2177, -0.1851, -0.1519, -0.1332, -0.0904, -0.0905, -0.1123, -0.1351, -0.1609, -0.1846, -0.1751, -0.1629, -0.1718, -0.1357, -0.1108, -0.0936, -0.0734, -0.0403, -0.0013, 0.0254, 0.0698, 0.1188, 0.1429, 0.1515, 0.1464, 0.1465, 0.146, 0.1641, 0.1829, 0.2061, 0.2266, 0.2414, 0.2405, 0.2316, 0.2351, 0.1922, 0.1593, 0.1442, 0.1272, 0.1136, 0.0945, 0.0813, 0.0664, 0.0512, 0.0323,-0.0286, -0.0331, -0.0474, -0.0476, -0.0513, -0.064, -0.0938, -0.0799, -0.0612, -0.0877, -0.1257, -0.1022, -0.0916, -0.0921, -0.0706, -0.0641, -0.0511, -0.0264, 0.0048]
+    second_two = [ 0.0563, 0.0822, 0.1192, 0.1364, 0.1698, 0.1951, 0.2339, 0.2697, 0.2989, 0.3228, 0.3454, 0.3719, 0.3892, 0.4058, 0.4245, 0.4398, 0.4404, 0.4364, 0.4247, 0.4028, 0.3785, 0.3674, 0.3395, 0.3241, 0.3041, 0.2968, 0.2805, 0.2646, 0.2262, 0.1835, 0.1442, 0.1127, 0.0718, 0.0478, 0.0333, 0.019, 0.0, -0.0141, -0.0235, -0.0329, -0.0186, 0.0046, 0.0138, 0.0046, -0.0094, -0.0335, -0.0534, -0.0788, -0.1162, -0.1495, -0.151, -0.1354, -0.1198, -0.1036, -0.0663, -0.0773, -0.0938, -0.1105, -0.1277, -0.139, -0.139, -0.139, -0.1559, -0.1543, -0.1361, -0.125, -0.0979, -0.0609, -0.0352, -0.01, 0.0294, 0.0583, 0.0769, 0.0813, 0.09, 0.0896, 0.0841, 0.106, 0.1193, 0.1324, 0.1455, 0.15, 0.15, 0.1461, 0.1584, 0.1455, 0.1279, 0.1193, 0.106, 0.0922, 0.0787, 0.0694, 0.0556, 0.0463, 0.037,-0.0451, -0.0451, -0.0455, -0.0227, -0.0153, -0.0308, -0.0465, -0.0469, -0.0472, -0.064, -0.0806, -0.0976, -0.0984, -0.1157, -0.1148, -0.0968, -0.0794, -0.0543, -0.015, 0.0074]
+
+    second_three = [ 0.036, 0.0839, 0.1184, 0.1616, 0.1854, 0.2254, 0.2584, 0.3004, 0.3448, 0.376, 0.3964, 0.4156, 0.4408, 0.4638, 0.4705, 0.4756, 0.4799, 0.4791, 0.48, 0.4696, 0.4537, 0.4376, 0.4236, 0.4017, 0.3828, 0.3629, 0.3477, 0.3226, 0.305, 0.2551, 0.2007, 0.162, 0.1287, 0.0863, 0.0521, 0.0277, 0.0046, -0.0138, -0.0252, -0.0461, -0.0671, -0.0586, -0.048, -0.0422, -0.0481, -0.0541, -0.0675, -0.0923, -0.1063, -0.1355, -0.1807, -0.1709, -0.1481, -0.1216, -0.102, -0.0663, -0.0654, -0.081, -0.0961, -0.1127, -0.1266, -0.1186, -0.1104, -0.1167, -0.0938, -0.0748, -0.0594, -0.0407, -0.0142, 0.0152, 0.0368, 0.0714, 0.1085, 0.129, 0.1376, 0.1336, 0.1336, 0.1321, 0.1454, 0.1602, 0.1778, 0.1932, 0.2045, 0.2041, 0.1986, 0.2025, 0.1727, 0.1473, 0.1343, 0.1192, 0.1075, 0.093, 0.0824, 0.0686, 0.055, 0.0382,-0.0446, -0.0467, -0.0533, -0.0495, -0.0477, -0.0632, -0.0855, -0.0815, -0.0711, -0.0895, -0.1173, -0.105, -0.0909, -0.0903, -0.074, -0.0604, -0.045, -0.022, 0.0058]
+    second_four = [ 0.0904, 0.1334, 0.1883, 0.2183, 0.2654, 0.3032, 0.3503, 0.4035, 0.4421, 0.4699, 0.4936, 0.5229, 0.5488, 0.5573, 0.5636, 0.5715, 0.5718, 0.5692, 0.5568, 0.5366, 0.5156, 0.4969, 0.4702, 0.4473, 0.4219, 0.4019, 0.3713, 0.3484, 0.2938, 0.2312, 0.1863, 0.1407, 0.0878, 0.0471, 0.0177, -0.0102, -0.0369, -0.0563, -0.083, -0.1076, -0.0977, -0.0848, -0.0775, -0.0844, -0.0932, -0.11, -0.1381, -0.1549, -0.1893, -0.243, -0.2314, -0.2029, -0.1698, -0.1361, -0.0852, -0.0828, -0.0988, -0.1151, -0.1306, -0.1448, -0.1352, -0.1252, -0.133, -0.1057, -0.0836, -0.0651, -0.0405, -0.0085, 0.025, 0.0513, 0.0915, 0.1348, 0.1571, 0.1668, 0.1618, 0.1591, 0.1521, 0.165, 0.1798, 0.1975, 0.2121, 0.2247, 0.2237, 0.2177, 0.2219, 0.1884, 0.1615, 0.1477, 0.1304, 0.1171, 0.1009, 0.0887, 0.072, 0.0554, 0.0359,-0.0837, -0.0835, -0.0886, -0.0772, -0.0742, -0.1048, -0.1451, -0.1519, -0.1473, -0.178, -0.2263, -0.2141, -0.1866, -0.1922, -0.1679, -0.1353, -0.1053, -0.0632, -0.016, 0.0276]
+
+    second_five =[-0.0786, -0.0684, -0.0578, -0.0404, -0.0136, 0.0299, 0.0576, 0.0858, 0.1042, 0.131, 0.1627, 0.1998, 0.2193, 0.2502, 0.2626, 0.2666, 0.2756, 0.3211, 0.3639, 0.3971, 0.4082, 0.4074, 0.3723, 0.3325, 0.3163, 0.2899, 0.2646, 0.2291, 0.2004, 0.176, 0.1757, 0.1666, 0.1323, 0.096, 0.0675, 0.0353, 0.0175, 0.009, 0.0043, 0.0182, 0.0321, 0.0494, 0.0554, 0.0572, 0.0449, 0.0206, 0.0215, 0.0074, -0.0031, -0.0129, -0.0237, -0.0348, -0.0387, -0.0269, -0.0413, -0.0536, -0.0679, -0.0824, -0.0945, -0.098, -0.0909, -0.0995, -0.0962, -0.1, -0.0998, -0.098, -0.0912, -0.0631, -0.0615, -0.0543, -0.0391, 0.0108, 0.02, 0.0437, 0.0773, 0.1457, 0.211, 0.2632, 0.2996, 0.3464, 0.3886, 0.4093, 0.4229, 0.4166, 0.4099, 0.399, 0.3897, 0.3804, 0.3689, 0.3617, 0.3513, 0.3399, 0.33, 0.3148, 0.3042, 0.2794, 0.2643, 0.2234, 0.1785, 0.1375, 0.1034, 0.0554, 0.0087, -0.0159, -0.0385, -0.0414, -0.0462, -0.0415, -0.0456, -0.0453, -0.0358,-0.0395, -0.0491, -0.0735, -0.0945, -0.1245, -0.1344, -0.155, -0.1713, -0.1744, -0.17, -0.1526, -0.1401, -0.1159, -0.0975, -0.0787, -0.0622, -0.0454, -0.031, -0.0268, -0.0097]
+
+    second_six= [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0091, 0.0152, 0.0182, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0031, -0.0092, -0.0154, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0123, -0.0061, -0.003, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+    second_seven= [-0.0368, -0.0282, -0.0198, -0.0033, 0.0234, 0.0576, 0.0847, 0.1115, 0.1282, 0.153, 0.1798, 0.2037, 0.2178, 0.2389, 0.2422, 0.2427, 0.246, 0.2764, 0.298, 0.3143, 0.3197, 0.3145, 0.2871, 0.2568, 0.2418, 0.2195, 0.1969, 0.1699, 0.1467, 0.1275, 0.1252, 0.1144, 0.0901, 0.0665, 0.046, 0.0245, 0.0121, 0.0064, 0.0014, 0.016, 0.0254, 0.0373, 0.0424, 0.0429, 0.033, 0.0136, 0.0115, -0.0007, -0.0089, -0.0164, -0.0241, -0.031, -0.0337, -0.0281, -0.0386, -0.0478, -0.0593, -0.0695, -0.0797, -0.0826, -0.0796, -0.086, -0.0851, -0.0894, -0.09, -0.0882, -0.0829, -0.0626,  0.0097, 0.0168, 0.0324, 0.0511, 0.0616, 0.0809, 0.1076, 0.1559, 0.202, 0.2415, 0.2696, 0.3054, 0.338, 0.356, 0.3705, 0.3627, 0.3573, 0.3481, 0.3385, 0.3283, 0.3192, 0.3107, 0.2989, 0.2879, 0.2758, 0.2602, 0.2483, 0.2252, 0.2111, 0.1787, 0.1424, 0.1075, 0.0793, 0.0428, 0.0089, -0.0118, -0.0353, -0.0344, -0.0391, -0.0363, -0.0381, -0.0372, -0.0325,-0.0597, -0.0538, -0.0426, -0.0418, -0.0484, -0.0642, -0.0757, -0.0945, -0.0995, -0.1111, -0.1206, -0.1215, -0.1183, -0.1017, -0.09, -0.0708, -0.0531, -0.0349, -0.02, -0.0045]
+
+    second_eight= [-0.0263, -0.0149, -0.0043, 0.0165, 0.0501, 0.0907, 0.1243, 0.1581, 0.1804, 0.2119, 0.2484, 0.2758, 0.2945, 0.3219, 0.3271, 0.3267, 0.3287, 0.359, 0.3748, 0.3836, 0.3834, 0.3716, 0.3368, 0.299, 0.2789, 0.2517, 0.2234, 0.1918, 0.1649, 0.1432, 0.1392, 0.1256,0.0969, 0.0708, 0.0463, 0.0212, 0.0067, 0.0006, 0.0063, 0.0246, 0.0318, 0.0426, 0.0469, 0.0459, 0.0347, 0.0127, 0.0093, -0.0036, -0.0127, -0.021, -0.029, -0.036, -0.0384, -0.0337, -0.0458, -0.0566, -0.0707, -0.0833, -0.0947, -0.0978, -0.0959, -0.1047, -0.1038, -0.1099, -0.1109, -0.109, -0.1032, 0.0032, 0.021, 0.0309, 0.0499, 0.0728, 0.0866, 0.1086, 0.1391, 0.1912, 0.2415, 0.2843, 0.3149, 0.3529, 0.3886, 0.4087, 0.4261, 0.4179, 0.4134, 0.4044, 0.3941, 0.383, 0.3743, 0.3644, 0.3508, 0.3387, 0.3241, 0.306, 0.2919, 0.2651, 0.2491, 0.2138, 0.1721, 0.1304, 0.0971, 0.055, 0.0144, -0.0116, -0.0426, -0.0406, -0.0476, -0.0454, -0.0468, -0.0458, -0.0423, -0.0809, -0.0773, -0.0718, -0.0595, -0.058, -0.0651, -0.0818, -0.0941, -0.1134, -0.1176, -0.1282, -0.1378, -0.1374, -0.1341, -0.1144, -0.1008, -0.0776, -0.056, -0.0335, -0.0156]
+
+    # terre=[]
+    # for i in range(len(eeee)):
+    #     if i <=36:
+    #         terre.append(-eeee[i])
+    #     else:
+    #         terre.append(eeee[i])
+    # print(terre)
+    # print(len(terre))
+
+    # # 绘制第二个场面的图片
+    # function_encapsulation(
+    #    #  list_propotion_one_contrast_sjz,list_propotion_two_contrast_sjz,
+    #    # list_propotion_three_contrast_sjz,list_propotion_four_contrast_sjz,
+    #    #  [-l for l in list(reversed(list_propotion_one_contrast_sjz))], [-l for l in (reversed(list_propotion_two_contrast_sjz))],
+    #    #  [-l for l in list(reversed(list_propotion_three_contrast_sjz))], [-l for l in list(reversed(list_propotion_four_contrast_sjz))],
+    #    #  list(reversed(list_propotion_one_contrast_sjz)),list(reversed(list_propotion_two_contrast_sjz)),
+    #    #  list(reversed(list_propotion_three_contrast_sjz)),list(reversed(list_propotion_four_contrast_sjz)),
+    #    second_one,second_two,second_three,second_four,
+    #    list_SJZ_xticks,
+    #     # list_propotion_one_Lock_xian, list_propotion_two_Lock_xian, list_propotion_three_Lock_xian,
+    #     # list_propotion_four_Lock_xian,
+    #    # list_propotion_one_contrast_xian, list_propotion_two_contrast_xian, list_propotion_three_contrast_xian, list_propotion_four_contrast_xian,
+    #    second_five,second_six,second_seven,second_eight,
+    #    list_xian_xticks)
 
 
-    #没有做过处理的对比图
-    # function_encapsulation(list_propotion_one_Lock, list_propotion_two_Lock, list_propotion_three_Lock,
-    #                        list_propotion_four_Lock,
+
+    #使用公历/农历时间减去正常时间段后绘制的对比图    绘制第三个场面的图片
+    # function_encapsulation(
+    #                        #  merge_data(list_propotion_one_Lock_sjz,[-l for l in list_propotion_one_contrast_sjz][0:30]),
+    #                        # merge_data(list_propotion_two_Lock_sjz,[-l for l in list_propotion_two_contrast_sjz][0:30]),
+    #                        # merge_data(list_propotion_three_Lock_sjz, [-l for l in list_propotion_three_contrast_sjz][0:30]),
+    #                        # merge_data(list_propotion_four_Lock_sjz,[-l for l in list_propotion_four_contrast_sjz][0:30]),
+    #
+    #                      merge_data(list_propotion_one_Lock_sjz,second_one),
+    #                     merge_data(list_propotion_two_Lock_sjz,second_two),
+    #                     merge_data(list_propotion_three_Lock_sjz, second_three),
+    #                     merge_data(list_propotion_four_Lock_sjz,second_four),
     #                        list_SJZ_xticks,
-    #                        list_propotion_one_contrast,
-    #                        list_propotion_two_contrast,
-    #                        list_propotion_three_contrast,
-    #                        list_propotion_four_contrast,
-    #                        list_SJZ_xticks)
-
-
-
-    # #使用公历/农历时间减去正常时间段后绘制的对比图
-    # function_encapsulation(merge_data(list_propotion_one_Lock_sjz,list_propotion_one_contrast_sjz[0:70]),
-    #                        merge_data(list_propotion_two_Lock_sjz,list_propotion_two_contrast_sjz[0:70]),
-    #                        merge_data(list_propotion_three_Lock_sjz,list_propotion_three_contrast_sjz[0:70]),
-    #                        merge_data(list_propotion_four_Lock_sjz,list_propotion_four_contrast_sjz[0:70]),
-    #                        list_SJZ_xticks,
-    #                        merge_data(list_propotion_one_Lock_xian, list_propotion_one_contrast_sjz[0:70]),
-    #                       merge_data(list_propotion_two_Lock_xian, list_propotion_two_contrast_sjz[0:70]),
-    #                       merge_data(list_propotion_three_Lock_xian, list_propotion_three_contrast_sjz[0:70]),
-    #                       merge_data(list_propotion_four_Lock_xian, list_propotion_four_contrast_sjz[0:70]),
+    #                        merge_data(list_propotion_one_Lock_xian, second_five),
+    #                       merge_data(list_propotion_two_Lock_xian, second_six),
+    #                       merge_data(list_propotion_three_Lock_xian, second_seven),
+    #                       merge_data(list_propotion_four_Lock_xian, second_eight),
     #                        list_xian_xticks)
 
 
@@ -588,10 +923,7 @@ if __name__ == '__main__':
     # averagenodeconnectivity(file_path,"张家界",list_ZJJ)
     # get_city_degree(file_path,"张家界",list_ZJJ)
     # edge_number(file_path,"张家界",list_ZJJ)
-# naturecconnectivity(file_path,"张家界",list_ZJJ)
-
-
-
+    # naturecconnectivity(file_path,"张家界",list_ZJJ)
 
 
 
@@ -615,6 +947,9 @@ if __name__ == '__main__':
     three = [0.0451, 0.05070000000000001, 0.0688, 0.0859, 0.10659999999999999, 0.1092, 0.1182, 0.12310000000000001, 0.13299999999999998, 0.16319999999999998, 0.17959999999999998, 0.16670000000000001, 0.1476, 0.14990000000000003, 0.1174, 0.1099, 0.10369999999999996, 0.09210000000000002, 0.0746, 0.057699999999999974, 0.046599999999999975, 0.027600000000000013, 0.02460000000000001, 0.020399999999999974, 0.0030999999999999917, -0.02100000000000002, -0.05660000000000004, -0.089, -0.12550000000000003, -0.1583, -0.17310000000000003, -0.2323, -0.29469999999999996, -0.3557, -0.4411, -0.5449999999999999, -0.5932, -0.6738, -0.7405, -0.8026, -0.8495, -0.8615, -0.879, -0.8798, -0.8793, -0.8981, -0.9094, -0.8912, -0.8642000000000001, -0.8305, -0.8010999999999999, -0.7816, -0.8136, -0.8002, -0.7976000000000001, -0.7692, -0.7184, -0.619, -0.5355, -0.5036, -0.476, -0.44920000000000004, -0.4071, -0.3712, -0.333, -0.3076, -0.3045, -0.2833, -0.2591, -0.2394, -0.1371, -0.1149, -0.1071, -0.0936, -0.0683, -0.0526, -0.0314, -0.015, -0.0079, -0.0149, -0.0339, -0.0399, -0.0518, -0.0688, -0.0859, -0.0978, -0.1045, -0.1029, -0.085, -0.0801, -0.0804, -0.0865, -0.0939, -0.0991, -0.0967, -0.0896, -0.0896, -0.0814, -0.0824, -0.0855, -0.0833, -0.0812, -0.0501, -0.0384, -0.0123, 0.0187, 0.046, 0.0582, 0.0559, 0.0448, 0.0216, 0.0009, -0.0218, -0.0344, -0.0407]
 
     four =  [0.0387, 0.042699999999999995, 0.06259999999999999, 0.08159999999999999, 0.10700000000000001, 0.1085, 0.11400000000000002, 0.1139, 0.1187, 0.1462, 0.15389999999999998, 0.13279999999999997, 0.10370000000000007, 0.10679999999999995, 0.07549999999999996, 0.06860000000000005, 0.060699999999999976, 0.04700000000000004, 0.03400000000000003, 0.025000000000000022, 0.02750000000000008, 0.019999999999999962, 0.02739999999999998, 0.032799999999999996, 0.020999999999999963, -0.0015000000000000013, -0.038000000000000034, -0.06769999999999998, -0.10449999999999998, -0.1351, -0.1439, -0.19889999999999997, -0.26189999999999997, -0.3301, -0.4335, -0.5602, -0.6191, -0.7262, -0.8055, -0.889, -0.967, -0.9976, -1.0408, -1.0598, -1.0745, -1.1031, -1.1185, -1.0968, -1.0613000000000001, -1.0236, -0.9893000000000001, -0.9674, -1.0212, -1.0278, -1.0389, -1.0153, -0.9527000000000001, -0.8254, -0.7071, -0.6596, -0.621, -0.5811000000000001, -0.522, -0.4735, -0.4204, -0.385, -0.3751, -0.3465, -0.3116, -0.2851, -0.178, -0.1518, -0.138, -0.1219, -0.0902, -0.0686, -0.0423, -0.021, -0.0108, -0.0164, -0.0355, -0.0395, -0.0498, -0.0668, -0.0844, -0.0977, -0.1045, -0.1019, -0.0838, -0.0796, -0.0813, -0.0877, -0.0954, -0.1, -0.0995, -0.0908, -0.0904, -0.0822, -0.0833, -0.0861, -0.0843, -0.0825, -0.0509, -0.0406, -0.0143, 0.0183, 0.0473, 0.0623, 0.0586, 0.0458, 0.0224, 0.0019, -0.0202, -0.0332, -0.0397]
+    #
+
+
 
     five =  [-0.010100000000000001, 0.0773, 0.1064, 0.1247, 0.1491, 0.16310000000000002, 0.175, 0.18860000000000002, 0.19960000000000003, 0.21559999999999999, 0.19879999999999998, 0.172, 0.1432, 0.13329999999999997, 0.11680000000000001, 0.08779999999999999, 0.07419999999999993, 0.03920000000000001, -0.00550000000000006, -0.051899999999999946, -0.09209999999999996, -0.1301, -0.14919999999999994, -0.18059999999999998, -0.20080000000000003, -0.24380000000000002, -0.2980999999999999, -0.36050000000000004, -0.4409, -0.52, -0.6102000000000001, -0.7545999999999999, -0.911, -1.1006, -1.3441, -1.5327000000000002, -1.6772, -1.7381, -1.8168000000000002, -1.7979, -1.7492, -1.6605999999999999, -1.583, -1.546, -1.5038, -1.4127, -1.3762, -1.2713, -1.2007, -1.1093, -1.0165, -0.9414, -0.8583000000000001, -0.7516, -0.6425000000000001, -0.5207, -0.4208, -0.3708, -0.3404, -0.3639, -0.3786, -0.3875, -0.3443, -0.3035, -0.2666, -0.2131, -0.17109999999999997, -0.1717, -0.1732, -0.1749, -0.0446, -0.0329, -0.0136, 0.0184, 0.0367, -0.0238, 0.0252, 0.06780000000000001, 0.11069999999999999, 0.14040000000000002, 0.1798, 0.2278, 0.2815, 0.32589999999999997, 0.34540000000000004, 0.3449, 0.32930000000000004, 0.3016, 0.2894, 0.3081, 0.324, 0.3414, 0.3434, 0.3416, 0.3492, 0.3302, 0.3173, 0.31179999999999997, 0.3075, 0.30179999999999996, 0.2919, 0.28780000000000006, 0.2566, 0.2219, 0.1783, 0.1765, 0.1346, 0.1079, 0.0795, 0.0664, 0.0757, 0.0508, 0.0352, 0.0191, -0.0011, -0.02, -0.0431, -0.0565, -0.0365, -0.0567, -0.0631, -0.0656, -0.0754, -0.0853, -0.0819, -0.0818, -0.0726, -0.0974, -0.0929, -0.1192, -0.151]
 
@@ -624,10 +959,49 @@ if __name__ == '__main__':
 
     eight = [0.152, 0.1615, 0.1777, 0.19069999999999998, 0.20820000000000002, 0.2143, 0.2165, 0.2267, 0.23340000000000002, 0.248, 0.2344, 0.21409999999999996, 0.2012, 0.20329999999999998, 0.20500000000000002, 0.17440000000000005, 0.1592, 0.10799999999999998, 0.055400000000000005, 0.024500000000000077, 0.00019999999999997797, -0.03660000000000002, -0.06530000000000002, -0.09970000000000001, -0.14400000000000002, -0.20240000000000002, -0.2743, -0.3499, -0.4486, -0.5636, -0.6926, -0.8714999999999999, -1.0741, -1.3195000000000001, -1.6017000000000001, -1.8697, -2.1211, -2.1547, -2.2086, -2.0275, -1.8634, -1.7953, -1.7232999999999998, -1.6486, -1.5744, -1.4743, -1.3846, -1.2696, -1.1649, -1.0602, -0.9583999999999999, -0.8691, -0.7764, -0.6716, -0.5703, -0.4558, -0.3754, -0.3276, -0.2631, -0.2586, -0.25739999999999996, -0.2612, -0.2317, -0.1883, -0.1451, -0.097, -0.0611, -0.058800000000000005, -0.0625, -0.0636, 0.0182, 0.0204, 0.0302, 0.0502, 0.0597, 0.017799999999999996, 0.0522, 0.0754, 0.10670000000000002, 0.1323, 0.1524, 0.1831, 0.22060000000000002, 0.2488, 0.2608, 0.25949999999999995, 0.2459, 0.22949999999999998, 0.22059999999999996, 0.23679999999999998, 0.2524, 0.267, 0.26539999999999997, 0.2652, 0.26680000000000004, 0.25389999999999996, 0.2449, 0.2389, 0.22909999999999997, 0.22000000000000003, 0.20239999999999997, 0.184, 0.1544, 0.1147, 0.0726, 0.0646, 0.0338, 0.0074, -0.0175, -0.0415, -0.0405, -0.0564, -0.0683, -0.086, -0.0962, -0.1076, -0.1118, -0.116, -0.1039, -0.1077, -0.1024, -0.0935, -0.086, -0.0848, -0.0758, -0.0652, -0.0595, -0.0712, -0.0738, -0.0818, -0.0925]
 
-    # print(len(five))
-    function_encapsulation(one,two,three,four,
-                           list_SJZ_xticks,
-                            five,six,seven,eight,
-                           list_xian_xticks)
+
+    # five =  [-0.010100000000000001, 0.0773, 0.1064, 0.1247, 0.1491, 0.16310000000000002, 0.175, 0.18860000000000002, 0.19960000000000003, 0.21559999999999999, 0.19879999999999998, 0.172, 0.1432, 0.13329999999999997, 0.11680000000000001, 0.08779999999999999, 0.07419999999999993, 0.03920000000000001, -0.00550000000000006, -0.051899999999999946, -0.09209999999999996, -0.1301, -0.14919999999999994, -0.18059999999999998, -0.20080000000000003, -0.24380000000000002, -0.2980999999999999, -0.36050000000000004, -0.4409, -0.52, -0.6102000000000001, -0.7545999999999999, -0.911, -1.1006, -1.3441, -1.5327000000000002, -1.6772, -1.7381, -1.8168000000000002, -1.7979, -1.7492, -1.6605999999999999, -1.583, -1.546, -1.5038, -1.4127, -1.3762, -1.2713, -1.2007, -1.1093, -1.0165, -0.9414, -0.8583000000000001, -0.7516, -0.6425000000000001, -0.5207, -0.4208, -0.3708, -0.3404, -0.3639, -0.3786, -0.3875, -0.3443, -0.3035, -0.2666, -0.2131, -0.17109999999999997, -0.1717, -0.1732, -0.1749, -0.0446, -0.0329, -0.0136, 0.0184, 0.0367, -0.0238, 0.0252, 0.06780000000000001, 0.11069999999999999, 0.14040000000000002, 0.1798, 0.2278, 0.2815, 0.32589999999999997, 0.34540000000000004, 0.3449, 0.32930000000000004, 0.3016, 0.2894, 0.3081, 0.324, 0.3414, 0.3434, 0.3416, 0.3492, 0.4618, 0.4462, 0.4366, 0.4156, 0.3964, 0.3782, 0.341, 0.3046, 0.2677, 0.2198, 0.1765, 0.1346, 0.1079, 0.0795, 0.0664, 0.0757, 0.0508, 0.0352, 0.0191, -0.0011, -0.02, -0.0431, -0.0565, -0.0365, -0.0567, -0.0631, -0.0656, -0.0754, -0.0853, -0.0819, -0.0818, -0.0726, -0.0974, -0.0929, -0.1192, -0.151]
+    #
+    # six = [0.10400000000000001, 0.159, 0.1913, 0.2318, 0.2671, 0.3168, 0.363, 0.3715, 0.3665, 0.3593, 0.34230000000000005, 0.32170000000000004, 0.33559999999999995, 0.3692, 0.3853, 0.3793, 0.3548, 0.296, 0.25639999999999996, 0.23879999999999996, 0.2021, 0.15140000000000003, 0.1325, 0.09309999999999996, 0.04660000000000003, 0.008199999999999985, -0.06940000000000002, -0.1565, -0.2464, -0.3539, -0.4739, -0.621, -0.795, -1.0078, -1.288, -1.5969000000000002, -1.863, -2.1718, -2.3948, -2.424, -2.3831, -2.27, -2.064, -1.8434, -1.6872, -1.5489, -1.4425, -1.322, -1.1582999999999999, -1.0035, -0.8779, -0.7657999999999999, -0.6759000000000001, -0.5791999999999999, -0.4961, -0.41209999999999997, -0.3341, -0.27599999999999997, -0.24309999999999998, -0.1995, -0.1661, -0.1386, -0.1084, -0.08750000000000001, -0.0819, -0.084, -0.0822, -0.0683, -0.05059999999999999, -0.039400000000000004, -0.0154, -0.0154, -0.0154, -0.0154, -0.0092, -0.011000000000000001, -0.0048000000000000004, -0.006700000000000001, 0.009499999999999998, 0.0359, 0.0579, 0.06490000000000001, 0.07680000000000001, 0.074, 0.08410000000000001, 0.0863, 0.0767, 0.0722, 0.0601, 0.0553, 0.055099999999999996, 0.0656, 0.061700000000000005, 0.056999999999999995, 0.0606, 0.1273, 0.1159, 0.1074, 0.0957, 0.0839, 0.0629, 0.0319, 0.0097, -0.0131, -0.0298, -0.0468, -0.0572, -0.0678, -0.0785, -0.0822, -0.0825, -0.0828, -0.0724, -0.0761, -0.0727, -0.0764, -0.0729, -0.0694, -0.0586, -0.055, -0.0444, -0.0339, -0.0235, -0.0033, 0.0065, 0.0194, 0.0289, 0.0383, 0.0414, 0.0476, 0.0538]
+    #
+    # seven =[0.0878, 0.1037, 0.1195, 0.1325, 0.1486, 0.15740000000000004, 0.1658, 0.18039999999999998, 0.19209999999999997, 0.20819999999999997, 0.20229999999999998, 0.19030000000000002, 0.19310000000000005, 0.19240000000000002, 0.18840000000000007, 0.16619999999999996, 0.15419999999999995, 0.12060000000000004, 0.07919999999999999, 0.046999999999999986, 0.017199999999999993, -0.018799999999999983, -0.04510000000000003, -0.07640000000000002, -0.10930000000000001, -0.15280000000000002, -0.20600000000000002, -0.2617, -0.3337, -0.4114, -0.49520000000000003, -0.6128, -0.7412, -0.8893, -1.0576, -1.1963, -1.3078, -1.3467, -1.3878, -1.3582999999999998, -1.3092, -1.2695, -1.228, -1.1945000000000001, -1.1601, -1.1042, -1.059, -0.9866999999999999, -0.9206000000000001, -0.8498, -0.7771, -0.715, -0.6479, -0.5662, -0.48310000000000003, -0.39039999999999997, -0.32010000000000005, -0.28290000000000004, -0.25129999999999997, -0.25839999999999996, -0.2653, -0.26580000000000004, -0.23620000000000002, -0.2011, -0.1655, -0.1225, -0.08979999999999999, -0.0868, -0.0887, -0.08979999999999999, -0.0054, -0.0009, 0.0097, 0.0299, 0.0421, 0.003699999999999995, 0.037899999999999996, 0.0648, 0.09570000000000001, 0.12090000000000001, 0.1471, 0.18109999999999998, 0.22, 0.24930000000000002, 0.26249999999999996, 0.2647, 0.2548, 0.24019999999999997, 0.23300000000000004, 0.2485, 0.26170000000000004, 0.2767, 0.2762, 0.2776, 0.28049999999999997, 0.3493, 0.3355, 0.3246, 0.304, 0.2853, 0.2659, 0.2314, 0.2004, 0.1645, 0.1244, 0.0905, 0.061, 0.0348, 0.0098, -0.0125, -0.0152, -0.0363, -0.0487, -0.0695, -0.0824, -0.1029, -0.112, -0.1182, -0.1034, -0.1091, -0.1058, -0.0981, -0.0959, -0.0955, -0.0875, -0.0785, -0.0711, -0.0806, -0.0799, -0.0833, -0.0906]
+    #
+    # eight = [0.152, 0.1615, 0.1777, 0.19069999999999998, 0.20820000000000002, 0.2143, 0.2165, 0.2267, 0.23340000000000002, 0.248, 0.2344, 0.21409999999999996, 0.2012, 0.20329999999999998, 0.20500000000000002, 0.17440000000000005, 0.1592, 0.10799999999999998, 0.055400000000000005, 0.024500000000000077, 0.00019999999999997797, -0.03660000000000002, -0.06530000000000002, -0.09970000000000001, -0.14400000000000002, -0.20240000000000002, -0.2743, -0.3499, -0.4486, -0.5636, -0.6926, -0.8714999999999999, -1.0741, -1.3195000000000001, -1.6017000000000001, -1.8697, -2.1211, -2.1547, -2.2086, -2.0275, -1.8634, -1.7953, -1.7232999999999998, -1.6486, -1.5744, -1.4743, -1.3846, -1.2696, -1.1649, -1.0602, -0.9583999999999999, -0.8691, -0.7764, -0.6716, -0.5703, -0.4558, -0.3754, -0.3276, -0.2631, -0.2586, -0.25739999999999996, -0.2612, -0.2317, -0.1883, -0.1451, -0.097, -0.0611, -0.058800000000000005, -0.0625, -0.0636, 0.0182, 0.0204, 0.0302, 0.0502, 0.0597, 0.017799999999999996, 0.0522, 0.0754, 0.10670000000000002, 0.1323, 0.1524, 0.1831, 0.22060000000000002, 0.2488, 0.2608, 0.25949999999999995, 0.2459, 0.22949999999999998, 0.22059999999999996, 0.23679999999999998, 0.2524, 0.267, 0.26539999999999997, 0.2652, 0.26680000000000004, 0.3384, 0.3276, 0.3176, 0.2965, 0.2786, 0.2568, 0.2189, 0.1859, 0.1455, 0.1012, 0.0646, 0.0338, 0.0074, -0.0175, -0.0415, -0.0405, -0.0564, -0.0683, -0.086, -0.0962, -0.1076, -0.1118, -0.116, -0.1039, -0.1077, -0.1024, -0.0935, -0.086, -0.0848, -0.0758, -0.0652, -0.0595, -0.0712, -0.0738, -0.0818, -0.0925]
+
+
+
+    # # # print(len(five))
+    # function_encapsulation(one,two,three,four,
+    #                        list_SJZ_xticks,
+    #                         five,six,seven,eight,
+    #                        # list_propotion_one_Lock_xian, list_propotion_two_Lock_xian, list_propotion_three_Lock_xian,
+    #                        # list_propotion_four_Lock_xian,
+    #                        list_xian_xticks)
+
+    # list_xian_xticks = ['20211115', '20211116', '20211117', '20211118', '20211119', '20211120', '20211121', '20211122', '20211123', '20211124', '20211125', '20211126', '20211127', '20211128', '20211129', '20211130', '20211201', '20211202', '20211203', '20211204', '20211205', '20211206', '20211207', '20211208', '20211209', '20211210', '20211211', '20211212', '20211213', '20211214', '20211215', '20211216', '20211217', '20211218', '20211219', '20211220', '20211221', '20211222', '20211223', '20211224', '20211225', '20211226', '20211227', '20211228', '20211229', '20211230', '20211231', '20220101', '20220102', '20220103', '20220104', '20220105', '20220106', '20220107', '20220108', '20220109', '20220110', '20220111', '20220112', '20220113', '20220114', '20220115', '20220116', '20220117', '20220118', '20220119', '20220120', '20220121', '20220122', '20220123', '20220124', '20220125', '20220126', '20220127', '20220128', '20220129', '20220130', '20220131', '20220201', '20220202', '20220203', '20220204', '20220205', '20220206', '20220207', '20220208', '20220209', '20220210', '20220211', '20220212', '20220213', '20220214', '20220215', '20220216', '20220217', '20220218', '20220219', '20220220', '20220221', '20220222', '20220223', '20220224', '20220225', '20220226', '20220227', '20220228', '20220301', '20220302', '20220303', '20220304', '20220305', '20220306', '20220307', '20220308', '20220309', '20220310', '20220311', '20220312', '20220313', '20220314', '20220315', '20220316', '20220317', '20220318', '20220319', '20220320', '20220321', '20220322', '20220323', '20220324', '20220325']
+    # print(len(list_xian_xticks))
+    # print(len(getdaylist(20211123,20220402)))
+# print(getdaylist(20211123,20220402))
+
+
+# eeee =[0.0786, 0.0684, 0.0578, 0.0404, 0.0136, -0.0299, -0.0576, -0.0858, -0.1042, -0.131, -0.1627, -0.1998, -0.2193, -0.2502, -0.2626, -0.2666, -0.2756, -0.3211, -0.3639, -0.3971, -0.4082, -0.4074, -0.3723, -0.3325, -0.3163, -0.2899, -0.2646, -0.2291, -0.2004, -0.176, -0.1757, -0.1666, -0.1323, -0.096, -0.0675, -0.0353, -0.0175, -0.009, -0.0043, 0.0182, 0.0321, 0.0494, 0.0554, 0.0572, 0.0449, 0.0206, 0.0215, 0.0074, -0.0031, -0.0129, -0.0237, -0.0348, -0.0387, -0.0269, -0.0413, -0.0536, -0.0679, -0.0824, -0.0945, -0.098, -0.0909, -0.0995, -0.0962, -0.1, -0.0998, -0.098, -0.0912, -0.0631, -0.0615, -0.0543, -0.0391, -0.0395, -0.0491, -0.0735, -0.0945, -0.1245, -0.1344, -0.155, -0.1713, -0.1744, -0.17, -0.1526, -0.1401, -0.1159, -0.0975, -0.0787, -0.0622, -0.0454, -0.031, -0.0268, -0.0097, 0.0108, 0.02, 0.0437, 0.0773, 0.1457, 0.211, 0.2632, 0.2996, 0.3464, 0.3886, 0.4093, 0.4229, 0.4166, 0.4099, 0.399, 0.3897, 0.3804, 0.3689, 0.3617, 0.3513, 0.3399, 0.33, 0.3148, 0.3042, 0.2794, 0.2643, 0.2234, 0.1785, 0.1375, 0.1034, 0.0554, 0.0087, -0.0159, -0.0385, -0.0414, -0.0462, -0.0415, -0.0456, -0.0453, -0.0358]
+#
+# ffff= [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0091, 0.0152, 0.0182, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0212, 0.0031, -0.0092, -0.0154, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0217, -0.0123, -0.0061, -0.003, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+#
+# gggg= [0.0368, 0.0282, 0.0198, 0.0033, -0.0234, -0.0576, -0.0847, -0.1115, -0.1282, -0.153, -0.1798, -0.2037, -0.2178, -0.2389, -0.2422, -0.2427, -0.246, -0.2764, -0.298, -0.3143, -0.3197, -0.3145, -0.2871, -0.2568, -0.2418, -0.2195, -0.1969, -0.1699, -0.1467, -0.1275, -0.1252, -0.1144, -0.0901, -0.0665, -0.046, -0.0245, -0.0121, -0.0064, -0.0014, 0.016, 0.0254, 0.0373, 0.0424, 0.0429, 0.033, 0.0136, 0.0115, -0.0007, -0.0089, -0.0164, -0.0241, -0.031, -0.0337, -0.0281, -0.0386, -0.0478, -0.0593, -0.0695, -0.0797, -0.0826, -0.0796, -0.086, -0.0851, -0.0894, -0.09, -0.0882, -0.0829, -0.0626, -0.0597, -0.0538, -0.0426, -0.0418, -0.0484, -0.0642, -0.0757, -0.0945, -0.0995, -0.1111, -0.1206, -0.1215, -0.1183, -0.1017, -0.09, -0.0708, -0.0531, -0.0349, -0.02, -0.0045, 0.0097, 0.0168, 0.0324, 0.0511, 0.0616, 0.0809, 0.1076, 0.1559, 0.202, 0.2415, 0.2696, 0.3054, 0.338, 0.356, 0.3705, 0.3627, 0.3573, 0.3481, 0.3385, 0.3283, 0.3192, 0.3107, 0.2989, 0.2879, 0.2758, 0.2602, 0.2483, 0.2252, 0.2111, 0.1787, 0.1424, 0.1075, 0.0793, 0.0428, 0.0089, -0.0118, -0.0353, -0.0344, -0.0391, -0.0363, -0.0381, -0.0372, -0.0325]
+#
+# hhhh= [0.0263, 0.0149, 0.0043, -0.0165, -0.0501, -0.0907, -0.1243, -0.1581, -0.1804, -0.2119, -0.2484, -0.2758, -0.2945, -0.3219, -0.3271, -0.3267, -0.3287, -0.359, -0.3748, -0.3836, -0.3834, -0.3716, -0.3368, -0.299, -0.2789, -0.2517, -0.2234, -0.1918, -0.1649, -0.1432, -0.1392, -0.1256, -0.0969, -0.0708, -0.0463, -0.0212, -0.0067, -0.0006, 0.0063, 0.0246, 0.0318, 0.0426, 0.0469, 0.0459, 0.0347, 0.0127, 0.0093, -0.0036, -0.0127, -0.021, -0.029, -0.036, -0.0384, -0.0337, -0.0458, -0.0566, -0.0707, -0.0833, -0.0947, -0.0978, -0.0959, -0.1047, -0.1038, -0.1099, -0.1109, -0.109, -0.1032, -0.0809, -0.0773, -0.0718, -0.0595, -0.058, -0.0651, -0.0818, -0.0941, -0.1134, -0.1176, -0.1282, -0.1378, -0.1374, -0.1341, -0.1144, -0.1008, -0.0776, -0.056, -0.0335, -0.0156, 0.0032, 0.021, 0.0309, 0.0499, 0.0728, 0.0866, 0.1086, 0.1391, 0.1912, 0.2415, 0.2843, 0.3149, 0.3529, 0.3886, 0.4087, 0.4261, 0.4179, 0.4134, 0.4044, 0.3941, 0.383, 0.3743, 0.3644, 0.3508, 0.3387, 0.3241, 0.306, 0.2919, 0.2651, 0.2491, 0.2138, 0.1721, 0.1304, 0.0971, 0.055, 0.0144, -0.0116, -0.0426, -0.0406, -0.0476, -0.0454, -0.0468, -0.0458, -0.0423]
+
+
+#长度64
+
+
+
+
+
+
+
+
+
 
 

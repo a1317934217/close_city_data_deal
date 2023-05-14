@@ -200,12 +200,11 @@ if __name__ == '__main__':
 
 
     #两个迁徙比例 爬取
-    get_city_migration_proportion(migration_proportion_in,"move_in",20230221,20230225)
-    get_city_migration_proportion(migration_proportion_out,"move_out",20230221,20230225)
+    get_city_migration_proportion(migration_proportion_in,"move_in",20230225,20230508)
+    get_city_migration_proportion(migration_proportion_out,"move_out",20230225,20230508)
 
 
     #补充爬取
-
 
     # list_problem_in = [(469001, "五指山", 20221123),(530400, "玉溪", 20221108)]
     # list_problem_out = [(210900, "阜新", 20221013), (370300, "淄博", 20221205)]
