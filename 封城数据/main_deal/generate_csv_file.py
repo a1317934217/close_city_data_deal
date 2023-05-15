@@ -260,6 +260,10 @@ def getPreMonth(input_date) :
 
 
 def generate_csf_lock():
+    """
+    封城城市的csv文件处理
+    :return:
+    """
     file_project = r"F:/封城数据处理/封城数据/"
     file_lock_info = r"F:/封城数据处理/封城数据/data_lockdown/data_save_info.py"
     need_deal_file_one = pd.read_csv(file_lock_info)
