@@ -248,7 +248,7 @@ def getPreMonth(input_date) :
     # 设置日期
     s_date = pd.Timestamp(s_date)
     # 获得前一月的这一天
-    s_date1 = s_date + pd.DateOffset(n=-1, months=1)
+    s_date1 = s_date + pd.DateOffset(n=-1, months=2)
     #
     data_needdeal = str(s_date1)
     # print("前一月日期：", data_needdeal)
@@ -256,7 +256,44 @@ def getPreMonth(input_date) :
     return int(data_needdeal[:10].replace("-",""))
 
 
+#这些是已经处理好了的时间
+#石家庄,20210107,20210129,23,0.04,["石家庄","北京","衡水","秦皇岛","唐山","廊坊","天津","承德","保定","沧州","邯郸","邢台","张家口"]
+# 西安,20211223,20220115,24,0.01,['铜川', '渭南', '成都', '宝鸡', '咸阳', '延安', '商洛', '榆林', '汉中', '庆阳', '北京', '安康', '西安']
+# 张家界,20210801,20210825,25,0.03,["张家界","常德","长沙","湘西土家族苗族自治州","恩施土家族苗族自治州","益阳","重庆","株洲","岳阳","邵阳","广州","衡阳","深圳"]
+# list_cityone_sjz = ["石家庄","北京","衡水","秦皇岛","唐山","廊坊","天津","承德","保定","沧州","邯郸","邢台","张家口"]
+# list_cityone_xian =['铜川', '渭南', '成都', '宝鸡', '咸阳', '延安', '商洛', '榆林', '汉中', '庆阳', '北京', '安康', '西安']
+# list_cityone_zjj =["张家界","常德","长沙","湘西土家族苗族自治州","恩施土家族苗族自治州","益阳","重庆","株洲","岳阳","邵阳","广州","衡阳","深圳"]
 
+
+
+#这个时间段的吉林的数据没有
+# 吉林,20200513,20200607,26,0.02,["长春","通化","哈尔滨","延边朝鲜族自治州","四平","沈阳","松原","辽源","白山","白城","北京","大连","吉林"]
+# list_cityone_jl =["长春","通化","哈尔滨","延边朝鲜族自治州","四平","沈阳","松原","辽源","白山","白城","北京","大连","吉林"]
+# 通化,20200115,20210221,38,0.02,["辽源","长春","白山","吉林","抚顺","沈阳","四平","丹东","本溪","铁岭","大连","延边朝鲜族自治州","通化"]
+# list_cityone_th =["辽源","长春","白山","吉林","抚顺","沈阳","四平","丹东","本溪","铁岭","大连","延边朝鲜族自治州","通化"]
+# 保定,20200618,20200702,15,0.02,["石家庄","北京","廊坊","沧州","衡水","天津","邯郸","张家口","唐山","邢台","忻州","大同","保定"]
+# list_cityone_bd =["石家庄","北京","廊坊","沧州","衡水","天津","邯郸","张家口","唐山","邢台","忻州","大同","保定"]
+
+
+
+
+list_cityone_hlbe =["齐齐哈尔","兴安盟","哈尔滨","黑河","呼和浩特","大兴安岭地区","大庆","北京","绥化","通辽","天津","赤峰","呼伦贝尔"]
+list_cityone_sy =["长春","白城","四平","大庆","通辽","哈尔滨","吉林","沈阳","绥化","铁岭","齐齐哈尔","大连","松原"]
+list_cityone_hh =["齐齐哈尔","绥化","哈尔滨","黑河","呼伦贝尔","伊春","大庆","大兴安岭","沈阳","佳木斯","大连","天津","营口"]
+list_cityone_sh =["齐齐哈尔","大庆","哈尔滨","黑河","伊春","佳木斯","长春","北京","沈阳","大连","天津","松原","绥化"]
+list_cityone_yz =["泰州","南京","淮安","镇江","滁州","苏州","盐城","无锡","常州","南通","宿迁","上海","扬州"]
+list_cityone_zh =["长沙","湘潭","衡阳","萍乡","郴州","邵阳","娄底","益阳","岳阳","常德","深圳","株洲","广州"]
+list_cityone_zy =["酒泉","兰州","嘉峪关","武威","海北藏族自治州","金昌","西宁","定西","西安","哈密","阿拉善","张掖","中卫"]
+list_cityone_heb =["齐齐哈尔","绥化","哈尔滨","长春","佳木斯","大庆","北京","牡丹江","上海","天津","青岛","沈阳","鸡西"]
+list_cityone_qqhe =["哈尔滨","呼伦贝尔","齐齐哈尔","兴安盟","大庆","黑河","天津","北京","绥化","白城","廊坊","沈阳","大连"]
+list_cityone_sx =["杭州","宁波","金华","上海","嘉兴","温州","台州","苏州","湖州","衢州","无锡","南京","绍兴"]
+list_cityone_xc =["郑州","平顶山","漯河","周口","开封","洛阳","南阳","商丘","新乡","驻马店","上海","许昌","苏州"]
+list_cityone_zk =["郑州","商丘","阜阳","驻马店","漯河","金华","上海","许昌","北京","开封","苏州","杭州","周口"]
+list_cityone_xy =["西安","宝鸡","渭南","铜川","延安","庆阳","榆林","平凉","商洛","汉中","上海","咸阳","安康"]
+list_cityone_ts =["兰州","陇南","定西","西安","平凉","宝鸡","上海","苏州","北京","乌鲁木齐","杭州","天水","白银"]
+list_name_around =[list_cityone_hlbe,list_cityone_sy,list_cityone_hh,list_cityone_sh,list_cityone_yz,
+                   list_cityone_zh,list_cityone_zy,list_cityone_heb,list_cityone_qqhe,list_cityone_sx,list_cityone_xc,
+                   list_cityone_zk,list_cityone_xy,list_cityone_ts]
 
 
 def generate_csf_lock():
@@ -264,34 +301,61 @@ def generate_csf_lock():
     封城城市的csv文件处理
     :return:
     """
-    file_project = r"F:/封城数据处理/封城数据/"
-    file_lock_info = r"F:/封城数据处理/封城数据/data_lockdown/data_save_info.py"
-    need_deal_file_one = pd.read_csv(file_lock_info)
-    for row_one in tqdm(need_deal_file_one.iterrows(), desc="开始计算封城指标数据", total=len(need_deal_file_one)):
-        # list_a = []
-        city_name = row_one[1]["cityName"]
-        # 开始封城时间
-        start_date = int(row_one[1]["start_date"])
-        end_date = int(row_one[1]["end_date"])
-        lockdown_day = row_one[1]["lockdown_day"]
-        # 一阶城市周围的城市
-        list_cityone = row_one[1]["list_cityone"]
-        # 城市阈值
-        Threshold = row_one[1]["Threshold"]
-        # 提前一个月的月份
-        data_oneMonth = getPreMonth(str(start_date))
-        # 文件保存的位置
-        file_project_in = file_project + city_name + "/"
+    file_project = "F:/封城数据处理/封城数据/"
+    file_lock_info = "F:/封城数据处理/封城数据/data_lockdown/lockdown_info.csv"
+    with open(file_lock_info, 'r', encoding="utf-8") as file:
+        reader = csv.reader(file, skipinitialspace=True)
+        header = next(reader)
+        for  row_one,listaroundcity in zip (reader,list_name_around):
+            #城市名称
+            city_name = row_one[0]
+            print(city_name)
+            # 开始封城时间
+            start_date = int(row_one[1])#int
+            end_date = int(row_one[2])#int
+            #封城时间
+            lockdown_day = row_one[3]
+            # 城市阈值
+            Threshold = float(row_one[4])
+            # 一阶城市周围的城市
+            # listaroundcity
 
-        select_around_city_data(data_oneMonth, end_date, list_cityone, city_name + "一阶", city_name, Threshold,
-                                file_project_in)
-        merge_inAndout_file(data_oneMonth, end_date, city_name + "一阶", city_name, file_project_in)
-        merge_alone_file(data_oneMonth, end_date, city_name + "一阶", city_name, file_project_in)
+            # 提前一个月的月份
+            data_oneMonth = getPreMonth(str(start_date))
+            # 文件保存的位置 创建文件保存的位置
+            file_project_in = file_project + city_name + "/"
+            if not os.path.exists(file_project_in):
+                os.makedirs(file_project_in)
+
+            select_around_city_data(data_oneMonth, end_date, listaroundcity, city_name + "一阶", city_name, Threshold,
+                                    file_project_in)
+            merge_inAndout_file(data_oneMonth, end_date, city_name + "一阶", city_name, file_project_in)
+            merge_alone_file(data_oneMonth, end_date, city_name + "一阶", city_name, file_project_in)
+
+
+
+
+
 
 
 if __name__ == '__main__':
+    #处理生成csv文件
+    # generate_csf_lock()
+
     #这里开始处理生成指标数值的列表
 
+    beijing_one_network = ["北京", "廊坊", "天津", "保定", "张家口", "唐山", "石家庄", "上海", "承德", "沧州", "邯郸"]
+    hengshui_one_network = ["衡水", "石家庄", "北京", "保定", "沧州", "德州", "天津", "张家口", "唐山", "邢台", "廊坊"]
+    langfang_one_network = ["廊坊", "北京", "天津", "保定", "沧州", "石家庄", "唐山", "衡水", "张家口", "秦皇岛",
+                            "承德"]
+    tianjin_one_network = ["天津", "北京", "廊坊", "沧州", "唐山", "保定", "邯郸", "石家庄", "张家口", "秦皇岛", "德州"]
+    xingtai_one_network = ["邢台", "北京", "石家庄", "邯郸", "保定", "天津", "衡水", "聊城", "廊坊", "沧州", "济南"]
+
+    file_project_one = r"F:/封城数据处理/封城数据/衡水/"  # 0.01好用
+    select_around_city_data(20201201, 20210508, hengshui_one_network, "衡水一阶","衡水",0.04,file_project_one)
+    merge_inAndout_file(20201201, 20210508, "衡水一阶","衡水",file_project_one)
+    merge_alone_file(20201201, 20210508, "衡水一阶","衡水",file_project_one)
+    #
 
 
 
@@ -306,26 +370,21 @@ if __name__ == '__main__':
 
 
 
+    # file_project_one = r"F:/封城数据处理/封城数据/黑河/"  #0.01好用
+    # select_around_city_data(2021728,20211028, list_cityone_hh, "黑河一阶","黑河",0.02,file_project_one)
+    # merge_inAndout_file(2021728,20211028, "黑河一阶","黑河",file_project_one)
+    # merge_alone_file(2021728,20211028, "黑河一阶","黑河",file_project_one)
+    #
+    #
+    # file_project_two = r"F:/封城数据处理/封城数据/扬州/"  #0.01好用
+    # select_around_city_data(20210531,20210731, list_cityone_yz, "扬州一阶","扬州",0.02,file_project_two)
+    # merge_inAndout_file(20210531,20210731, "扬州一阶","扬州",file_project_two)
+    # merge_alone_file(20210531,20210731, "扬州一阶","扬州",file_project_two)
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    # 430800, 张家界
+# 430800, 张家界
     #
     # file_project = r"F:/封城数据处理/封城数据/张家界/"  #0.01好用
     # select_around_city_data(20210601,20210930, list_ZJJ, "张家界一阶","张家界",0.025,file_project)

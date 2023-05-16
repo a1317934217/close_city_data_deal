@@ -141,7 +141,7 @@ def averagenodeconnectivity(file_path,city_name,nodes,listXData):
             print("((平均点连通性) error打开迁徙文件出问题：", problem)
         else:
                 listAverageNodeConnectivity.append((nx.average_node_connectivity(G)))
-    print("平均点连通性长度： ", len(listAverageNodeConnectivity))
+    # print("平均点连通性长度： ", (listAverageNodeConnectivity))
     return listAverageNodeConnectivity
     # print("平均点连通性： ", listAverageNodeConnectivity)
 
@@ -675,6 +675,44 @@ if __name__ == '__main__':
 
 
 
+    file_path = "F:/封城数据处理/封城数据/齐齐哈尔/齐齐哈尔一阶/deal_03/"
+
+    list_qqhe = ["哈尔滨", "呼伦贝尔", "齐齐哈尔", "兴安盟", "大庆", "黑河", "天津", "北京", "绥化", "白城", "廊坊",
+                 "沈阳", "大连"]
+
+    print(averagenodeconnectivity(file_path, "齐齐哈尔", list_qqhe,getdaylist(20201101, 20210401)))
+    print(get_city_degree(file_path, "齐齐哈尔", list_qqhe,getdaylist(20201101, 20210401)))
+    print(edge_number(file_path, "齐齐哈尔", list_qqhe,getdaylist(20201101, 20210401)))
+    print(naturecconnectivity(file_path, "齐齐哈尔", list_qqhe,getdaylist(20201101, 20210401)))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     # list_index_name_Lock_zjj = [averagenodeconnectivity(file_path_zjj, "张家界", list_ZJJ,listXData_Lock_zjj),
     #                         get_city_degree(file_path_zjj, "张家界", list_ZJJ,listXData_Lock_zjj),
     #                         edge_number(file_path_zjj, "张家界", list_ZJJ,listXData_Lock_zjj),
@@ -757,15 +795,15 @@ if __name__ == '__main__':
 
 
 
-
-    list_index_name_Lock_xian = [averagenodeconnectivity(file_path_xian, "西安", First_order_xian,listXData_Lock_xian),
-                            # get_city_degree(file_path_xian, "西安", First_order_xian,listXData_Lock_xian),
-                            edge_number(file_path_xian, "西安", First_order_xian,listXData_Lock_xian),
-                            naturecconnectivity(file_path_xian, "西安", First_order_xian,listXData_Lock_xian)]
-
-
-    list_propotion_one_Lock_xian, list_propotion_two_Lock_xian, list_propotion_three_Lock_xian\
-        = down_propotion_slice(list_index_name_Lock_xian,0)
+    #
+    # list_index_name_Lock_xian = [averagenodeconnectivity(file_path_xian, "西安", First_order_xian,listXData_Lock_xian),
+    #                         # get_city_degree(file_path_xian, "西安", First_order_xian,listXData_Lock_xian),
+    #                         edge_number(file_path_xian, "西安", First_order_xian,listXData_Lock_xian),
+    #                         naturecconnectivity(file_path_xian, "西安", First_order_xian,listXData_Lock_xian)]
+    #
+    #
+    # list_propotion_one_Lock_xian, list_propotion_two_Lock_xian, list_propotion_three_Lock_xian\
+    #     = down_propotion_slice(list_index_name_Lock_xian,0)
 
 
 
@@ -815,14 +853,14 @@ if __name__ == '__main__':
 
     #
     #
+    # #
+    # list_index_name_Lock_sjz=[averagenodeconnectivity(file_path_SJZ,"石家庄",First_order_SJZ,listXData_Lock_sjz),
+    #                  # get_city_degree(file_path_SJZ,"石家庄",First_order_SJZ,listXData_Lock_sjz),
+    #                  edge_number(file_path_SJZ,"石家庄",First_order_SJZ,listXData_Lock_sjz),
+    #                  naturecconnectivity(file_path_SJZ,"石家庄",First_order_SJZ,listXData_Lock_sjz)]
     #
-    list_index_name_Lock_sjz=[averagenodeconnectivity(file_path_SJZ,"石家庄",First_order_SJZ,listXData_Lock_sjz),
-                     # get_city_degree(file_path_SJZ,"石家庄",First_order_SJZ,listXData_Lock_sjz),
-                     edge_number(file_path_SJZ,"石家庄",First_order_SJZ,listXData_Lock_sjz),
-                     naturecconnectivity(file_path_SJZ,"石家庄",First_order_SJZ,listXData_Lock_sjz)]
-
-    list_propotion_one_Lock_sjz,list_propotion_two_Lock_sjz,list_propotion_three_Lock_sjz  \
-        = down_propotion_slice(list_index_name_Lock_sjz,1)
+    # list_propotion_one_Lock_sjz,list_propotion_two_Lock_sjz,list_propotion_three_Lock_sjz  \
+    #     = down_propotion_slice(list_index_name_Lock_sjz,1)
 
     # list_index_name_contrast_sjz = [averagenodeconnectivity(file_path_SJZ, "石家庄", First_order_SJZ, listXData_contrast_sjz),
     #                    get_city_degree(file_path_SJZ, "石家庄", First_order_SJZ, listXData_contrast_sjz),
@@ -849,10 +887,10 @@ if __name__ == '__main__':
     #     merge_data_new(i,j)
 
     # #绘制第一个场面的图片
-    function_encapsulation(list_propotion_one_Lock_sjz,list_propotion_two_Lock_sjz,list_propotion_three_Lock_sjz ,
-                           list_SJZ_xticks,
-                           list_propotion_one_Lock_xian, list_propotion_two_Lock_xian, list_propotion_three_Lock_xian,
-                           list_xian_xticks)
+    # function_encapsulation(list_propotion_one_Lock_sjz,list_propotion_two_Lock_sjz,list_propotion_three_Lock_sjz ,
+    #                        list_SJZ_xticks,
+    #                        list_propotion_one_Lock_xian, list_propotion_two_Lock_xian, list_propotion_three_Lock_xian,
+    #                        list_xian_xticks)
 
     # 绘制第二个场面的图片
     #[-l for l in list_propotion_one_contrast_sjz], [-l for l in list_propotion_two_contrast_sjz],
@@ -920,10 +958,6 @@ if __name__ == '__main__':
 
 
 
-    # averagenodeconnectivity(file_path,"张家界",list_ZJJ)
-    # get_city_degree(file_path,"张家界",list_ZJJ)
-    # edge_number(file_path,"张家界",list_ZJJ)
-    # naturecconnectivity(file_path,"张家界",list_ZJJ)
 
 
 

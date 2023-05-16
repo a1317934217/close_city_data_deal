@@ -133,7 +133,7 @@ list_ZJJ = ["常德","长沙","湘西土家族苗族自治州","恩施土家族�
 
 
 #石家庄日期
-listXData = getdaylist(20211121,20220416)
+listXData = getdaylist(20201201, 20210508)
 
 
 #西安日期
@@ -440,7 +440,10 @@ def algebraic_connectivity(file_path,city_name,nodes):
 
 if __name__ == '__main__':
 
-    file_path = "F:/封城数据处理/封城数据/石家庄/石家庄一阶/deal_03/"
+
+    #记得换日期 换日期  换日期 换日期！！！！！！！
+
+    # file_path = "F:/封城数据处理/封城数据/石家庄/石家庄一阶/deal_03/"
     # file_path = "F:/封城数据处理/封城数据/西安/西安一阶/deal_03/"
     # file_path = "F:/封城数据处理/封城数据/张家界/张家界一阶/deal_03/"
 
@@ -451,15 +454,20 @@ if __name__ == '__main__':
     # naturecconnectivity(file_path,"张家界",list_ZJJ)
 
 
+    xingtai_one_network = ["邢台", "北京", "石家庄", "邯郸", "保定", "天津", "衡水", "聊城", "廊坊", "沧州", "济南"]
+    beijing_one_network = ["北京", "廊坊", "天津", "保定", "张家口", "唐山", "石家庄", "上海", "承德", "沧州", "邯郸"]
+    hengshui_one_network = ["衡水", "石家庄", "北京", "保定", "沧州", "德州", "天津", "张家口", "唐山", "邢台", "廊坊"]
+    langfang_one_network = ["廊坊", "北京", "天津", "保定", "沧州", "石家庄", "唐山", "衡水", "张家口", "秦皇岛",
+                     "承德"]
+    tianjin_one_network = ["天津", "北京", "廊坊", "沧州", "唐山", "保定", "邯郸", "石家庄", "张家口", "秦皇岛", "德州"]
 
 
 
-
-
-    averagenodeconnectivity(file_path,"石家庄",First_order_SJZ)
-    get_city_degree(file_path,"石家庄",First_order_SJZ)
-    edge_number(file_path,"石家庄",First_order_SJZ)
-    naturecconnectivity(file_path,"石家庄",First_order_SJZ)
+    file_path = "F:/封城数据处理/封城数据/衡水/衡水一阶/deal_03/"
+    averagenodeconnectivity(file_path,"衡水",hengshui_one_network)
+    get_city_degree(file_path,"衡水",hengshui_one_network)
+    edge_number(file_path,"衡水",hengshui_one_network)
+    naturecconnectivity(file_path,"衡水",hengshui_one_network)
 
 
 
