@@ -102,7 +102,7 @@ def get_city_migration_proportion(file_save_location,task_type,beginTime,endTime
     # 获得时间列表
     timeList = getdaylist(beginTime,endTime)
     file = csv.reader(open('ChinaAreaCodes.csv',encoding="utf-8"))
-    for row in tqdm(file,desc="迁徙比例进度条和类型"+task_type,total=375):
+    for row in tqdm(file,desc="迁徙比例进度条和类型"+task_type): #,total=375
         if row[0] != 'code':
             code = row[0]
             name = row[1]
@@ -200,8 +200,8 @@ if __name__ == '__main__':
 
 
     #两个迁徙比例 爬取
-    get_city_migration_proportion(migration_proportion_in,"move_in",20230225,20230508)
-    get_city_migration_proportion(migration_proportion_out,"move_out",20230225,20230508)
+    get_city_migration_proportion(migration_proportion_in,"move_in",20211223,20220115)
+    get_city_migration_proportion(migration_proportion_out,"move_out",20211223,20220115)
 
 
     #补充爬取

@@ -132,12 +132,15 @@ list_ZJJ = ["常德","长沙","湘西土家族苗族自治州","恩施土家族�
 # file_path = "F:/封城数据处理/封城数据/石家庄/石家庄四阶/garbage_self_network/deal_01/in/"
 
 
+
 #石家庄日期
-listXData = getdaylist(20201201, 20210508)
+# listXData = getdaylist(20201201, 20210508)
 
 
 #西安日期
 # listXData = getdaylist(20211121,20220528)
+#齐齐哈尔日期
+listXData = getdaylist(20201101, 20210401)
 
 
 
@@ -446,6 +449,7 @@ if __name__ == '__main__':
     # file_path = "F:/封城数据处理/封城数据/石家庄/石家庄一阶/deal_03/"
     # file_path = "F:/封城数据处理/封城数据/西安/西安一阶/deal_03/"
     # file_path = "F:/封城数据处理/封城数据/张家界/张家界一阶/deal_03/"
+    file_path = "F:/封城数据处理/封城数据/齐齐哈尔/齐齐哈尔一阶/deal_03/"
 
 
     # averagenodeconnectivity(file_path,"张家界",list_ZJJ)
@@ -453,21 +457,28 @@ if __name__ == '__main__':
     # edge_number(file_path,"张家界",list_ZJJ)
     # naturecconnectivity(file_path,"张家界",list_ZJJ)
 
+    #
+    # xingtai_one_network = ["邢台", "北京", "石家庄", "邯郸", "保定", "天津", "衡水", "聊城", "廊坊", "沧州", "济南"]
+    # beijing_one_network = ["北京", "廊坊", "天津", "保定", "张家口", "唐山", "石家庄", "上海", "承德", "沧州", "邯郸"]
+    # hengshui_one_network = ["衡水", "石家庄", "北京", "保定", "沧州", "德州", "天津", "张家口", "唐山", "邢台", "廊坊"]
+    # langfang_one_network = ["廊坊", "北京", "天津", "保定", "沧州", "石家庄", "唐山", "衡水", "张家口", "秦皇岛",
+    #                  "承德"]
+    # tianjin_one_network = ["天津", "北京", "廊坊", "沧州", "唐山", "保定", "邯郸", "石家庄", "张家口", "秦皇岛", "德州"]
+    #
+    # file_path = "F:/封城数据处理/封城数据/衡水/衡水一阶/deal_03/"
+    # averagenodeconnectivity(file_path,"衡水",hengshui_one_network)
+    # get_city_degree(file_path,"衡水",hengshui_one_network)
+    # edge_number(file_path,"衡水",hengshui_one_network)
+    # naturecconnectivity(file_path,"衡水",hengshui_one_network)
 
-    xingtai_one_network = ["邢台", "北京", "石家庄", "邯郸", "保定", "天津", "衡水", "聊城", "廊坊", "沧州", "济南"]
-    beijing_one_network = ["北京", "廊坊", "天津", "保定", "张家口", "唐山", "石家庄", "上海", "承德", "沧州", "邯郸"]
-    hengshui_one_network = ["衡水", "石家庄", "北京", "保定", "沧州", "德州", "天津", "张家口", "唐山", "邢台", "廊坊"]
-    langfang_one_network = ["廊坊", "北京", "天津", "保定", "沧州", "石家庄", "唐山", "衡水", "张家口", "秦皇岛",
-                     "承德"]
-    tianjin_one_network = ["天津", "北京", "廊坊", "沧州", "唐山", "保定", "邯郸", "石家庄", "张家口", "秦皇岛", "德州"]
 
+    city_list_qqhe=["齐齐哈尔",'哈尔滨', '大庆', '呼伦贝尔', '兴安盟', '黑河', '绥化', '天津', '白城', '北京', '长春', '廊坊', '青岛', '大连']
 
+    averagenodeconnectivity(file_path, "齐齐哈尔", city_list_qqhe)
+    get_city_degree(file_path, "齐齐哈尔", city_list_qqhe)
+    edge_number(file_path, "齐齐哈尔", city_list_qqhe)
+    naturecconnectivity(file_path, "齐齐哈尔", city_list_qqhe)
 
-    file_path = "F:/封城数据处理/封城数据/衡水/衡水一阶/deal_03/"
-    averagenodeconnectivity(file_path,"衡水",hengshui_one_network)
-    get_city_degree(file_path,"衡水",hengshui_one_network)
-    edge_number(file_path,"衡水",hengshui_one_network)
-    naturecconnectivity(file_path,"衡水",hengshui_one_network)
 
 
 

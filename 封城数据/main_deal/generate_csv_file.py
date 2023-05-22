@@ -344,17 +344,17 @@ if __name__ == '__main__':
 
     #这里开始处理生成指标数值的列表
 
-    beijing_one_network = ["北京", "廊坊", "天津", "保定", "张家口", "唐山", "石家庄", "上海", "承德", "沧州", "邯郸"]
-    hengshui_one_network = ["衡水", "石家庄", "北京", "保定", "沧州", "德州", "天津", "张家口", "唐山", "邢台", "廊坊"]
-    langfang_one_network = ["廊坊", "北京", "天津", "保定", "沧州", "石家庄", "唐山", "衡水", "张家口", "秦皇岛",
-                            "承德"]
-    tianjin_one_network = ["天津", "北京", "廊坊", "沧州", "唐山", "保定", "邯郸", "石家庄", "张家口", "秦皇岛", "德州"]
-    xingtai_one_network = ["邢台", "北京", "石家庄", "邯郸", "保定", "天津", "衡水", "聊城", "廊坊", "沧州", "济南"]
-
-    file_project_one = r"F:/封城数据处理/封城数据/衡水/"  # 0.01好用
-    select_around_city_data(20201201, 20210508, hengshui_one_network, "衡水一阶","衡水",0.04,file_project_one)
-    merge_inAndout_file(20201201, 20210508, "衡水一阶","衡水",file_project_one)
-    merge_alone_file(20201201, 20210508, "衡水一阶","衡水",file_project_one)
+    # beijing_one_network = ["北京", "廊坊", "天津", "保定", "张家口", "唐山", "石家庄", "上海", "承德", "沧州", "邯郸"]
+    # hengshui_one_network = ["衡水", "石家庄", "北京", "保定", "沧州", "德州", "天津", "张家口", "唐山", "邢台", "廊坊"]
+    # langfang_one_network = ["廊坊", "北京", "天津", "保定", "沧州", "石家庄", "唐山", "衡水", "张家口", "秦皇岛",
+    #                         "承德"]
+    # tianjin_one_network = ["天津", "北京", "廊坊", "沧州", "唐山", "保定", "邯郸", "石家庄", "张家口", "秦皇岛", "德州"]
+    # xingtai_one_network = ["邢台", "北京", "石家庄", "邯郸", "保定", "天津", "衡水", "聊城", "廊坊", "沧州", "济南"]
+    #
+    # file_project_one = r"F:/封城数据处理/封城数据/衡水/"  # 0.01好用
+    # select_around_city_data(20201201, 20210508, hengshui_one_network, "衡水一阶","衡水",0.04,file_project_one)
+    # merge_inAndout_file(20201201, 20210508, "衡水一阶","衡水",file_project_one)
+    # merge_alone_file(20201201, 20210508, "衡水一阶","衡水",file_project_one)
     #
 
 
@@ -409,9 +409,9 @@ if __name__ == '__main__':
     # merge_inAndout_file(20201201, 20210508, "石家庄一阶","石家庄",file_project)
     # merge_alone_file(20201201, 20210508, "石家庄一阶","石家庄",file_project)
 
-    # city_list_qqhe=["齐齐哈尔",'哈尔滨', '大庆', '呼伦贝尔', '兴安盟', '黑河', '绥化', '天津', '白城', '北京', '长春', '廊坊', '青岛', '大连']
-    # #齐齐哈尔, 20210112, 20210207, 27
-    # file_project = r"F:/封城数据处理/封城数据/齐齐哈尔/"
-    # select_around_city_data(20201101, 20210401, city_list_qqhe, "齐齐哈尔一阶","齐齐哈尔",0.01,file_project)
-    # merge_inAndout_file(20201101, 20210401, "齐齐哈尔一阶","齐齐哈尔",file_project)
-    # merge_alone_file(20201101, 20210401, "齐齐哈尔一阶","齐齐哈尔",file_project)
+    city_list_qqhe=["齐齐哈尔",'哈尔滨', '大庆', '呼伦贝尔', '兴安盟', '黑河', '绥化', '天津', '白城', '北京', '长春', '廊坊', '青岛', '大连']
+    #齐齐哈尔, 20210112, 20210207, 27
+    file_project = r"F:/封城数据处理/封城数据/齐齐哈尔/"
+    select_around_city_data(20201101, 20210401, city_list_qqhe, "齐齐哈尔一阶","齐齐哈尔",0.03,file_project)
+    merge_inAndout_file(20201101, 20210401, "齐齐哈尔一阶","齐齐哈尔",file_project)
+    merge_alone_file(20201101, 20210401, "齐齐哈尔一阶","齐齐哈尔",file_project)
