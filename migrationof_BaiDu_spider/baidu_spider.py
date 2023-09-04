@@ -58,7 +58,7 @@ def get_city_migration_index(file_save_location,task_type):
     :return:
     """
     global text
-    file = csv.reader(open('ChinaAreaCodes.csv',encoding="utf-8"))
+    file = csv.reader(open('ChinaAreaCodes_new.csv',encoding="utf-8"))
     for row in tqdm(file,desc="迁徙指数进度条和类型："+task_type,total=375):
         if row[0] != 'code':
             code = row[0]
@@ -101,7 +101,7 @@ def get_city_migration_proportion(file_save_location,task_type,beginTime,endTime
 
     # 获得时间列表
     timeList = getdaylist(beginTime,endTime)
-    file = csv.reader(open('ChinaAreaCodes.csv',encoding="utf-8"))
+    file = csv.reader(open('ChinaAreaCodes_new.csv',encoding="utf-8"))
     for row in tqdm(file,desc="迁徙比例进度条和类型"+task_type): #,total=375
         if row[0] != 'code':
             code = row[0]
@@ -195,13 +195,10 @@ if __name__ == '__main__':
     # get_city_migration_index(migration_index_out,"move_out")
 
 
-    # get_city_migration_index("F:/百度迁徙数据_日常维护/迁徙指数_需补充/in/", "move_in")
-    # get_city_migration_index('F:/百度迁徙数据_日常维护/迁徙指数_需补充/out/', "move_out")
-
 
     #两个迁徙比例 爬取
-    get_city_migration_proportion(migration_proportion_in,"move_in",20211223,20220115)
-    get_city_migration_proportion(migration_proportion_out,"move_out",20211223,20220115)
+    # get_city_migration_proportion(migration_proportion_in,"move_in",20230509,20230710)
+    # get_city_migration_proportion(migration_proportion_out,"move_out",20230509,20230710)
 
 
     #补充爬取
@@ -214,6 +211,20 @@ if __name__ == '__main__':
     #
     # for i in list_problem_out:
     #     makeUp_problem_data(migration_proportion_out,"move_out",i[0],i[1],i[2])
+
+
+
+
+
+    file = csv.reader(open('ChinaAreaCodes_new.csv',encoding="utf-8"))
+    list=[]
+    for row in tqdm(file): #,total=375
+        if row[0] != 'code':
+            code = row[0]
+            name = row[1]
+            list.append(name)
+    print(list)
+    print(len(list))
 
 
 

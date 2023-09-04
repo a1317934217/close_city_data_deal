@@ -56,21 +56,28 @@ listXData = getdaylist(20210101,20210508)
 
 
 # 根据路径画图
-def drawpicture(list_edges):
+def drawpicture(filePath):
     """
     输入文件路径最后绘制成图G
     """
     global dataMiga
     G = nx.Graph()
+    # G.add_nodes_from(nodes_list_one)
+    try:
+        dataMiga = pd.read_csv(filePath)
+    except Exception as problem:
+        print("error根据路径画图出现问题：", problem)
     # 得到每一行的数据
-    for city_one in list_edges:
-        G.add_edges_from([(city_one[0], city_one[1])])
+    for row in dataMiga.itertuples():
+        city_name = getattr(row, "city_name")
+        city_id_name = getattr(row, "city_id_name")
+        G.add_edges_from([(city_name, city_id_name)])
     return G
 
 
 
-# 计算平均点连通性
-def averagenodeconnectivity(file_path,city_name,nodes):
+#(1) 计算平均点连通性
+def averagenodeconnectivity(file_path):
     """
     返回绘制图表的
     X轴：日期
@@ -81,8 +88,8 @@ def averagenodeconnectivity(file_path,city_name,nodes):
     for i in tqdm (range(len(listXData)),desc="平均点连通性进度",total=len(listXData)):
         # 循环画图
         try:
-            filePathInMethon = file_path + listXData[i] +"_"+city_name+".csv"
-            G = drawpicture(filePathInMethon,nodes)
+            filePathInMethon = file_path + listXData[i] +"_.csv"
+            G = drawpicture(filePathInMethon)
 
         except Exception as problem:
             print("((平均点连通性) error打开迁徙文件出问题：", problem)
@@ -92,30 +99,9 @@ def averagenodeconnectivity(file_path,city_name,nodes):
     return listAverageNodeConnectivity
 
 
-# 计算城市度
-def get_city_degree(file_path,city_name,nodes):
-    """
-    返回绘制图表的
-    X轴：日期
-    Y轴：平均点连通性
-    """
-    list_city_degree = []
-    for i in range(len(listXData)):
-        # 循环画图
-        try:
-            filePathInMethon = file_path + listXData[i] +"_"+city_name+".csv"
-            G = drawpicture(filePathInMethon,nodes)
 
-        except Exception as problem:
-            print("((城市度) error打开迁徙文件出问题：", problem)
-        else:
-            list_city_degree.append(len(G.edges(city_name)))
-    # print("城市度： ", list_city_degree)
-    return list_city_degree
-
-
-# 计算边数量
-def edge_number(file_path,city_name,nodes):
+# (2)计算边数量
+def edge_number(file_path):
     """
     返回绘制图表的
     X轴：日期
@@ -125,8 +111,8 @@ def edge_number(file_path,city_name,nodes):
     for i in range(len(listXData)):
         # 循环画图
         try:
-            filePathInMethon = file_path + listXData[i] +"_"+city_name+".csv"
-            G = drawpicture(filePathInMethon,nodes)
+            filePathInMethon = file_path + listXData[i] +"_.csv"
+            G = drawpicture(filePathInMethon)
         except Exception as problem:
             print("((边数量) error打开迁徙文件出问题：", problem)
         else:
@@ -135,7 +121,7 @@ def edge_number(file_path,city_name,nodes):
     return list_edge_number
 
 
-# 计算自然连通性
+# (3)计算自然连通性
 def naturecconnectivity(G):
     """
     返回绘制图表的
@@ -160,8 +146,8 @@ def naturecconnectivity(G):
 
 
 
-# 计算  点连通性(单个点)
-def node_connectivity(file_path,city_name,nodes):
+# (4)计算点连通性(单个点)
+def node_connectivity(file_path):
     """
     返回绘制图表的
     X轴：日期
@@ -172,8 +158,8 @@ def node_connectivity(file_path,city_name,nodes):
     for i in tqdm (range(len(listXData)),desc="点连通性进度",total=len(listXData)):
         # 循环画图
         try:
-            filePathInMethon = file_path + listXData[i] +"_"+city_name+".csv"
-            G = drawpicture(filePathInMethon,nodes)
+            filePathInMethon = file_path + listXData[i] +"_.csv"
+            G = drawpicture(filePathInMethon)
 
         except Exception as problem:
             print("点连通性 error打开迁徙文件出问题：", problem)
@@ -182,26 +168,8 @@ def node_connectivity(file_path,city_name,nodes):
     # print("点连通性（单独）： ", listAverageNodeConnectivity)
 
 
-# 计算 平均度
-def average_degree_alone(file_path,city_name,nodes):
-    listAverage_degree = []
-    for i in tqdm(range(len(listXData)), desc="平均度 进度", total=len(listXData)):
-        # 循环画图
-        try:
-            filePathInMethon = file_path + listXData[i] + "_" + city_name + ".csv"
-            G = drawpicture(filePathInMethon, nodes)
 
-        except Exception as problem:
-            print("平均度   error打开迁徙文件出问题：", problem)
-        else:
-            d = dict(nx.degree(G))
-            listAverage_degree.append(sum(d.values()) / len(G.nodes))
-
-    # print("平均度",listAverage_degree)
-
-
-
-# 计算 平均最短路径长度
+# (5)计算 平均最短路径长度
 def average_short_length(G):
     S = [G.subgraph(c).copy() for c in nx.connected_components(G)]
     AEC_LastValue =0
@@ -211,14 +179,14 @@ def average_short_length(G):
 
 
 
-# 计算 代数连通性
-def algebraic_connectivity(file_path,city_name,nodes):
+# (6)计算 代数连通性
+def algebraic_connectivity(file_path):
     algebraic_connectivity_list = []
     for i in tqdm(range(len(listXData)), desc="代数连通性 进度", total=len(listXData)):
         # 循环画图
         try:
-            filePathInMethon = file_path + listXData[i] + "_" + city_name + ".csv"
-            G = drawpicture(filePathInMethon, nodes)
+            filePathInMethon = file_path + listXData[i] + "_.csv"
+            G = drawpicture(filePathInMethon)
 
         except Exception as problem:
             print("代数连通性   error打开迁徙文件出问题：", problem)
@@ -229,7 +197,7 @@ def algebraic_connectivity(file_path,city_name,nodes):
     print("代数连通性",algebraic_connectivity_list)
 
 
-# 计算  连通性损失指标
+# (7)计算  连通性损失指标
 def connectivity_loss(G):
     """
     连通性损失指标计算
@@ -254,10 +222,76 @@ def connectivity_loss(G):
     return connectivityLoss
 
 
-# 计算  最大组件大小
+# (8)计算  最大组件大小
 def size_of_largest_component(G):
     S = [G.subgraph(c).copy() for c in nx.connected_components(G)]
     return len(S[0])
+
+
+
+# # (9)计算连通分量数量
+def number_of_connected_components():
+    """
+    返回绘制图表的
+    X轴：日期
+    Y轴：点连通性
+    """
+    list_number_of_connected_components_everyDay = []
+    list_number_of_connected_components_everyDay_superNode = []
+    for i in range(len(listXData)):
+        # 循环画图
+        try:
+            filePathInMethon = fileNamePath + listXData[i] + "finalData.csv"
+            print(filePathInMethon)
+            G = drawpicture(filePathInMethon)
+            for city_want in nodeList:
+                G.add_edges_from([(city_want, "超级节点")])
+            S = [G.subgraph(c).copy() for c in nx.connected_components(G)]
+        except Exception as problem:
+            print("(连通分量数量) error打开迁徙文件出问题：", problem)
+        else:
+            list_number_of_connected_components_everyDay.append(len(S))
+            list_number_of_connected_components_everyDay_superNode.append(len(S))
+    print("连通分量数量列表为：", list_number_of_connected_components_everyDay_superNode)
+    # 画图 设置X轴显示效果
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    # 为了设置x轴时间的显示
+    def format_fn(tick_val, tick_pos):
+        if int(tick_val) in range(len(listXData)):
+            return listXData[int(tick_val)]
+        else:
+            return ''
+
+    ax.xaxis.set_major_formatter(FuncFormatter(format_fn))
+    ax.xaxis.set_major_locator(MaxNLocator(integer=True))
+
+    # plt.ylim((-5, 40))
+    # 横坐标每个值旋转90度
+    # plt.xticks(rotation=90)
+    # 设置Mac上的字体
+    # font = FontProperties(fname='/Library/Fonts/Arial Unicode.ttf')
+    font = matplotlib.font_manager.FontProperties(
+        fname='C:\\Windows\\Fonts\\SimHei.ttf')
+    # 坐标轴ticks的字体大小
+    plt.tick_params(labelsize=5)
+    plt.yticks(fontsize=10)
+    plt.xticks(fontsize=7)
+    plt.xlabel('日期', FontProperties=font)
+    plt.ylabel('连通分量数量', FontProperties=font)
+    plt.title('百度迁徙2020上半年连通分量数量折线图', FontProperties=font)
+    ax.plot(listXData, list_number_of_connected_components_everyDay,"m.-", linewidth=1, color='blue')
+    plt.show()
+
+
+
+
+
+
+
+
+
+
 
 
 def get_all_indicators(list_time,file_origion):

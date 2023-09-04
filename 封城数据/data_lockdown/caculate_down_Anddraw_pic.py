@@ -7,6 +7,9 @@
 @desc:
 @ref:
 """
+import io
+
+from PIL import Image
 from numpy import array
 
 # coding:utf-8
@@ -355,8 +358,8 @@ def function_encapsulation(first_data,third_data,fourth_data,listXData_SJz,
         else:
             return ''
 
-    fig = plt.figure(figsize=(10,4))  # ,dpi=450  10, 4 (6,8)
-    ax1 = fig.add_subplot(121)
+    fig = plt.figure(figsize=(6,4))  # ,dpi=450  10, 4 (6,8)
+    ax1 = fig.add_subplot(111)
     ax1.xaxis.set_major_formatter(FuncFormatter(format_fn))
     ax1.xaxis.set_major_locator(MaxNLocator(integer=True))
     # plt.ylim((-5, 40))
@@ -374,9 +377,11 @@ def function_encapsulation(first_data,third_data,fourth_data,listXData_SJz,
     # 数据归一化
     tool = MinMaxScaler(feature_range=(0, 1))
     # first_data = tool.fit_transform(array(first_data).reshape(-1,1)).tolist()
+    # third_data = tool.fit_transform(array(third_data).reshape(-1,1)).tolist()
+    # fourth_data = tool.fit_transform(array(fourth_data).reshape(-1,1)).tolist()
 
-    # 石家庄对比经济变化比例
-    plt.title("2021年石家庄封城经济变化比例(含节假日)",fontsize=12)
+    # 石家庄对比经济变化比例   2021年石家庄封城经济变化比例(含节假日)
+    # plt.title("2021年石家庄市经济变化比例",fontsize=12)
     plt.xticks(fontsize=12)
     plt.yticks(fontsize=12)
 
@@ -394,7 +399,8 @@ def function_encapsulation(first_data,third_data,fourth_data,listXData_SJz,
 
     plt.axhspan(ymin=-0.4, ymax=-0.6, facecolor="g", alpha=0.2)
     # xmin=33, xmax=62
-    plt.axvspan(xmin=36, xmax=62, facecolor='r', alpha=0.2)
+    plt.axvspan(xmin=33, xmax=59, facecolor='r', alpha=0.2)
+
     # plt.scatter(6, 1, s=50, color='cyan')
     # plt.plot([6, 6], [1, 0], 'x--', lw=1.5)
     # plt.text(0, 0.90, r'封城开始', fontdict={'size': '12', 'color': 'black'})
@@ -406,50 +412,58 @@ def function_encapsulation(first_data,third_data,fourth_data,listXData_SJz,
 
 
 
-    def format_fn_xian(tick_val, tick_pos):
-        if int(tick_val) in range(len(listXData_xian)):
-            return str(listXData_xian[int(tick_val)])#[4:8]
-        else:
-            return ''
-
-    ax2 = fig.add_subplot(122)
-    ax2.xaxis.set_major_formatter(FuncFormatter(format_fn_xian))
-    ax2.xaxis.set_major_locator(MaxNLocator(integer=True))
-
-    # 坐标轴ticks的字体大小
-    ax2.set_xlabel('日期', fontsize=12)  # 为x轴添加标签
-    ax2.set_ylabel('经济变化比例', fontsize=12)  # 为y轴添加标签  数值
-
-    ax2.legend()
-
-    plt.plot(listXData_xian, five_data, color="#4F9DA6", linewidth=2, label='平均点连通性')  # "4-",
-    # plt.plot(listXData_xian, six_data, color="#1663a9", linewidth=2, label='城市度')  # , "1--"
-    plt.plot(listXData_xian, seven_data, color="#FFAD5A", linewidth=2, label='边数量')  # , ".-"
-    plt.plot(listXData_xian, eight_data, color="#FF5959", linewidth=2, label='平均最短路径长度')  # , ".-"
-
-    plt.title("2022年西安封城经济变化比例(含节假日)", fontsize=12)
-    plt.xticks(fontsize=12, rotation=45)
-    plt.yticks(fontsize=12)
-    plt.legend(fontsize=12,)  #
-
-    plt.axhline(y=0, xmin=0, xmax=1, c="r", ls="--", lw=2)
-
-    plt.axhspan(ymin=-0.4, ymax=-0.6, facecolor="g", alpha=0.2)
-
-    # plt.axvspan(xmin=30, xmax=54, facecolor='r', alpha=0.2)
-    plt.axvspan(xmin=30, xmax=54, facecolor='r', alpha=0.2)
-
-    # plt.scatter(22, 1, s=50, color='cyan')
-    # plt.plot([22, 22], [1, 0], 'x--', lw=1.5)
-    # plt.text(22, 0.90, r'封城开始', fontdict={'size': '12', 'color': 'black'})
+    # def format_fn_xian(tick_val, tick_pos):
+    #     if int(tick_val) in range(len(listXData_xian)):
+    #         return str(listXData_xian[int(tick_val)])#[4:8]
+    #     else:
+    #         return ''
     #
-    # plt.scatter(45, 1, s=50, color='cyan')
-    # plt.plot([45, 45], [1, 0], 'x--', lw=1.5)
-    # plt.text(45, 0.90, r'封城结束', fontdict={'size': '12', 'color': 'black'})
-
+    # ax2 = fig.add_subplot(111)
+    # ax2.xaxis.set_major_formatter(FuncFormatter(format_fn_xian))
+    # ax2.xaxis.set_major_locator(MaxNLocator(integer=True))
+    #
+    # # 坐标轴ticks的字体大小
+    # ax2.set_xlabel('日期', fontsize=12)  # 为x轴添加标签
+    # ax2.set_ylabel('经济变化比例', fontsize=12)  # 为y轴添加标签  数值
+    #
+    # ax2.legend()
+    #
+    # plt.plot(listXData_xian, five_data, color="#4F9DA6", linewidth=2, label='平均点连通性')  # "4-",
+    # # plt.plot(listXData_xian, six_data, color="#1663a9", linewidth=2, label='城市度')  # , "1--"
+    # plt.plot(listXData_xian, seven_data, color="#FFAD5A", linewidth=2, label='边数量')  # , ".-"
+    # plt.plot(listXData_xian, eight_data, color="#FF5959", linewidth=2, label='平均最短路径长度')  # , ".-"
+    #
+    # plt.title("2022年齐齐哈尔市经济变化比例", fontsize=12)
+    # plt.xticks(fontsize=12, rotation=45)
+    # plt.yticks(fontsize=12)
+    # plt.legend(fontsize=12,)  #
+    #
+    # plt.axhline(y=0, xmin=0, xmax=1, c="r", ls="--", lw=2)
+    #
+    # plt.axhspan(ymin=-0.4, ymax=-0.6, facecolor="g", alpha=0.2)
+    #
+    # # plt.axvspan(xmin=54, xmax=54, facecolor='r', alpha=0.2)
+    # plt.axvspan(xmin=39, xmax=57, facecolor='r', alpha=0.2)
+    #
+    # # plt.scatter(22, 1, s=50, color='cyan')
+    # # plt.plot([22, 22], [1, 0], 'x--', lw=1.5)
+    # # plt.text(22, 0.90, r'封城开始', fontdict={'size': '12', 'color': 'black'})
+    # #
+    # # plt.scatter(45, 1, s=50, color='cyan')
+    # # plt.plot([45, 45], [1, 0], 'x--', lw=1.5)
+    # # plt.text(45, 0.90, r'封城结束', fontdict={'size': '12', 'color': 'black'})
+    #
 
 
     fig.tight_layout()
+    png1 = io.BytesIO()
+    plt.savefig(png1, format="png", dpi=500, pad_inches=.1, bbox_inches='tight')
+    # Load this image into PIL
+    png2 = Image.open(png1)
+
+    # Save as TIFF
+    png2.save("LOCK_SJZ_NoTitle.tiff")
+    png1.close()
     plt.show()
 
 
@@ -647,10 +661,10 @@ if __name__ == '__main__':
 
 
     #齐齐哈尔  20201201, 20210301  91天 27天封城
-    listXData_Lock_qqhe = getdaylist(20211101, 20220401)  #(20201101, 20210401)
+    listXData_Lock_qqhe = getdaylist(20201101, 20210401)  #(20201101, 20210401)
     print(len(listXData_Lock_qqhe))
     # 石家庄对比日期 农历   比较有可比性的时间 20221030,20230406   20221113, 20230420   20220201, 20220709  72
-    listXData_contrast_qqhe = getdaylist(20201128, 20210130)
+    listXData_contrast_qqhe = getdaylist(20201204, 20210205)
     print(len(listXData_contrast_qqhe))
 
 
@@ -675,41 +689,15 @@ if __name__ == '__main__':
 
 
 
-    file_path = "F:/封城数据处理/封城数据/齐齐哈尔/齐齐哈尔一阶/deal_03/"
-
-    list_qqhe = ["哈尔滨", "呼伦贝尔", "齐齐哈尔", "兴安盟", "大庆", "黑河", "天津", "北京", "绥化", "白城", "廊坊",
-                 "沈阳", "大连"]
-
-    print(averagenodeconnectivity(file_path, "齐齐哈尔", list_qqhe,getdaylist(20201101, 20210401)))
-    print(get_city_degree(file_path, "齐齐哈尔", list_qqhe,getdaylist(20201101, 20210401)))
-    print(edge_number(file_path, "齐齐哈尔", list_qqhe,getdaylist(20201101, 20210401)))
-    print(naturecconnectivity(file_path, "齐齐哈尔", list_qqhe,getdaylist(20201101, 20210401)))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    # file_path = "F:/封城数据处理/封城数据/齐齐哈尔/齐齐哈尔一阶/deal_03/"
+    #
+    # list_qqhe = ["哈尔滨", "呼伦贝尔", "齐齐哈尔", "兴安盟", "大庆", "黑河", "天津", "北京", "绥化", "白城", "廊坊",
+    #              "沈阳", "大连"]
+    #
+    # print(averagenodeconnectivity(file_path, "齐齐哈尔", list_qqhe,getdaylist(20201101, 20210401)))
+    # print(get_city_degree(file_path, "齐齐哈尔", list_qqhe,getdaylist(20201101, 20210401)))
+    # print(edge_number(file_path, "齐齐哈尔", list_qqhe,getdaylist(20201101, 20210401)))
+    # print(naturecconnectivity(file_path, "齐齐哈尔", list_qqhe,getdaylist(20201101, 20210401)))
 
 
 
@@ -736,13 +724,13 @@ if __name__ == '__main__':
 
 
 
-    # list_index_name_Lock_qqhe = [averagenodeconnectivity(file_path_qqhe, "齐齐哈尔", city_list_qqhe, listXData_Lock_qqhe),
-    #                             # get_city_degree(file_path_qqhe, "齐齐哈尔", city_list_qqhe, listXData_Lock_qqhe),
-    #                             edge_number(file_path_qqhe, "齐齐哈尔", city_list_qqhe, listXData_Lock_qqhe),
-    #                             naturecconnectivity(file_path_qqhe, "齐齐哈尔", city_list_qqhe, listXData_Lock_qqhe)]
-    #
-    # list_propotion_one_Lock_qqhe, list_propotion_two_Lock_qqhe, list_propotion_three_Lock_qqhe \
-    #     = down_propotion_slice(list_index_name_Lock_qqhe, 3)
+    list_index_name_Lock_qqhe = [averagenodeconnectivity(file_path_qqhe, "齐齐哈尔", city_list_qqhe, listXData_Lock_qqhe),
+                                # get_city_degree(file_path_qqhe, "齐齐哈尔", city_list_qqhe, listXData_Lock_qqhe),
+                                edge_number(file_path_qqhe, "齐齐哈尔", city_list_qqhe, listXData_Lock_qqhe),
+                                naturecconnectivity(file_path_qqhe, "齐齐哈尔", city_list_qqhe, listXData_Lock_qqhe)]
+
+    list_propotion_one_Lock_qqhe, list_propotion_two_Lock_qqhe, list_propotion_three_Lock_qqhe \
+        = down_propotion_slice(list_index_name_Lock_qqhe, 3)
     # #
     # function_encapsulation_sigle(
     #                             # [-l for l in list_propotion_one_Lock_zjj],
@@ -848,19 +836,16 @@ if __name__ == '__main__':
 
 
 
-
-
-
     #
     #
     # #
-    # list_index_name_Lock_sjz=[averagenodeconnectivity(file_path_SJZ,"石家庄",First_order_SJZ,listXData_Lock_sjz),
-    #                  # get_city_degree(file_path_SJZ,"石家庄",First_order_SJZ,listXData_Lock_sjz),
-    #                  edge_number(file_path_SJZ,"石家庄",First_order_SJZ,listXData_Lock_sjz),
-    #                  naturecconnectivity(file_path_SJZ,"石家庄",First_order_SJZ,listXData_Lock_sjz)]
-    #
-    # list_propotion_one_Lock_sjz,list_propotion_two_Lock_sjz,list_propotion_three_Lock_sjz  \
-    #     = down_propotion_slice(list_index_name_Lock_sjz,1)
+    list_index_name_Lock_sjz=[averagenodeconnectivity(file_path_SJZ,"石家庄",First_order_SJZ,listXData_Lock_sjz),
+                     # get_city_degree(file_path_SJZ,"石家庄",First_order_SJZ,listXData_Lock_sjz),
+                     edge_number(file_path_SJZ,"石家庄",First_order_SJZ,listXData_Lock_sjz),
+                     naturecconnectivity(file_path_SJZ,"石家庄",First_order_SJZ,listXData_Lock_sjz)]
+
+    list_propotion_one_Lock_sjz,list_propotion_two_Lock_sjz,list_propotion_three_Lock_sjz  \
+        = down_propotion_slice(list_index_name_Lock_sjz,1)
 
     # list_index_name_contrast_sjz = [averagenodeconnectivity(file_path_SJZ, "石家庄", First_order_SJZ, listXData_contrast_sjz),
     #                    get_city_degree(file_path_SJZ, "石家庄", First_order_SJZ, listXData_contrast_sjz),
@@ -887,10 +872,14 @@ if __name__ == '__main__':
     #     merge_data_new(i,j)
 
     # #绘制第一个场面的图片
-    # function_encapsulation(list_propotion_one_Lock_sjz,list_propotion_two_Lock_sjz,list_propotion_three_Lock_sjz ,
-    #                        list_SJZ_xticks,
-    #                        list_propotion_one_Lock_xian, list_propotion_two_Lock_xian, list_propotion_three_Lock_xian,
-    #                        list_xian_xticks)
+    function_encapsulation(list_propotion_one_Lock_sjz,list_propotion_two_Lock_sjz,list_propotion_three_Lock_sjz ,
+                           list_SJZ_xticks,
+                           # list_propotion_one_Lock_xian, list_propotion_two_Lock_xian, list_propotion_three_Lock_xian,
+                           # list_propotion_one_Lock_qqhe, list_propotion_two_Lock_qqhe, list_propotion_three_Lock_qqhe,
+                           [-l for l in list_propotion_one_Lock_qqhe],
+                           [-l for l in list_propotion_two_Lock_qqhe],
+                             [-l for l in list_propotion_three_Lock_qqhe],
+                           listXData_contrast_qqhe)
 
     # 绘制第二个场面的图片
     #[-l for l in list_propotion_one_contrast_sjz], [-l for l in list_propotion_two_contrast_sjz],
@@ -927,15 +916,16 @@ if __name__ == '__main__':
     #    #  [-l for l in list(reversed(list_propotion_three_contrast_sjz))], [-l for l in list(reversed(list_propotion_four_contrast_sjz))],
     #    #  list(reversed(list_propotion_one_contrast_sjz)),list(reversed(list_propotion_two_contrast_sjz)),
     #    #  list(reversed(list_propotion_three_contrast_sjz)),list(reversed(list_propotion_four_contrast_sjz)),
-    #    second_one,second_two,second_three,second_four,
+    #    second_one,second_three,second_four,
     #    list_SJZ_xticks,
     #     # list_propotion_one_Lock_xian, list_propotion_two_Lock_xian, list_propotion_three_Lock_xian,
     #     # list_propotion_four_Lock_xian,
     #    # list_propotion_one_contrast_xian, list_propotion_two_contrast_xian, list_propotion_three_contrast_xian, list_propotion_four_contrast_xian,
-    #    second_five,second_six,second_seven,second_eight,
-    #    list_xian_xticks)
+    #    second_five,second_seven,second_eight,
+#    list_xian_xticks)
 
 
+    list_avrage_node= [0.0303, 0.003599999999999992, -0.0015000000000000013, -0.021800000000000014, -0.012299999999999978, -0.03959999999999997, -0.02639999999999998, -0.04780000000000001, -0.057599999999999985, -0.03019999999999995, 0.0353, 0.04949999999999999, 0.06259999999999999, 0.06290000000000007, 0.044399999999999995, 0.05819999999999992, 0.05740000000000001, 0.057800000000000074, 0.039000000000000035, 0.02959999999999996, 0.024600000000000066, 0.016100000000000003, 0.006699999999999928, -0.00029999999999996696, -0.015300000000000036, -0.031299999999999994, -0.05970000000000003, -0.07880000000000004, -0.1271, -0.12539999999999998, -0.1164, -0.16099999999999998, -0.27, -0.3192, -0.4198, -0.5623, -0.6074, -0.7583, -0.868, -0.9387000000000001, -0.9519000000000001, -0.9815, -0.9986, -1.0076, -0.9675999999999999, -0.955, -0.9216, -0.8664999999999999, -0.8297, -0.7506999999999999, -0.6343, -0.596, -0.6408, -0.6625, -0.6913, -0.7244999999999999, -0.6965, -0.5582, -0.4326, -0.34500000000000003, -0.2474, -0.20049999999999998, -0.17099999999999999, -0.1432, -0.17070000000000002, -0.1889, -0.22659999999999997, -0.20989999999999998, -0.21150000000000002, -0.2146, -0.20170000000000002, -0.21660000000000001, -0.2576, -0.29359999999999997, -0.27690000000000003, -0.2792, -0.25579999999999997, -0.2501, -0.2657, -0.3087, -0.3784, -0.3582, -0.3374, -0.3698, -0.38, -0.3823, -0.333720000000000003, -0.3616, -0.34450000000000003, -0.3341, -0.3176, -0.3151, -0.3193, -0.32, -0.3048, -0.2619, -0.2066, -0.1749, -0.1561, -0.1401, -0.1266, -0.09659999999999999, -0.0020000000000000018, -0.0007000000000000062, 0.012399999999999994, 0.091, 0.1565, 0.1312, 0.0884, 0.0604, 0.009799999999999996, -0.015199999999999991, -0.06440000000000001, -0.0998, -0.1324]
 
     #使用公历/农历时间减去正常时间段后绘制的对比图    绘制第三个场面的图片
     # function_encapsulation(
@@ -944,30 +934,17 @@ if __name__ == '__main__':
     #                        # merge_data(list_propotion_three_Lock_sjz, [-l for l in list_propotion_three_contrast_sjz][0:30]),
     #                        # merge_data(list_propotion_four_Lock_sjz,[-l for l in list_propotion_four_contrast_sjz][0:30]),
     #
-    #                      merge_data(list_propotion_one_Lock_sjz,second_one),
-    #                     merge_data(list_propotion_two_Lock_sjz,second_two),
-    #                     merge_data(list_propotion_three_Lock_sjz, second_three),
-    #                     merge_data(list_propotion_four_Lock_sjz,second_four),
+    #                      # merge_data(list_propotion_one_Lock_sjz,second_one),
+    #                     # merge_data(list_propotion_two_Lock_sjz,second_two),
+    #                     list_avrage_node,
+    #                     merge_data(list_propotion_two_Lock_sjz, second_three),
+    #                     merge_data(list_propotion_three_Lock_sjz,second_four),
     #                        list_SJZ_xticks,
     #                        merge_data(list_propotion_one_Lock_xian, second_five),
-    #                       merge_data(list_propotion_two_Lock_xian, second_six),
-    #                       merge_data(list_propotion_three_Lock_xian, second_seven),
-    #                       merge_data(list_propotion_four_Lock_xian, second_eight),
+    #                       # merge_data(list_propotion_two_Lock_xian, second_six),
+    #                       merge_data(list_propotion_two_Lock_xian, second_seven),
+    #                       merge_data(list_propotion_three_Lock_xian, second_eight),
     #                        list_xian_xticks)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -7,12 +7,14 @@
 @desc:
 @ref:
 """
+import io
 from array import array
 
 import xgboost as xgb
 import shap
 import pandas as pd
 import matplotlib.pyplot as plt
+from PIL import Image
 from matplotlib.ticker import FuncFormatter, MaxNLocator
 
 from sklearn.preprocessing import MinMaxScaler
@@ -53,9 +55,9 @@ def plot_shap_and_bar():
 
 
     plt.figure(dpi=450) # 设置图片的清晰度
-    plt.rcParams['font.sans-serif'] = ['SimHei']
+    plt.rcParams['font.sans-serif'] = ['SimHei']  #SimHei黑体     SimSun  宋体
     plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
-    plt.xlabel('影响数值', fontsize=20)#设置x轴标签和大小
+
 
 
     fig = plt.gcf() # 获取后面图像的句柄
@@ -63,11 +65,39 @@ def plot_shap_and_bar():
     shap_values = explainer(data_x)
     #
     # #shap图示
-    # shap.summary_plot(shap_values, data_x,show=False)
+    shap.summary_plot(shap_values, data_x,show=False)
+    plt.xticks(fontsize=18)
+    plt.xlabel("SHAP值",fontsize=18)
+    plt.yticks([0,1,2,3,4,5,6,7,8,],["连通性损失","最大组件大小（城市）","全局效率","代数连通性","自然连通性","边数量","平均最短路径长度","平均点连通性","城市度"],fontsize=18)
+    #["城市度","平均点连通性","平均最短路径长度","边数量","自然连通性","代数连通性","点连通性","最大组件大小（城市）","连通性损失"]
+    # ["连通性损失","最大组件大小（城市）","点连通性","代数连通性","自然连通性","边数量","平均最短路径长度","平均点连通性","城市度"]
+
+
+    # # 获取图形的坐标轴对象
+    # ax = plt.gca()
+    #
+    # # 修改SHAP value标签
+    # ax.text(0, -1.5, "SHAP数值")  # 替换为你的中文SHAP value标签
+    #
+    # # 修改impact on model output标签
+    # ax.text(0, -1.7, "对模型输出的影响")  # 替换为你的中文标签
+
+    png1 = io.BytesIO()
+    plt.savefig(png1, format="png", dpi=500, pad_inches=.1, bbox_inches='tight')
+    # Load this image into PIL
+    png2 = Image.open(png1)
+
+    # Save as TIFF
+    png2.save("shap.tiff")
+    png1.close()
+    plt.show()
+
+
     # plt.savefig("shap1213.jpg")
     #
+
     # #柱状图
-    shap.summary_plot(shap_values, data_x, plot_type="bar")
+    # shap.summary_plot(shap_values, data_x, plot_type="bar")
 
 
 

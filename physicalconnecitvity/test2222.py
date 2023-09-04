@@ -238,3 +238,4 @@ listajdia12qwe =['湘西土家族苗族自治州', '红河哈尼族彝族自治�
 #     if city_id_name not in nodeList:
 #         list_city_name.append(city_id_name)
 # print(set(list_city_name))
+

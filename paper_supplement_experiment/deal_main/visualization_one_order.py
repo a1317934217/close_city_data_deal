@@ -22,7 +22,8 @@ import matplotlib.pyplot as plt
 
 #石家庄 封城时间 2021/1/7——2021/1/29日  比较时间2021/01/01 -2021/05/08(接近春节) 阈值选取为0.04 确定！
 # 石家庄一阶城市 13城市
-First_order = ["石家庄","北京","衡水","秦皇岛","唐山","廊坊","天津","承德","保定","沧州","邯郸","邢台","张家口"]
+# First_order = ["石家庄","北京","保定","天津","邯郸","秦皇岛","唐山","廊坊","承德","沧州","衡水","邢台","张家口"]
+First_order = ["石家庄","沧州","廊坊","唐山","北京","天津","承德","张家口","邯郸","邢台","衡水","秦皇岛","邢台","保定"]
 # 石家庄二阶城市 54城市
 Second_order =  ['南京', '广州', '长沙', '邯郸', '深圳', '忻州', '长春', '廊坊', '秦皇岛', '锡林郭勒盟', '杭州', '哈尔滨', '三亚', '聊城', '合肥', '沧州', '西安', '衡水', '沈阳', '葫芦岛', '张家口', '苏州', '呼和浩特', '赤峰', '太原', '周口', '天津', '青岛', '潍坊', '菏泽', '济南', '安阳', '北京', '成都', '大同', '滨州', '乌兰察布', '唐山', '临汾', '晋中', '长治', '德州', '浙江', '重庆', '阳泉', '石家庄', '莱芜', '濮阳', '承德', '邢台', '上海', '郑州', '武汉', '保定']
 # 石家庄三阶城市 267城市
@@ -126,19 +127,19 @@ def draw_nine_pic():
     # G_five = drawpicture("F:/封城数据处理/封城数据/石家庄/石家庄五阶/deal_03/20210301_石家庄.csv",Five_order)
 
 
-    plt.figure(figsize=(10,10),dpi=450)
+    plt.figure(figsize=(12,4)) #,dpi=450
     plt.rcParams['font.sans-serif'] = ['SimHei']
 
 
 
 
-    pos_one = nx.circular_layout(G_one)
-    pos_one["石家庄"] = (0,0)
-    plt.subplot(331)
-    # plt.title("(a)封城前")
-    plt.title("(a) 2021年1月1日") #,y=-0.2
-    print("第一个子图。边：",len(G_one.edges()),"中心城市度", G_one.degree("石家庄"))
-    nx.draw(G_one, pos_one,font_size=12,with_labels = True,node_color = "red",node_size = 12)
+    # pos_one = nx.circular_layout(G_one)
+    # pos_one["石家庄"] = (0,0)
+    # plt.subplot(331)
+    # # plt.title("(a)封城前")
+    # plt.title("(a) 2021年1月1日") #,y=-0.2
+    # print("第一个子图。边：",len(G_one.edges()),"中心城市度", G_one.degree("石家庄"))
+    # nx.draw(G_one, pos_one,font_size=12,with_labels = True,node_color = "red",node_size = 12)
 
 
 
@@ -146,73 +147,77 @@ def draw_nine_pic():
     pos_two = nx.circular_layout(G_two)
     print("第二个子图。边：",len(G_two.edges()),"中心城市度", G_two.degree("石家庄"))
     pos_two["石家庄"] = (0,0)
-    plt.subplot(332)
-    plt.title("(b) 2021年1月4日")
-    nx.draw(G_two, pos_two,node_color = "red",with_labels = True,node_size = 12)
+    plt.subplot(131)
+    plt.title("(a) 封城前") #2021年1月4日
+    nx.draw(G_two, pos_two,node_color = "#FFAD5A",
+            with_labels = True,node_size = 1100,
+           font_size=12 ,#edge_color="#0099FF", #
+            style ="solid",width=1)#font_color = "#FFAD5A" 4F9DA6  1663a9
     # nx.draw_networkx_labels(G_two,pos_two,with_labels = True,font_size=12)
 
 
-    plt.subplot(333)
-    pos_three = nx.circular_layout(G_three)
-    print("第三个子图。边：",len(G_three.edges()),"中心城市度", G_three.degree("石家庄"))
-
-    plt.title("(c) 2021年1月6日")
-    pos_three["石家庄"] = (0,0)
-    nx.draw(G_three, pos_three,node_color = "red",with_labels = True,node_size = 12)
+    # plt.subplot(333)
+    # pos_three = nx.circular_layout(G_three)
+    # print("第三个子图。边：",len(G_three.edges()),"中心城市度", G_three.degree("石家庄"))
+    #
+    # plt.title("(c) 2021年1月6日")
+    # pos_three["石家庄"] = (0,0)
+    # nx.draw(G_three, pos_three,node_color = "red",with_labels = True,node_size = 12)
     # nx.draw_networkx_labels(G_three,pos_three,with_labels = True,font_size=12,font_color='w')
     #
     #
 
-    plt.subplot(334)
-
-    pos_four = nx.circular_layout(G_four)
-    pos_four["石家庄"] = (0,0)
-    plt.title("(d) 2021年1月10日")
-    print("第四个子图。边：",len(G_four.edges()),"中心城市度", G_four.degree("石家庄"))
-    nx.draw(G_four, pos_four,node_color = "red",with_labels = True,node_size = 12)
+    # plt.subplot(334)
+    #
+    # pos_four = nx.circular_layout(G_four)
+    # pos_four["石家庄"] = (0,0)
+    # plt.title("(d) 2021年1月10日")
+    # print("第四个子图。边：",len(G_four.edges()),"中心城市度", G_four.degree("石家庄"))
+    # nx.draw(G_four, pos_four,node_color = "red",with_labels = True,node_size = 12)
     #
     #
     #
-    plt.subplot(335)
+    plt.subplot(132)
     pos_five = nx.circular_layout(G_five)
     pos_five["石家庄"] = (0,0)
-    plt.title("(e) 2021年1月13日")
+    plt.title("(b) 封城时") #2021年1月13日
     print("第五个子图。边：",len(G_five.edges()),"中心城市度", G_five.degree("石家庄"))
     nx.draw(G_five, pos_five,node_color = "red",with_labels = True,node_size = 12)
 
     #
 
-    plt.subplot(336)
-    pos_six = nx.circular_layout(G_six)
-    pos_six["石家庄"] = (0,0)
-    plt.title("(f) 2021年1月16日")
-    print("第六个子图。边：",len(G_six.edges()),"中心城市度", G_six.degree("石家庄"))
-    nx.draw(G_six, pos_six,node_color = "red",with_labels = True,node_size = 12)
+    # plt.subplot(336)
+    # pos_six = nx.circular_layout(G_six)
+    # pos_six["石家庄"] = (0,0)
+    # plt.title("(f) 2021年1月16日")
+    # print("第六个子图。边：",len(G_six.edges()),"中心城市度", G_six.degree("石家庄"))
+    # nx.draw(G_six, pos_six,node_color = "red",with_labels = True,node_size = 12)
 
 
-    plt.subplot(337)
-    pos_seven = nx.circular_layout(G_seven)
-    pos_seven["石家庄"] = (0,0)
-    plt.title("(g) 2021年2月6日")
-    print("第七个子图。边：",len(G_seven.edges()),"中心城市度", G_seven.degree("石家庄"))
-    nx.draw(G_seven, pos_seven,node_color = "red",with_labels = True,node_size = 12)
+    # plt.subplot(337)
+    # pos_seven = nx.circular_layout(G_seven)
+    # pos_seven["石家庄"] = (0,0)
+    # plt.title("(g) 2021年2月6日")
+    # print("第七个子图。边：",len(G_seven.edges()),"中心城市度", G_seven.degree("石家庄"))
+    # nx.draw(G_seven, pos_seven,node_color = "red",with_labels = True,node_size = 12)
 
 
-    plt.subplot(338)
-    pos_eight = nx.circular_layout(G_eight)
-    pos_eight["石家庄"] = (0,0)
-    plt.title("(h) 2021年2月26日")
-    print("第八个子图。边：",len(G_eight.edges()),"中心城市度", G_eight.degree("石家庄"))
-    nx.draw(G_eight, pos_eight,node_color = "red",with_labels = True,node_size = 12)
+    # plt.subplot(338)
+    # pos_eight = nx.circular_layout(G_eight)
+    # pos_eight["石家庄"] = (0,0)
+    # plt.title("(h) 2021年2月26日")
+    # print("第八个子图。边：",len(G_eight.edges()),"中心城市度", G_eight.degree("石家庄"))
+    # nx.draw(G_eight, pos_eight,node_color = "red",with_labels = True,node_size = 12)
 
 
-    plt.subplot(339)
+    plt.subplot(133)
     pos_nine = nx.circular_layout(G_nine)
     pos_nine["石家庄"] = (0,0)
-    plt.title("(i) 2021年3月24日")
+    plt.title("(c) 解封后") #2021年3月24日
     print("第九个子图。边：",len(G_nine.edges()),"中心城市度", G_nine.degree("石家庄"))
     nx.draw(G_nine, pos_nine,node_color = "red",with_labels = True,node_size = 12)
 
+    plt.tight_layout()
     plt.show()
 
 

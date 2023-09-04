@@ -410,8 +410,8 @@ if __name__ == '__main__':
     # merge_alone_file(20201201, 20210508, "石家庄一阶","石家庄",file_project)
 
     city_list_qqhe=["齐齐哈尔",'哈尔滨', '大庆', '呼伦贝尔', '兴安盟', '黑河', '绥化', '天津', '白城', '北京', '长春', '廊坊', '青岛', '大连']
-    #齐齐哈尔, 20210112, 20210207, 27
+    # #齐齐哈尔, 20210112, 20210207, 27
     file_project = r"F:/封城数据处理/封城数据/齐齐哈尔/"
-    select_around_city_data(20201101, 20210401, city_list_qqhe, "齐齐哈尔一阶","齐齐哈尔",0.03,file_project)
+    select_around_city_data(20201101, 20210401, city_list_qqhe, "齐齐哈尔一阶","齐齐哈尔",0.01,file_project)
     merge_inAndout_file(20201101, 20210401, "齐齐哈尔一阶","齐齐哈尔",file_project)
     merge_alone_file(20201101, 20210401, "齐齐哈尔一阶","齐齐哈尔",file_project)

@@ -7,6 +7,8 @@
 @desc:
 @ref:
 """
+import io
+
 import matplotlib
 import pandas as pd
 import csv
@@ -22,6 +24,7 @@ import matplotlib.pyplot as plt
 from matplotlib.font_manager import FontProperties
 from matplotlib.ticker import FuncFormatter, MaxNLocator
 # 根据路径画图
+from PIL import Image
 from numpy import array
 from sklearn.preprocessing import MinMaxScaler
 
@@ -357,7 +360,7 @@ def draw_three_indeicators(beginData,endData,
                          first_degree,second_degree, third_degree, fourth_degree, Five_degree):
     listXData = getdaylist(beginData, endData)
     # 画图 设置X轴显示效果
-    fig = plt.figure(figsize=(10,8),dpi=450) #,dpi=450
+    fig = plt.figure(figsize=(10,8),dpi=450) #,  论文上的图形 figsize=(10,8),dpi=450
     ax1 = fig.add_subplot(211)
     function_encapsulation(first_average, second_average, third_average, fourth_average, Five_average,listXData,ax1,"(a) 平均点连通性")
 
@@ -403,62 +406,20 @@ def draw_city_index(first_data,second_data,third_data,fourth_data,five_data,six_
             return str(listXData_qqhe[int(tick_val)])#[4:8]
         else:
             return ''
+        # 数据归一化
 
-
-    fig = plt.figure(figsize=(8, 7),dpi=450)  # ,dpi=450
-
-    ax1 = fig.add_subplot(212)
-    ax1.xaxis.set_major_formatter(FuncFormatter(format_fn_qqhe))
-    ax1.xaxis.set_major_locator(MaxNLocator(integer=True))
-
-
-    # plt.ylim((-5, 40))
-    # 横坐标每个值旋转90度
-    # plt.xticks(rotation=90)
-
-    # 坐标轴ticks的字体大小
-    # ax1.set_xlabel('日期', fontsize=12)  # 为x轴添加标签
-    ax1.set_ylabel('数值', fontsize=12)  # 为y轴添加标签  数值
-    ax1.legend()
-
-    # ax1.axes.xaxis.set_visible(False)
-
-    plt.rcParams['font.sans-serif'] = ['SimHei']
-    # 根据需要设置最大最小值，这里设置最大值为1.最小值为0
-    # 数据归一化
     tool = MinMaxScaler(feature_range=(0, 1))
 
-    first_data = tool.fit_transform(array(first_data).reshape(-1,1)).tolist()
-    second_data = tool.fit_transform(array(second_data).reshape(-1,1)).tolist()
-    third_data = tool.fit_transform(array(third_data).reshape(-1,1)).tolist()
-    fourth_data = tool.fit_transform(array(fourth_data).reshape(-1,1)).tolist()
-    five_data = tool.fit_transform(array(five_data).reshape(-1,1)).tolist()
-    six_data = tool.fit_transform(array(six_data).reshape(-1,1)).tolist()
-    seven_data = tool.fit_transform(array(seven_data).reshape(-1,1)).tolist()
-    eight_data = tool.fit_transform(array(eight_data).reshape(-1,1)).tolist()
+    first_data = tool.fit_transform(array(first_data).reshape(-1, 1)).tolist()
+    second_data = tool.fit_transform(array(second_data).reshape(-1, 1)).tolist()
+    third_data = tool.fit_transform(array(third_data).reshape(-1, 1)).tolist()
+    fourth_data = tool.fit_transform(array(fourth_data).reshape(-1, 1)).tolist()
+    five_data = tool.fit_transform(array(five_data).reshape(-1, 1)).tolist()
+    six_data = tool.fit_transform(array(six_data).reshape(-1, 1)).tolist()
+    seven_data = tool.fit_transform(array(seven_data).reshape(-1, 1)).tolist()
+    eight_data = tool.fit_transform(array(eight_data).reshape(-1, 1)).tolist()
 
-    plt.title("齐齐哈尔",fontsize=12)
-    plt.xticks(fontsize=12,rotation=30)
-    plt.yticks(fontsize=12)
-
-
-    plt.plot(listXData_qqhe, first_data,  linewidth=2, color="#4F9DA6", label='平均点连通性') #"4-",
-    plt.plot(listXData_qqhe, second_data, linewidth=2, color="#1663a9", label='城市度')#, "1--"
-    plt.plot(listXData_qqhe, third_data, linewidth=2, color="#FFAD5A", label='边数量')#, ".-"
-    plt.plot(listXData_qqhe, fourth_data, linewidth=2, color="#FF5959", label='平均最短路径长度') #, ".-"
-
-    plt.legend(fontsize=12)
-
-    plt.scatter(77, 1, s=50, color='cyan')
-    plt.plot([77,77], [1, 0], 'x--', lw=1.5)
-    plt.text(77, 0.90, r'封城开始', fontdict={'size': '12', 'color': 'black'})
-
-    plt.scatter(101, 1, s=50, color='cyan')
-    plt.plot([101, 101], [1, 0], 'x--', lw=1.5)
-    plt.text(101, 0.90, r'封城结束', fontdict={'size': '12', 'color': 'black'})
-
-
-
+    fig = plt.figure(figsize=(10, 10),dpi=450)  # ,dpi=450   小论文上的信息 figsize=(10, 10),dpi=450
 
 
     ax2 = fig.add_subplot(211)
@@ -466,31 +427,84 @@ def draw_city_index(first_data,second_data,third_data,fourth_data,five_data,six_
     ax2.xaxis.set_major_locator(MaxNLocator(integer=True))
 
     # 坐标轴ticks的字体大小
-    ax2.set_xlabel('日期', fontsize=12)  # 为x轴添加标签
-    ax2.set_ylabel('数值', fontsize=12)  # 为y轴添加标签  数值
+    # ax2.set_xlabel('日期', fontsize=18)  # 为x轴添加标签
+    ax2.set_ylabel('数值', fontsize=18)  # 为y轴添加标签  数值
 
-    ax2.legend()
+    # ax2.legend(,loc="lower right")
 
     plt.plot(listXData_sjz, five_data, color="#4F9DA6",linewidth=2, label='平均点连通性')  # "4-",
     plt.plot(listXData_sjz, six_data,  color="#1663a9",linewidth=2, label='城市度')  # , "1--"
     plt.plot(listXData_sjz, seven_data,color="#FFAD5A", linewidth=2, label='边数量')  # , ".-"
     plt.plot(listXData_sjz, eight_data,color="#FF5959", linewidth=2, label='平均最短路径长度')  # , ".-"
 
-    plt.title("石家庄", fontsize=12)
-    plt.xticks(fontsize=12,rotation=30)
-    plt.yticks(fontsize=12)
-    plt.legend(fontsize=12)  #
+    plt.title("a）石家庄市指标变化图", fontsize=18)
+    plt.xticks(fontsize=18,rotation=30)
+    plt.yticks(fontsize=18)
+    # plt.legend(fontsize=18)  #
 
 
     plt.scatter(37, 1, s=50, color='cyan')
     plt.plot([37, 37], [1, 0], 'x--', lw=1.5)
-    plt.text(37, 0.90, r'封城开始', fontdict={'size': '12', 'color': 'black'})
+    plt.text(33, 0.90, r'封城开始', fontdict={'size': '16', 'color': 'black'})
 
     plt.scatter(60, 1, s=50, color='cyan')
     plt.plot([60, 60], [1, 0], 'x--', lw=1.5)
-    plt.text(60, 0.90, r'封城结束', fontdict={'size': '12', 'color': 'black'})
+    plt.text(60, 0.90, r'封城结束', fontdict={'size': '16', 'color': 'black'})
+
+    plt.legend(fontsize=14, loc="lower right")
+    # plt.ylim((-5, 40))
+    # 横坐标每个值旋转90度
+    # plt.xticks(rotation=90)
+
+    ax1 = fig.add_subplot(212)
+    ax1.xaxis.set_major_formatter(FuncFormatter(format_fn_qqhe))
+    ax1.xaxis.set_major_locator(MaxNLocator(integer=True))
+
+    # 坐标轴ticks的字体大小
+    ax1.set_xlabel('日期', fontsize=18)  # 为x轴添加标签
+    ax1.set_ylabel('数值', fontsize=18)  # 为y轴添加标签  数值
+    # ax1.legend()
+
+    # ax1.axes.xaxis.set_visible(False)
+
+    plt.rcParams['font.sans-serif'] = ['SimHei']
+    # 根据需要设置最大最小值 ，这里设置最大值为1.最小值为0
+
+
+    plt.title("b）齐齐哈尔市指标变化图",fontsize=18)
+    plt.xticks(fontsize=18,rotation=30)
+    plt.yticks(fontsize=18)
+
+
+    plt.plot(listXData_qqhe, first_data,  linewidth=2, color="#4F9DA6", label='平均点连通性') #"4-",
+    plt.plot(listXData_qqhe, second_data, linewidth=2, color="#1663a9", label='城市度')#, "1--"
+    plt.plot(listXData_qqhe, third_data, linewidth=2, color="#FFAD5A", label='边数量')#, ".-"
+    plt.plot(listXData_qqhe, fourth_data, linewidth=2, color="#FF5959", label='平均最短路径长度') #, ".-"
+
+    plt.legend(fontsize=14,loc="lower right")
+
+    plt.scatter(77, 1, s=50, color='cyan')
+    plt.plot([77,77], [1, 0], 'x--', lw=1.5)
+    plt.text(73, 0.90, r'封城开始', fontdict={'size': '16', 'color': 'black'})
+
+    plt.scatter(101, 1, s=50, color='cyan')
+    plt.plot([101, 101], [1, 0], 'x--', lw=1.5)
+    plt.text(101, 0.90, r'封城结束', fontdict={'size': '16', 'color': 'black'})
+
+
+
+
 
     fig.tight_layout()
+
+    png1 = io.BytesIO()
+    plt.savefig(png1, format="png", dpi=500, pad_inches=.1, bbox_inches='tight')
+    # Load this image into PIL
+    png2 = Image.open(png1)
+
+    # Save as TIFF
+    png2.save("ap_qt_ad.tiff")
+    png1.close()
     plt.show()
 
 
